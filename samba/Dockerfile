@@ -1,13 +1,13 @@
 FROM alpine:latest
 MAINTAINER Niels Robin-Aubertin
-LABEL Description="Simple, lightweight and secure Samba docker container, based on Alpine Linux." Version="0.1"
+LABEL Description="Simple, lightweight and secure Samba docker container, based on Alpine Linux." Version="0.1.1"
 
 ENV USERNAME=samba
 
 # install the required packages
 RUN set -xe \
     && mkdir /config \
-    && apk add --no-cache -U samba samba-common-tools su-exec tini
+    && apk add --no-cache -U samba samba-common-tools tini
 
 # copy the config files
 COPY smb.conf /config/smb.conf

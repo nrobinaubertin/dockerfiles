@@ -20,7 +20,12 @@ Only one shared folder with all permissions to anybody on the local network : pe
 - **USERNAME** : The username used for samba (needs to have read/write rights on the host shared directory) 
 
 ### Ports
-7137 7138 7139 7445
+I'm not using the standart ports inside the container in order to not run samba as root.  
+But it shouldn't be a proble since you can bin them to the usual ones at run (see setup example).  
+- 7137 
+- 7138 
+- 7139 
+- 7445
 
 ### Volumes
 - **/shared** : Shared folder.
