@@ -1,5 +1,4 @@
 FROM alpine:latest
-MAINTAINER Niels Robin-Aubertin
 LABEL Description="Simple, lightweight and secure Samba docker container, based on Alpine Linux." Version="0.1.1"
 
 ENV USERNAME=samba
@@ -9,7 +8,7 @@ RUN set -xe \
     && mkdir /config \
     && apk add --no-cache -U samba samba-common-tools tini
 
-# copy the config files
+# copy the config and script files
 COPY smb.conf /config/smb.conf
 COPY run.sh /usr/local/bin/run.sh
 

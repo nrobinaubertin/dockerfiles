@@ -21,7 +21,7 @@ Only one shared folder with all permissions to anybody on the local network : pe
 
 ### Ports
 I'm not using the standard ports inside the container in order to not run samba as root.  
-But it shouldn't be a proble since you can bin them to the usual ones at run (see setup example).  
+But it shouldn't be a issue since you can bind them to the usual ones at run (see setup example).  
 - 7137 
 - 7138 
 - 7139 
