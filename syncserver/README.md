@@ -6,7 +6,7 @@ Firefox SyncServer
 
 ### What is Firefox SyncServer ?
 This is an all-in-one package for running a self-hosted Firefox Sync server. It bundles the "tokenserver" project for authentication and the "syncstorage" project for storage, produce a single stand-alone webapp.  
-You can find the repository of the service [https://github.com/mozilla-services/syncserver](here).  
+You can find the repository of the service [here](https://github.com/mozilla-services/syncserver).  
 
 ### Goal of this container
 This container should be as simple as possible to set up.  
