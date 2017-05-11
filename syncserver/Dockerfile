@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL Description="Simple and lightweight firefox syncserver docker container, based on Alpine Linux." Version="0.1"
+LABEL Description="Simple and lightweight firefox syncserver docker container, based on alpine linux." Version="0.1"
 
 ENV SYNC_VERSION=1.6.0
 ENV URL=localhost

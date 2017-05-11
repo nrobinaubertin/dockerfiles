@@ -27,7 +27,7 @@ As secure as I can make it.
 - 5000
 
 ### Setup
-Example command to build this image :
+Example command to build this image:
 ```
 docker build -t sync .
 ```
