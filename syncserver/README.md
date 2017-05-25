@@ -33,5 +33,5 @@ docker build -t sync .
 ```
 Example command to run this container :
 ```
-docker run -d -p 5000:5000 -e URL=https://sync.example.com --name sync sync
+docker run --init -d -p 5000:5000 -e URL=https://sync.example.com --name sync sync
 ```

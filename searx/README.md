@@ -29,5 +29,5 @@ docker build -t searx .
 ```
 Example command to run this container :
 ```
-docker run -d -p 8888:8888 -e BASE_URL=https://searx.example.com --name searx searx
+docker run --init -d -p 8888:8888 -e BASE_URL=https://searx.example.com --name searx searx
 ```

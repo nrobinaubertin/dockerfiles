@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL Description="Simple and lightweight firefox syncserver docker container, based on alpine linux." Version="0.1"
+LABEL Description="Simple and lightweight firefox syncserver docker container, based on alpine linux." Version="1.0"
 
 ENV SYNC_VERSION=1.6.0
 ENV URL=localhost
@@ -10,7 +10,7 @@ COPY run.sh /usr/local/bin/run.sh
 
 # install the required packages
 RUN set -xe \
-    && apk add --no-cache -U python tini su-exec make libstdc++ \
+    && apk add --no-cache -U python su-exec make libstdc++ \
     && apk add --no-cache --virtual .build-deps py-pip py-virtualenv g++ gcc python-dev openssl \
     && mkdir /sync \
 	&& cd /sync \
@@ -24,7 +24,5 @@ RUN set -xe \
 	&& chmod u+x /usr/local/bin/run.sh
 
 EXPOSE 5000
-
-ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD ["run.sh"]

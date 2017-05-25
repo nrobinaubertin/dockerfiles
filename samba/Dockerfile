@@ -1,12 +1,12 @@
-FROM alpine:latest
-LABEL Description="Simple, lightweight and secure Samba docker container, based on alpine linux." Version="0.1.1"
+FROM alpine:3.5
+LABEL Description="Simple, lightweight and secure Samba docker container, based on alpine linux." Version="1.0"
 
 ENV USERNAME=samba
 
 # install the required packages
 RUN set -xe \
     && mkdir /config \
-    && apk add --no-cache -U samba samba-common-tools tini
+    && apk add --no-cache -U samba samba-common-tools
 
 # copy the config and script files
 COPY smb.conf /config/smb.conf
@@ -27,7 +27,5 @@ VOLUME /shared
 
 # exposes samba's ports (defaults are : 137, 138 for nmbd and 139, 445 for smbd)
 EXPOSE 7137 7138 7139 7445
-
-ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD ["run.sh"]

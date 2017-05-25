@@ -1,5 +1,5 @@
 FROM alpine:3.5
-LABEL Description="Simple and lightweight searx docker container based on alpine linux." Version="0.1"
+LABEL Description="Simple and lightweight searx docker container based on alpine linux." Version="1.0"
 
 ENV BASE_URL=False IMAGE_PROXY=False
 ENV UID=791 GID=791
@@ -8,7 +8,7 @@ ENV SEARX_VERSION=master
 COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
-    && apk add --no-cache -U su-exec python libxml2 libxslt openssl tini py2-pip \
+    && apk add --no-cache -U su-exec python libxml2 libxslt openssl py2-pip \
     && apk add --no-cache --virtual .build-deps build-base python-dev libffi-dev libxslt-dev libxml2-dev openssl-dev tar ca-certificates \
     && pip install --no-cache -r https://raw.githubusercontent.com/asciimoo/searx/$SEARX_VERSION/requirements.txt \
     && mkdir /usr/local/searx && cd /usr/local/searx \
@@ -18,7 +18,5 @@ RUN set -xe \
     && chmod u+x /usr/local/bin/run.sh
 
 EXPOSE 8888
-
-ENTRYPOINT ["/sbin/tini", "--"]
 
 CMD ["run.sh"]
