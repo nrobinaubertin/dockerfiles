@@ -26,7 +26,7 @@ This is an attempt to have nginx and php inside one lightweight container. It sh
 - **8080**
 
 ### Volume
-- **/wwww**: Web content folder.
+- **/www**: Web content folder.
 
 ### Setup
 Example command to build this image:
