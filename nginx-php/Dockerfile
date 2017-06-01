@@ -22,10 +22,10 @@ RUN set -xe \
     && apk add --no-cache nginx \
     && apk add --no-cache php7-fpm $PHP_EXT
 
-COPY nginx /etc/nginx
-COPY php-fpm.conf /etc/php7/php-fpm.conf
-COPY run.sh /usr/local/bin/run.sh 
 COPY s6.d /etc/s6.d
+COPY run.sh /usr/local/bin/run.sh 
+COPY php-fpm.conf /etc/php7/php-fpm.conf
+COPY nginx /etc/nginx
 
 # set the www user
 RUN set -xe \
