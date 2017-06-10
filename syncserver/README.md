@@ -1,6 +1,6 @@
 Firefox SyncServer
 ==================
-*Simple, lightweight and secure SyncServer container, based on Alpine linux.*
+*Simple, lightweight and secure SyncServer container based on Alpine linux.*
 
 ![firefox syncserver](http://i.imgur.com/XOc8Wi0.png)
 
@@ -19,9 +19,9 @@ As secure as I can make it.
 - No volumes or complex configuration. As simple as possible.
 
 ### Build-time variables
-- **URL** : The url that your browser sees. For example : https://sync.example.com
-- **UID** : (Optional) The UID executing the server
-- **GID** : (Optional) The GID executing the server
+- **URL**: The url that your browser sees. For example: https://sync.example.com
+- **UID**: (Optional) The UID executing the server
+- **GID**: (Optional) The GID executing the server
 
 ### Ports
 - 5000
@@ -31,7 +31,7 @@ Example command to build this image:
 ```
 docker build -t sync .
 ```
-Example command to run this container :
+Example command to run this container:
 ```
 docker run --init -d -p 5000:5000 -e URL=https://sync.example.com --name sync sync
 ```

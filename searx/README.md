@@ -1,6 +1,6 @@
 Searx
 =====
-*Simple and lightweight searx docker container based on alpine linux.*
+*Simple and lightweight Searx docker container based on Alpine Linux.*
 
 ![searx](https://i.goopics.net/ls.png)
 
@@ -14,10 +14,10 @@ You can find the repository of the service [here](https://github.com/asciimoo/se
 - Does not execute as root. As secure as possible.
 
 ### Build-time variables
-- **IMAGE_PROXY** : enables images proxying *(default : False)*
-- **BASE_URL** : http://domain.tld *(default : False)*
-- **UID** : (Optional) The UID executing the server
-- **GID** : (Optional) The GID executing the server
+- **IMAGE_PROXY**: enables images proxying *(default: False)*
+- **BASE_URL**: http://domain.tld *(default: False)*
+- **UID**: (Optional) The UID executing the server
+- **GID**: (Optional) The GID executing the server
 
 ### Ports
 - 8888
@@ -27,7 +27,7 @@ Example command to build this image:
 ```
 docker build -t searx .
 ```
-Example command to run this container :
+Example command to run this container:
 ```
 docker run --init -d -p 8888:8888 -e BASE_URL=https://searx.example.com --name searx searx
 ```

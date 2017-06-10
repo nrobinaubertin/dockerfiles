@@ -1,5 +1,4 @@
 FROM alpine:3.5
-LABEL Description="Simple, lightweight and secure Samba docker container, based on alpine linux." Version="1.0"
 
 ENV USERNAME=samba
 

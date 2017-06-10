@@ -1,9 +1,8 @@
 FROM alpine:3.5
-LABEL Description="Simple and lightweight searx docker container based on alpine linux." Version="1.0"
 
 ENV BASE_URL=False IMAGE_PROXY=False
 ENV UID=791 GID=791
-ENV SEARX_VERSION=master
+ENV SEARX_VERSION=v0.12.0
 
 COPY run.sh /usr/local/bin/run.sh
 
