@@ -1,6 +1,7 @@
 FROM node:alpine
 
-ENV REDIS_HOST=127.0.0.1
+ENV REDIS_HOST=0.0.0.0
+ENV STORAGE_TYPE=file 
 ENV UID=791 GID=791
 
 COPY run.sh /usr/local/bin/run.sh

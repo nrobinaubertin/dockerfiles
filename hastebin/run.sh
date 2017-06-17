@@ -30,17 +30,34 @@ echo '
       }
     }
   },
-  "storage": {
-    "type": "redis",
-    "host": "'"${REDIS_HOST}"'",
-    "port": 6379,
-    "db": 2,
-    "expire": 2592000
-  },
   "documents": {
     "about": "./about.md"
-  }
-}
+  },
 ' > config.js
+
+if [ "$STORAGE_TYPE" = "file" ]
+then
+    echo '
+        "storage": {
+          "path": "/hastebin/data",
+          "type": "file"
+        }
+    ' >> config.js
+fi
+
+if [ "$STORAGE_TYPE" = "redis" ]
+then
+    echo '
+      "storage": {
+        "type": "redis",
+        "host": "'"${REDIS_HOST}"'",
+        "port": 6379,
+        "db": 2,
+        "expire": 2592000
+      }
+    ' >> config.js
+fi
+
+echo '}' >> config.js
 
 su-exec $UID:$GID npm start
