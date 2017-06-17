@@ -2,7 +2,7 @@ Firefox SyncServer
 ==================
 *Simple, lightweight and secure SyncServer container based on Alpine linux.*
 
-![firefox syncserver](http://i.imgur.com/XOc8Wi0.png)
+![firefox syncserver](sync.png)
 
 ### What is Firefox SyncServer ?
 This is an all-in-one package for running a self-hosted Firefox Sync server. It bundles the "tokenserver" project for authentication and the "syncstorage" project for storage, produce a single stand-alone webapp.  

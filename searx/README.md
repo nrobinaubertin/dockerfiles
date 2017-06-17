@@ -2,7 +2,7 @@ Searx
 =====
 *Simple and lightweight Searx docker container based on Alpine Linux.*
 
-![searx](https://i.goopics.net/ls.png)
+![searx](searx.png)
 
 #### What is searx?
 Searx is a metasearch engine, inspired by the seeks project.

@@ -16,8 +16,8 @@ Propose a lightweight and secure container that is easy to setup.
 - You can choose your storage type
 
 ### Run-time variables
-- **STORAGE_TYPE**: Type of storage ("file" or "redis")
-- **REDIS_HOST**: The ip of the redis db
+- **STORAGE_TYPE**: (Optional) Type of storage ("file" or "redis")
+- **REDIS_HOST**: (Optional) The ip of the redis db
 - **UID**: (Optional) The UID executing the server
 - **GID**: (Optional) The GID executing the server
 

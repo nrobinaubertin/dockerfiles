@@ -2,7 +2,7 @@ Samba
 =====
 *Simple, lightweight and secure Samba docker container based on Alpine Linux.*
 
-![samba logo](https://upload.wikimedia.org/wikipedia/commons/e/e8/Samba_Logo.png)
+![samba logo](samba.png)
 
 ### What is Samba ?
 Samba is a re-implementation of the SMB networking protocol. It facilitates file and printer sharing among Linux and Windows systems as an alternative to NFS.

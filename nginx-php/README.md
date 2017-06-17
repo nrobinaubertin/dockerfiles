@@ -2,7 +2,7 @@ NGINX-PHP
 =========
 *Simple, lightweight and secure nginx with php-fpm docker container based on Alpine Linux*
 
-![nginx-php](http://i.imgur.com/tK9emcA.jpg)
+![nginx-php](nginxphp.png)
 
 ### What is nginx ? What is php ?
 [Nginx](http://nginx.org/) is a web server and [php](http://php.net/) is a popular general-purpose scripting language that is especially suited to web development.
