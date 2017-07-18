@@ -33,5 +33,5 @@ docker build -t cryptpad .
 ```
 Example command to run this container:
 ```
-docker run -d --init -p 3000:3000 --name cryptpad
+docker run -d --init -p 3000:3000 --name cryptpad cryptpad
 ```
