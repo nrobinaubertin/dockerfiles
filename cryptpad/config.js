@@ -58,6 +58,7 @@ module.exports = {
     openFileLimit: 2048,
     rpc: './rpc.js',
     suppressRPCErrors: false,
-    enableUploads: false,
+    enableUploads: true,
+    restrictUploads: false,
     maxUploadSize: 20 * 1024 * 1024,
 };
