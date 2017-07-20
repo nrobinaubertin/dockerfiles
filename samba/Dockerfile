@@ -1,30 +1,24 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 ENV USERNAME=samba
 
-# install the required packages
 RUN set -xe \
     && mkdir /config \
-    && apk add --no-cache -U samba samba-common-tools
+    && apk add --no-cache -U samba samba-common-tools su-exec s6
 
-# copy the config and script files
 COPY smb.conf /config/smb.conf
 COPY run.sh /usr/local/bin/run.sh
+COPY s6.d /etc/s6.d
 
-# add the user
 RUN set -xe \
     && adduser -D $USERNAME \
     && PASSWORD=$(cat /dev/urandom | tr -dc "a-zA-Z0-9-_" | fold -w 50 | head -n1) \
     && (echo "$PASSWORD"; echo "$PASSWORD") | smbpasswd -sa -c /config/smb.conf $USERNAME \
-    && chmod +x /usr/local/bin/run.sh \
-    && chown -R $USERNAME:$USERNAME /var/log/samba \
-    && chown -R $USERNAME:$USERNAME /var/cache/samba \
-    && chown -R $USERNAME:$USERNAME /var/lib/samba \
-    && chown -R $USERNAME:$USERNAME /var/run/samba
+    && chmod -R +x /usr/local/bin/run.sh /etc/s6.d \
+    && chown -R $USERNAME:$USERNAME /etc/s6.d /var/log/samba /var/cache/samba /var/lib/samba /var/run/samba
 
 VOLUME /shared
 
-# exposes samba's ports (defaults are : 137, 138 for nmbd and 139, 445 for smbd)
 EXPOSE 7137 7138 7139 7445
 
 CMD ["run.sh"]
