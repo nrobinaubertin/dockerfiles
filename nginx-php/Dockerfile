@@ -1,8 +1,10 @@
-FROM alpine:edge
+FROM alpine:3.6
 
 ARG PHP_EXT
-ENV UID 791
-ENV GID 791
+ENV UID=791 GID=791
+
+VOLUME /www
+EXPOSE 8080
 
 RUN apk update
 
@@ -27,7 +29,6 @@ COPY run.sh /usr/local/bin/run.sh
 COPY php-fpm.conf /etc/php7/php-fpm.conf
 COPY nginx /etc/nginx
 
-# set the www user
 RUN set -xe \
     && mkdir /www \
     && mkdir -p /php/logs \
@@ -37,11 +38,6 @@ RUN set -xe \
     && mkdir -p /nginx/tmp/fastcgi \
     && mkdir -p /nginx/tmp/uwsgi \
     && mkdir -p /var/lib/nginx/logs \
-    && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx \
-    && chown -R ${UID}:${GID} /www /php /nginx /etc/s6.d /var/log/nginx /var/tmp/nginx
-
-VOLUME /www
-
-EXPOSE 8080
+    && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
 
 CMD ["run.sh"]
