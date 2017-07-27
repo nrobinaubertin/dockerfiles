@@ -16,7 +16,7 @@ This is an attempt to have nginx and php inside one lightweight container. It sh
 - Easy to add php extensions.
 
 ### Build-time variables
-- **PHP_EXT**: (Optional) additional php extensions to install. They can be choosed [here](https://pkgs.alpinelinux.org/packages?name=php7-*).
+- **PHP_EXT**: (Optional) additional php extensions to install.
 
 ### Run-time variables
 - **UID**: (Optional) The UID executing the server
@@ -37,3 +37,25 @@ Example command to run this container:
 ```
 docker run --init -d -p 80:8080 -v /path/to/your/web/directory:/www --name nginx-php nginx-php
 ```
+
+### Example php extensions sets
+
+You can add php extensions at build time. They can be choosed [here](https://pkgs.alpinelinux.org/packages?name=php7-*).
+
+#### Simple starter pack
+- php7-common
+- php7-imagick
+- php7-json
+
+#### Symfony
+- php7-ctype
+- php7-dom
+- php7-gd 
+- php7-iconv 
+- php7-intl 
+- php7-json 
+- php7-mbstring
+- php7-posix
+- php7-session
+- php7-tokenizer
+- php7-xml
