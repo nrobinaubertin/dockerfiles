@@ -1,0 +1,50 @@
+parameters:
+    database_driver: pdo_sqlite
+    database_host: 127.0.0.1
+    database_port: ~
+    database_name: symfony
+    database_user: root
+    database_password: ~
+    # database_path: "/data/db/wallabag.sqlite"
+    database_path: "%kernel.root_dir%/../data/db/wallabag.sqlite"
+    database_table_prefix: wallabag_
+    database_socket: null
+    database_charset: utf8
+
+    mailer_transport:  ~ 
+    mailer_host:       ~
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+
+    # two factor stuff
+    twofactor_auth: ~
+    twofactor_sender: ~
+
+    # fosuser stuff
+    fosuser_registration: true
+    fosuser_confirmation: false
+
+    from_email: no-reply@example.com
+
+    rss_limit: 50
+
+    # RabbitMQ processing
+    rabbitmq_host: ~
+    rabbitmq_port: ~
+    rabbitmq_user: ~
+    rabbitmq_password: ~
+    rabbitmq_prefetch_count: ~
+
+    # Redis processing
+    redis_scheme: ~
+    redis_host: ~
+    redis_port: ~
+    redis_path: ~
+    redis_password: ~
+
+    # sites credentials
+    sites_credentials: {}
+
+    # A secret key that's used to generate certain security-related tokens
