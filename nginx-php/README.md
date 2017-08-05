@@ -40,7 +40,7 @@ docker run --init -d -p 80:8080 -v /path/to/your/web/directory:/www --name nginx
 
 ### Example php extensions sets
 
-You can add php extensions at build time. They can be choosed [here](https://pkgs.alpinelinux.org/packages?name=php7-*).
+You can add php extensions at build time. They can be choosed [here](https://pkgs.alpinelinux.org/packages?name=php7-*&branch=v3.6&arch=x86_64).
 
 #### Simple starter pack
 - php7-common
