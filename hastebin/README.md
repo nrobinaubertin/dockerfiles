@@ -51,3 +51,7 @@ Then you just have to start the container, linking it to the hastebin-redis inst
 ```
 docker run -d -e STORAGE_TYPE=redis -e REDIS_HOST=172.17.0.2 --name hastebin --init hastebin
 ```
+
+### Bonus script
+I've made a python 3 script to send/get and encrypt/decrypt snippets.  
+You can find it [here](haste.py).

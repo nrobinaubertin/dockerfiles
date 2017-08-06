@@ -2,8 +2,6 @@
 
 set -xe
 
-cd /hastebin/haste-server-master || exit
-
 echo '
 {
   "host": "0.0.0.0",
@@ -31,7 +29,8 @@ echo '
     }
   },
   "documents": {
-    "about": "./about.md"
+    "about": "/hastebin/about.md",
+    "haste": "/hastebin/haste.py"
   },
 ' > config.js
 
@@ -47,6 +46,7 @@ fi
 
 if [ "$STORAGE_TYPE" = "redis" ]
 then
+    npm install redis
     echo '
       "storage": {
         "type": "redis",
@@ -60,4 +60,5 @@ fi
 
 echo '}' >> config.js
 
-su-exec $UID:$GID npm start
+chown "$UID:$GID" -R /hastebin
+su-exec "$UID:$GID" npm start
