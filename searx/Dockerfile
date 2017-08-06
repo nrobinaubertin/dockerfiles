@@ -1,8 +1,10 @@
-FROM alpine:3.5
+FROM alpine:3.6
 
 ENV BASE_URL=False IMAGE_PROXY=False
 ENV UID=791 GID=791
 ENV SEARX_VERSION=v0.12.0
+
+EXPOSE 8888
 
 COPY run.sh /usr/local/bin/run.sh
 
@@ -15,7 +17,5 @@ RUN set -xe \
     && sed -i "s/127.0.0.1/0.0.0.0/g" searx/settings.yml \
     && apk del .build-deps \
     && chmod u+x /usr/local/bin/run.sh
-
-EXPOSE 8888
 
 CMD ["run.sh"]

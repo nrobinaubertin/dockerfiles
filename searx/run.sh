@@ -7,4 +7,4 @@ sed -i -e "s|base_url : False|base_url : ${BASE_URL}|g" \
        -e "s/ultrasecretkey/${SECRET}/g" \
        /usr/local/searx/searx/settings.yml
 
-su-exec $UID:$GID python /usr/local/searx/searx/webapp.py
+su-exec "$UID:$GID" python /usr/local/searx/searx/webapp.py

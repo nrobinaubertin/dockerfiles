@@ -8,7 +8,7 @@ Wallabag
 [Wallabag](https://wallabag.org) is a self hostable application for saving web pages, freely.
 
 ### Goal of this container
-Propose a lightweight and secure container that is easy to setup. There are no confirmation email and I'm using the sqlite database.
+Propose a lightweight and secure container that is easy to setup. There is no confirmation email and I'm using the sqlite database.
 
 ### Features
 - Based on Alpine Linux.
