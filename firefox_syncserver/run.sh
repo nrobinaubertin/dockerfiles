@@ -24,6 +24,6 @@ secret = ${SECRET}
 force_wsgi_environ = false
 " > /sync/server/syncserver.ini
 
-chown -R ${UID}:${GID} .
+chown -R "${UID}:${GID}" .
 
-su-exec ${UID}:${GID} make serve
+su-exec "${UID}:${GID}" make serve
