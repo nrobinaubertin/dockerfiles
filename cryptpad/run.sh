@@ -10,4 +10,4 @@ mkdir -p customize
 [ ! -h config.js ] && echo "Linking config.js" && ln -s customize/config.js config.js
 
 chown -R "$UID:$GID" /cryptpad
-exec su-exec "$UID:$GID" node ./server.js
+su-exec "$UID:$GID" node ./server.js
