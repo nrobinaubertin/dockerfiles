@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>inVerse</title>
+    <link rel="shortcut icon" type="image/ico" href="css/images/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" media="screen" href="css/inverse.min.css" />
+    <script src="dist/inverse.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="inner-content">
+            <h1 class="brand-heading"><i class="icon-conversejs"></i> inVerse</h1>
+        </div>
+    </div>
+<script>
+    converse.initialize({
+        authentication: 'login',
+        auto_away: 300,
+        blacklisted_plugins: ['converse-minimize', 'converse-dragresize'],
+        whitelisted_plugins: ['converse-inverse', 'converse-singleton'],
+        auto_reconnect: true,
+        bosh_service_url: 'https://DOMAIN/http-bind/',
+        message_archiving: 'always',
+        use_emojione: false
+    });
+</script>
+</body>
+</html>

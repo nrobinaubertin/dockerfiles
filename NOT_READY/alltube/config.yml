@@ -1,0 +1,12 @@
+youtubedl: vendor/rg3/youtube-dl/youtube_dl/__main__.py
+python: /usr/bin/python
+params:
+    - --no-playlist
+    - --no-warnings
+    - --playlist-end
+    - 1
+convert: false
+avconv: vendor/bin/ffmpeg
+rtmpdump: vendor/bin/rtmpdump
+uglyUrls: true
+stream: false
