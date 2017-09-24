@@ -35,4 +35,6 @@ RUN set -xe \
 
 EXPOSE 16309
 
-# CMD ["run.sh"]
+VOLUME /var/lib/mysql
+
+CMD ["run.sh"]
