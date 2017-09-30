@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /sync/server
+cd /sync
 
 SECRET=$(cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 50 | head -n1)
 
@@ -22,7 +22,7 @@ use = egg:syncserver
 public_url = ${URL}
 secret = ${SECRET}
 force_wsgi_environ = false
-" > /sync/server/syncserver.ini
+" > /sync/syncserver.ini
 
 chown -R "${UID}:${GID}" .
 
