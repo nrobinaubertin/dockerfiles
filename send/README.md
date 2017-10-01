@@ -5,7 +5,7 @@ Send
 ![send](send.jpg)
 
 ### What is send ?
-[send](https://send.firefox.com/) is a file sharing system by Mozilla that allows you to send files through a safe, private, and encrypted link that automatically expires to ensure your stuff does not remain online forever. You can find the official repository [here](https://github.com/mozilla/send)
+[Send](https://send.firefox.com/) is a file sharing system by Mozilla that allows you to send files through a safe, private, and encrypted link that automatically expires to ensure your stuff does not remain online forever. You can find the official repository [here](https://github.com/mozilla/send).
 
 ### Goal of this container
 Propose a lightweight and secure container that is easy to setup.
