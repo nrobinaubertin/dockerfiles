@@ -1,2 +1,2 @@
 #!/bin/sh
-exec mysqld_safe
+exec mysqld_safe --datadir="/wordpress/wp-content/mysql"
