@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sed -i -e "s|<DOMAIN>|${DOMAIN}|g" /cryptpad/config.js
+
 # Creating customize folder
 mkdir -p customize
 [ -z "$(ls -A customize)" ] && echo "Creating customize folder" \

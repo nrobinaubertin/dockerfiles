@@ -1,8 +1,9 @@
 FROM alpine:3.6
 
-ARG CRYPTPAD_VERSION=1.18.0
+ARG CRYPTPAD_VERSION=1.21.0
 
 ENV UID=791 GID=791
+ENV DOMAIN=https://localhost:3000/
 
 EXPOSE 3000
 VOLUME /cryptpad/datastore /cryptpad/customize

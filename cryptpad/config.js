@@ -1,3 +1,4 @@
+var domain = ' <DOMAIN>';
 module.exports = {
 
     httpAddress: '::',
@@ -9,23 +10,23 @@ module.exports = {
 
     contentSecurity: [
         "default-src 'none'",
-        "style-src 'unsafe-inline' 'self'",
-        "script-src 'self'",
-        "font-src 'self' data:",
+        "style-src 'unsafe-inline' 'self'" + domain,
+        "script-src 'self'" + domain,
+        "font-src 'self' data:" + domain,
         "child-src 'self' blob: *",
         "media-src * blob:",
-        "connect-src 'self' ws: wss: blob:",
+        "connect-src 'self' ws: wss: blob:" + domain,
         "img-src 'self' data: blob:",
         "frame-ancestors 'self' accounts.cryptpad.fr",
     ].join('; '),
 
     padContentSecurity: [
         "default-src 'none'",
-        "style-src 'unsafe-inline' 'self'",
-        "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
-        "font-src 'self'",
+        "style-src 'unsafe-inline' 'self'" + domain,
+        "script-src 'self' 'unsafe-eval' 'unsafe-inline'" + domain,
+        "font-src 'self'" + domain,
         "child-src 'self' *",
-        "connect-src 'self' ws: wss:",
+        "connect-src 'self' ws: wss:" + domain,
         "img-src * blob:",
     ].join('; '),
 
@@ -42,11 +43,12 @@ module.exports = {
         'terms',
         'about',
         'contact',
+        'what-is-cryptpad'
     ],
 
     removeDonateButton: true,
     allowSubscriptions: false,
-    myDomain: 'i.did.not.read.my.config.myserver.tld',
+    myDomain: domain,
     defaultStorageLimit: 50 * 1024 * 1024, // 50MB
     adminEmail: false,
     storage: './storage/file',

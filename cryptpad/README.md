@@ -16,6 +16,7 @@ Propose a lightweight and secure container that is easy to setup.
 - No Root processes, as secure as possible.
 
 ### Build-time variables
+- **DOMAIN**: The domain name where cryptpad is hosted
 - **UID**: (Optional) The UID executing the server
 - **GID**: (Optional) The GID executing the server
 
@@ -33,5 +34,5 @@ docker build -t cryptpad .
 ```
 Example command to run this container:
 ```
-docker run -d --init -p 3000:3000 --name cryptpad cryptpad
+docker run -d --init -p 3000:3000 -e DOMAIN=https://cryptpad.example.com --name cryptpad cryptpad
 ```
