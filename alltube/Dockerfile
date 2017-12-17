@@ -1,0 +1,26 @@
+FROM alpine:3.6
+
+ARG ALLTUBE_VERSION=0.10.2
+
+COPY s6.d /etc/s6.d
+COPY php7 /etc/php7
+COPY run.sh /usr/local/bin/run.sh 
+COPY nginx /etc/nginx
+
+WORKDIR /alltube
+
+RUN set -xe \
+    && adduser -D alltube \
+    && apk add --no-cache -U s6 su-exec nginx php7-fpm php7-fileinfo php7-intl php7-mbstring php7-curl libavc1394 rtmpdump ffmpeg python2 php7-session php7-zip php7-ctype icu-libs zlib gettext php7-gettext php7-json php7-openssl \
+    && apk add --no-cache --virtual .build-deps ca-certificates openssl unzip \
+    && wget -qO alltube.zip https://github.com/Rudloff/alltube/releases/download/${ALLTUBE_VERSION}/alltube-${ALLTUBE_VERSION}.zip \
+    && unzip alltube.zip \
+    && rm alltube.zip \
+    && mkdir -p /php/logs /nginx/logs /nginx/tmp \
+    && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
+
+COPY config.yml /alltube/config/config.yml
+
+EXPOSE 8080
+
+CMD ["run.sh"]

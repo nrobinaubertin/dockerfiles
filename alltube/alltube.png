@@ -1,0 +1,12 @@
+--2017-12-17 18:29:07--  https://alltubedownload.net/img/logo.png
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving alltubedownload.net... 104.31.86.181, 104.31.87.181, 2400:cb00:2048:1::681f:56b5, ...
+Connecting to alltubedownload.net|104.31.86.181|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16158 (16K) [image/png]
+Saving to: ‘logo.png’
+
+     0K .......... .....                                      100%  744K=0.02s
+
+2017-12-17 18:29:08 (744 KB/s) - ‘logo.png’ saved [16158/16158]
+

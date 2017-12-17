@@ -5,8 +5,8 @@ params:
     - --no-warnings
     - --playlist-end
     - 1
-convert: false
+convert: true
 avconv: vendor/bin/ffmpeg
 rtmpdump: vendor/bin/rtmpdump
-uglyUrls: true
-stream: false
+uglyUrls: false
+stream: true
