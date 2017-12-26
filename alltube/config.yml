@@ -6,7 +6,6 @@ params:
     - --playlist-end
     - 1
 convert: true
-avconv: vendor/bin/ffmpeg
-rtmpdump: vendor/bin/rtmpdump
+avconv: /usr/bin/ffmpeg
 uglyUrls: false
 stream: true
