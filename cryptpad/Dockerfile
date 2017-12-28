@@ -1,8 +1,7 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
-ARG CRYPTPAD_VERSION=1.21.0
+ARG CRYPTPAD_VERSION=1.22.0
 
-ENV UID=791 GID=791
 ENV DOMAIN=https://localhost:3000/
 
 EXPOSE 3000
@@ -15,6 +14,7 @@ COPY config.js /cryptpad/config.js
 RUN set -xe \
     && apk add --no-cache -U su-exec nodejs \
     && apk add --no-cache --virtual .build-deps git tar nodejs-npm ca-certificates openssl \
+    && mkdir -p /cryptpad/pins \
     && wget -qO- https://github.com/xwiki-labs/cryptpad/archive/${CRYPTPAD_VERSION}.tar.gz | tar xz --strip 1 \
     && npm install \
     && npm install -g bower \
