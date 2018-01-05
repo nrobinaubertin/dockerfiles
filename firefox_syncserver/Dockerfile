@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
 ARG SYNC_VERSION=1.6.0
 ENV URL=localhost
@@ -12,7 +12,7 @@ COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
     && apk add --no-cache -U python su-exec make libstdc++ \
-    && apk add --no-cache --virtual .build-deps py-pip py-virtualenv g++ gcc python-dev openssl \
+    && apk add --no-cache --virtual .build-deps py-pip g++ gcc python-dev openssl py2-virtualenv \
 	&& wget -qO- https://github.com/mozilla-services/syncserver/archive/${SYNC_VERSION}.tar.gz | tar xz --strip 1 \
     && make build \
     && apk del .build-deps \
