@@ -28,8 +28,7 @@ modules_enabled = {
 
     -- OMEMO support (https://serverfault.com/questions/835635/what-prosody-modules-do-i-need-to-support-conversations)
     "proxy65"; -- https://prosody.im/doc/modules/mod_proxy65
-    -- blocklist needs prosody 0.10+
-    -- "blocklist"; -- https://prosody.im/doc/modules/mod_blocklist
+    "blocklist"; -- https://prosody.im/doc/modules/mod_blocklist
     "cloud_notify"; -- https://modules.prosody.im/mod_cloud_notify.html
     "carbons"; -- https://prosody.im/doc/modules/mod_carbons
     "smacks"; -- https://modules.prosody.im/mod_smacks.html
@@ -51,11 +50,6 @@ modules_enabled = {
     "private"; -- Private XML storage (for room bookmarks, etc.)
     "vcard"; -- Allow users to set vCards
 
-    -- These are commented by default as they have a performance impact
-    -- privacy was needed for blocking (but not with blocklist)
-    -- "privacy"; -- Support privacy lists
-    -- "compression"; -- Stream compression
-
     -- Nice to have
     "version"; -- Replies to server version requests
     "uptime"; -- Report how long server has been running
@@ -71,13 +65,11 @@ modules_enabled = {
     "http_files"; -- Serve static files from a directory over HTTP
 
     -- Other specific functionality
-    -- "posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
     -- "groups"; -- Shared roster support
     -- "announce"; -- Send announcement to all online users
     -- "welcome"; -- Welcome users who register accounts
     "watchregistrations"; -- Alert admins of registrations
     -- "motd"; -- Send a message to users when they log in
-    -- "legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
 }
 
 -- These modules are auto-loaded, but should you want

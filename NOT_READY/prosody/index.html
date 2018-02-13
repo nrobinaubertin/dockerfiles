@@ -6,7 +6,7 @@
     <title>inVerse</title>
     <link rel="shortcut icon" type="image/ico" href="css/images/favicon.ico"/>
     <link type="text/css" rel="stylesheet" media="screen" href="css/inverse.min.css" />
-    <script src="dist/inverse.js"></script>
+    <script src="dist/converse.min.js"></script>
 </head>
 <body>
     <div class="content">
@@ -18,12 +18,10 @@
     converse.initialize({
         authentication: 'login',
         auto_away: 300,
-        blacklisted_plugins: ['converse-minimize', 'converse-dragresize'],
-        whitelisted_plugins: ['converse-inverse', 'converse-singleton'],
         auto_reconnect: true,
         bosh_service_url: 'https://DOMAIN/http-bind/',
         message_archiving: 'always',
-        use_emojione: false
+        view_mode: 'fullscreen'
     });
 </script>
 </body>

@@ -1,6 +1,6 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
-ARG CONVERSE_VERSION=v3.2.1
+ARG CONVERSE_VERSION=3.3.2
 
 ENV UID=791 GID=791
 ENV DOMAIN=localhost
@@ -18,13 +18,14 @@ COPY prosody.cfg.lua /etc/prosody/prosody.cfg.lua
 
 RUN set -xe \
     && apk add --no-cache -U prosody su-exec s6 ca-certificates openssl \
-    && apk add --no-cache --virtual .build-deps nodejs nodejs-npm make ruby ruby-bundler ruby-rdoc ruby-irb git mercurial \
+    && apk add --no-cache --virtual .build-deps nodejs nodejs-npm make ruby ruby-bundler ruby-rdoc ruby-irb git mercurial bash \
     && hg clone https://hg.prosody.im/prosody-modules/ /prosody_modules \
     && mkdir -p /converse /www/dist \
     && cd /converse \
     && wget -qO- https://github.com/jcbrand/converse.js/archive/${CONVERSE_VERSION}.tar.gz | tar xz --strip 1 \
     && make build \
-    && cp -r /converse/dist/inverse.js /www/dist/inverse.js \
+    && cp -r /converse/dist/converse.min.js /www/dist/converse.min.js \
+    && cp -r /converse/locale /www/ \
     && cp -r /converse/css /www/ \
     && cp -r /converse/fonticons /www/ \
     && rm -rf /converse \

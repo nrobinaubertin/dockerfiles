@@ -11,6 +11,7 @@ admins = { "'"${ADMIN}"'" }
 ssl = {
     certificate = "/certs/'"${CERTIFICATE}"'";
     key = "/certs/'"${KEY}"'";
+    protocol = "tlsv1+"
 }
 
 Component "conference.'"${DOMAIN}"'" "muc"
