@@ -1,10 +1,10 @@
 FROM alpine:3.7
 
-ARG ALLTUBE_VERSION=0.11.0
+ARG ALLTUBE_VERSION=1.0.0
 
 COPY s6.d /etc/s6.d
 COPY php7 /etc/php7
-COPY run.sh /usr/local/bin/run.sh 
+COPY run.sh /usr/local/bin/run.sh
 COPY nginx /etc/nginx
 
 WORKDIR /alltube
