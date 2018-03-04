@@ -1,6 +1,6 @@
-FROM node:8-alpine
+FROM node:9-alpine
 
-ARG SEND_VERSION=v2.2.1
+ARG SEND_VERSION=v2.4.1
 
 ENV UID=791 GID=791
 
