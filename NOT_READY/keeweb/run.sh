@@ -1,3 +1,3 @@
 #!/bin/sh
-chown -R "${UID}:${GID}" /keeweb/server.sh
-su-exec "${UID}:${GID}" /keeweb/server.sh
+chown -R "${UID}:${GID}" /keeweb
+su-exec "${UID}:${GID}" thttpd -D -d /keeweb -p 8080
