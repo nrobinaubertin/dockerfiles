@@ -5,7 +5,7 @@ ENV UID=791 GID=791
 
 COPY s6.d /etc/s6.d
 COPY php7 /etc/php7
-COPY run.sh /usr/local/bin/run.sh 
+COPY run.sh /usr/local/bin/run.sh
 COPY nginx /etc/nginx
 
 RUN set -xe \
