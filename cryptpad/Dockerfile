@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ARG CRYPTPAD_VERSION=1.26.0
+ARG CRYPTPAD_VERSION=2.3.0
 
 ENV DOMAIN=https://localhost:3000/
 
