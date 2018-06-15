@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-ARG ALLTUBE_VERSION=1.0.0
+ARG ALLTUBE_VERSION=1.1.2
 
 COPY s6.d /etc/s6.d
 COPY php7 /etc/php7
