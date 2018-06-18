@@ -1,0 +1,2 @@
+#!/bin/sh
+su-exec "${UID}:${GID}" acme.sh --cron --home "${HOME}" --certhome "${CERTHOME}" --debug
