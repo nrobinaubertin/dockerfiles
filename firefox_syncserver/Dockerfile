@@ -1,8 +1,18 @@
 FROM alpine:3.7
 
 ARG SYNC_VERSION=1.8.0
-ENV URL=localhost
 ENV UID=791 GID=791
+
+# This must be edited to point to the public URL of your server,
+# i.e. the URL as seen by Firefox.
+ENV URL=localhost
+
+# Set this to "true" to work around a mismatch between public_url and
+# the application URL as seen by python, which can happen in certain reverse-
+# proxy hosting setups.  It will overwrite the WSGI environ dict with the
+# details from public_url.  This could have security implications if e.g.
+# you tell the app that it's on HTTPS but it's really on HTTP, so it should
+# only be used as a last resort and after careful checking of server config.
 ENV FORCE_WSGI=false
 
 EXPOSE 5000

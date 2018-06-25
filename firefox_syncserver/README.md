@@ -20,6 +20,7 @@ As secure as I can make it.
 
 ### Build-time variables
 - **URL**: The url that your browser sees. For example: https://sync.example.com
+- **FORCE_WSGI**: (Optional) Set to "true" to resolve a mismatch between a public url and the application url.
 - **UID**: (Optional) The UID executing the server
 - **GID**: (Optional) The GID executing the server
 
