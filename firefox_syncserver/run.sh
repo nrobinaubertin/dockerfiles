@@ -21,7 +21,7 @@ use = egg:syncserver
 [syncserver]
 public_url = ${URL}
 secret = ${SECRET}
-force_wsgi_environ = false
+force_wsgi_environ = ${FORCE_WSGI}
 " > /sync/syncserver.ini
 
 chown -R "${UID}:${GID}" .
