@@ -1,0 +1,2 @@
+#!/bin/sh
+exec thttpd -D -d /http -p 8080
