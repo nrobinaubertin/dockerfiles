@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# openssl dhparam -out /certs/dhparams.pem 2048
+openssl dhparam -out /certs/dhparams.pem 2048
 chmod 755 -R /http
 chown "${UID}:${GID}" -R /http /etc/s6.d /certs /acme
 su-exec "${UID}:${GID}" thttpd -d /http -p 8080
