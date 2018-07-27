@@ -1,3 +1,3 @@
 #!/bin/sh
 # < /dev/null is necessary because smbd (and nmbd too) stops if launched in foreground and receiving EOF from stdin.
-exec smbd -FSs /config/smb.conf < /dev/null
+exec smbd --no-process-group -FSs /config/smb.conf < /dev/null
