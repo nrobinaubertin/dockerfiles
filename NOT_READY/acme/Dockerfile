@@ -23,7 +23,6 @@ RUN set -xe \
 COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 COPY renew-certificates /etc/periodic/daily
-COPY domains /acme
 RUN set -xe && chmod -R +x /usr/local/bin /etc/s6.d /etc/periodic
 
 CMD ["run.sh"]
