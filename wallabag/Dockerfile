@@ -1,6 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.8
+RUN apk add --no-cache -U su-exec s6 tini
+ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG WALLABAG_VERSION=2.3.2
+ARG WALLABAG_VERSION=2.3.3
 ARG DOMAIN=https://wallabag.example.com
 ENV UID=791 GID=791
 
@@ -15,9 +17,9 @@ COPY php7 /etc/php7
 COPY nginx /etc/nginx
 
 RUN set -xe \
-    && apk add --no-cache -U su-exec s6 nginx sqlite \
-    && apk add --no-cache --virtual .build-deps tar openssl ca-certificates wget make php7 \
+    && apk add --no-cache nginx sqlite \
     && apk add --no-cache php7-fpm php7-session php7-ctype php7-dom php7-simplexml php7-json php7-gd php7-mbstring php7-xml php7-tidy php7-iconv php7-curl php7-gettext php7-tokenizer php7-bcmath php7-pdo_sqlite php7-phar php7-openssl php7-zlib \
+    && apk add --no-cache --virtual .build-deps tar openssl ca-certificates wget make php7 \
     && wget -qO- http://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 

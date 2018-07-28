@@ -35,5 +35,5 @@ docker build -t wallabag .
 ```
 Example command to run this container:
 ```
-docker run --init -d -p 8080:8080 -v /path/to/your/data/directory:/wallabag/data --name wallabag wallabag
+docker run -d -p 8080:8080 -v /path/to/your/data/directory:/wallabag/data --name wallabag wallabag
 ```
