@@ -37,5 +37,5 @@ docker build -t samba .
 ```
 Example command to run this container:
 ```
-docker run --init -d -p 137-139:7137-7139 -p 445:7445 -v /path/to/share:/shared --name=samba samba
+docker run -d -p 137-139:7137-7139 -p 445:7445 -v /path/to/share:/shared --name=samba samba
 ```
