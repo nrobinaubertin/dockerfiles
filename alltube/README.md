@@ -25,5 +25,5 @@ docker build -t alltube .
 ```
 Example command to run this container:
 ```
-docker run -d --init -p 80:8080 --name alltube alltube
+docker run -d -p 80:8080 --name alltube alltube
 ```
