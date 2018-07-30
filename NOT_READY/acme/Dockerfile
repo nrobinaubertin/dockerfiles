@@ -1,6 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.8
+RUN apk add --no-cache -U su-exec tini s6
+ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG ACMESH_VERSION=2.7.8
+ARG ACMESH_VERSION=2.7.9
 ENV UID=791 GID=791
 ENV HOME=/acme CONFIGHOME=/acme/data CERTHOME=/certs
 ENV DOMAINS="example.com;test.example.org"
@@ -11,7 +13,7 @@ VOLUME ["/certs"]
 WORKDIR /acme
 
 RUN set -xe \
-    && apk add --no-cache -U s6 su-exec thttpd openssl curl sed \
+    && apk add --no-cache thttpd openssl curl sed \
     && apk add --no-cache --virtual .build-deps wget ca-certificates \
     && wget -qO- https://github.com/Neilpang/acme.sh/archive/${ACMESH_VERSION}.tar.gz | tar xz --strip 1 \
     && mv acme.sh /usr/local/bin \
