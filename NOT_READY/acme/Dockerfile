@@ -12,6 +12,10 @@ VOLUME ["/certs"]
 
 WORKDIR /acme
 
+COPY s6.d /etc/s6.d
+COPY run.sh /usr/local/bin/run.sh
+COPY renew-certificates /usr/local/bin/renew-certificates
+
 RUN set -xe \
     && apk add --no-cache thttpd openssl curl sed \
     && apk add --no-cache --virtual .build-deps wget ca-certificates \
@@ -20,11 +24,6 @@ RUN set -xe \
     && rm -rf /acme/* \
     && mkdir -p /http \
     && apk del .build-deps \
-    && rm -f /var/cache/apk/*
-
-COPY s6.d /etc/s6.d
-COPY run.sh /usr/local/bin/run.sh
-COPY renew-certificates /etc/periodic/daily
-RUN set -xe && chmod -R +x /usr/local/bin /etc/s6.d /etc/periodic
+    && chmod -R +x /usr/local/bin /etc/s6.d
 
 CMD ["run.sh"]
