@@ -2,7 +2,8 @@
 
 # create cron task
 crontab -r
-echo "* * * * * /usr/local/bin/renew-certificates" | crontab -
+# everyday at 1:07 AM
+echo "7 1 * * * /usr/local/bin/renew-certificates" | crontab -
 
 if ! [ -f /certs/dhparams.pem ]; then
     openssl dhparam -out /certs/dhparams.pem 2048
