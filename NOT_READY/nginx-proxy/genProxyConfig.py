@@ -46,11 +46,17 @@ for container in containers:
             else:
                 listen = "8443 http2"
                 tls = "include tls.conf;\n"
+
+            server_names = "server_name"
+            for server_name in container["env"]["VIRTUAL_HOST"].split(";"):
+                server_names += " " + server_name
+            server_names += ";\n";
+
             server = "\
             # " + container["name"] + "\n\
             server {\n\
                 listen " + listen + ";\n\
-                server_name " + container["env"]["VIRTUAL_HOST"] + ";\n\
+                " + server_names + ";\n\
                 " + tls + "\n\
                 location / {\n\
                     proxy_set_header Host $http_host;\n\
