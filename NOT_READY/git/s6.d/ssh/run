@@ -1,0 +1,2 @@
+#!/bin/sh
+# exec /usr/sbin/sshd -D -e -f /ssh/sshd_config

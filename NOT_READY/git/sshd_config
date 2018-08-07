@@ -1,0 +1,37 @@
+# Guidelines used: https://wiki.mozilla.org/Security/Guidelines/OpenSSH
+# man page online: https://linux.die.net/man/5/sshd_config
+
+# The sshd port
+Port 22
+
+# We only suport Protocol 2
+Protocol 2
+
+# HostKeys for protocol version 2
+# Supported HostKey algorithms by order of preference.
+HostKey /ssh/ssh_host_ed25519_key
+# HostKey /ssh/ssh_host_rsa_key
+
+#Gives the facility code that is used when logging messages from sshd
+SyslogFacility AUTH
+LogLevel INFO
+# LogLevel DEBUG
+
+# Authentication:
+LoginGraceTime 120
+PermitRootLogin no
+AllowUsers git
+StrictModes yes
+MaxAuthTries 6
+MaxSessions 10
+PubkeyAuthentication yes
+HostbasedAuthentication no
+IgnoreUserKnownHosts no
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+
+AuthorizedKeysFile /ssh/authorized_keys
+
+PidFile /ssh/sshd.pid
+UseDNS no

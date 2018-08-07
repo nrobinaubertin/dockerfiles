@@ -1,0 +1,47 @@
+#
+# cgit config
+#
+
+css=/cgit.css
+logo=/cgit.png
+
+root-title=<title>
+root-desc=<description>
+
+# Set the mimetype for the specified filename extension. This is used
+# by the `plain` command when returning blob content.
+mimetype.gif=image/gif
+mimetype.html=text/html
+mimetype.jpeg=image/jpeg
+mimetype.jpg=image/jpeg
+mimetype.ogv=video/ogg 
+mimetype.pdf=application/pdf
+mimetype.png=image/png
+mimetype.svg=image/svg+xml
+
+# Show readme files in "about" tab.  The colon tells cgit to take the
+# file from the default branch (usually master). IMPORTANT: See below!
+readme=:README
+readme=:readme
+readme=:readme.txt
+readme=:README.txt
+readme=:readme.md
+readme=:README.md
+
+# Process readme files with a file extension-specific formatter.
+# Be *very* careful with this!  The default filter allows arbitrary
+# HTML which means XSS, cookie hijacking and other tricks, so either
+# run this on a sand-boxed domain or be careful who gets commit access.
+about-filter=/usr/lib/cgit/filters/about-formatting.sh
+source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+
+# if you do not want that webcrawler (like google) index your site
+robots=noindex, nofollow
+
+# if cgit messes up links, use a virtual-root.
+virtual-root=/
+
+# scan for repositories
+section-from-path=1
+repository-sort=age
+scan-path=/git
