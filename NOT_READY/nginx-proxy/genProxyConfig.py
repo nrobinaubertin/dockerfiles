@@ -40,7 +40,7 @@ for container in containers:
                 exposed_port = container_port
                 break
         if exposed_port is not None:
-            if "HTTP_ONLY" in container["env"]:
+            if "HTTP_ONLY" in container["env"] and container["env"]["HTTP_ONLY"] == "true":
                 listen = "8080"
                 tls = ""
             else:
