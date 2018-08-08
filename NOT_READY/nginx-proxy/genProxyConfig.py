@@ -50,7 +50,6 @@ for container in containers:
             server_names = "server_name"
             for server_name in container["env"]["VIRTUAL_HOST"].split(";"):
                 server_names += " " + server_name
-            server_names += ";\n";
 
             server = "\
             # " + container["name"] + "\n\
