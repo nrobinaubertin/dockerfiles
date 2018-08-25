@@ -5,7 +5,7 @@ Wallabag
 ![wallabag](wallabag.jpg)
 
 ### What is wallabag ?
-[Wallabag](https://wallabag.org) is a self hostable application for saving web pages, freely.
+[Wallabag](https://github.com/wallabag/wallabag) is a self hostable application for saving web pages, freely.
 
 ### Goal of this container
 Propose a lightweight and secure container that is easy to setup. There is no confirmation email and I'm using the sqlite database.
