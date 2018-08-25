@@ -1,0 +1,2 @@
+#!/bin/sh
+exec su-exec "${UID}:${GID}" traefik --configfile /config/traefik.toml
