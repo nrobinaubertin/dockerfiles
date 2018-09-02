@@ -3,7 +3,6 @@ RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG TRAEFIK_VERSION=v1.6.6
-ENV UID=791 GID=791
 ENV EMAIL="admin@example.com"
 
 EXPOSE 80 443
