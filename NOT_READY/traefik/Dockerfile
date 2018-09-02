@@ -22,7 +22,6 @@ RUN set -xe \
     && wget -qO /usr/local/bin/traefik https://github.com/containous/traefik/releases/download/${TRAEFIK_VERSION}/traefik_linux-amd64 \
     && rm -rf /traefik \
     && apk del .build-deps \
-    && mkdir -p /data/certs \
     && chmod -R +x /usr/local/bin /etc/s6.d
 
 CMD ["run.sh"]

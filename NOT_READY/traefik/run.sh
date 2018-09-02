@@ -7,4 +7,6 @@ crontab -r
 # every 5mn
 echo "*/5 * * * * /usr/local/bin/dumpcerts.sh /data/acme.json /data/certs" | crontab -
 
+mkdir -p /data/certs
+
 exec /bin/s6-svscan /etc/s6.d
