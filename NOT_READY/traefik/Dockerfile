@@ -15,7 +15,7 @@ COPY run.sh /usr/local/bin/run.sh
 COPY traefik.toml /config/traefik.toml
 
 RUN set -xe \
-    && apk add --no-cache sed openssl curl jq util-linux \
+    && apk add --no-cache sed openssl curl jq util-linux bash \
     && apk add --no-cache --virtual .build-deps wget ca-certificates \
     && wget -qO- https://github.com/containous/traefik/archive/${TRAEFIK_VERSION}.tar.gz | tar xz --strip 1 \
     && cp contrib/scripts/dumpcerts.sh /usr/local/bin/ \
