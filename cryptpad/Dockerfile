@@ -18,6 +18,7 @@ RUN set -xe \
     && apk add --no-cache --virtual .build-deps git tar nodejs-npm ca-certificates openssl python2 make g++ \
     && mkdir -p /cryptpad/pins \
     && wget -qO- https://github.com/xwiki-labs/cryptpad/archive/${CRYPTPAD_VERSION}.tar.gz | tar xz --strip 1 \
+    && npm config set unsafe-perm true \
     && npm install \
     && npm install -g bower \
     && bower install --allow-root \
