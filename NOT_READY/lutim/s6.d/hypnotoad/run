@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /lutim
+exec /usr/local/bin/carton exec hypnotoad -f /lutim/script/lutim
