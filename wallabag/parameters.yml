@@ -5,14 +5,13 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: ~
-    # database_path: "/data/db/wallabag.sqlite"
     database_path: "%kernel.root_dir%/../data/db/wallabag.sqlite"
     database_table_prefix: wallabag_
     database_socket: null
     database_charset: utf8
     database_driver_class: ~
 
-    domain_name: <DOMAIN>
+    domain_name: https://0.0.0.0
 
     mailer_transport:  ~ 
     mailer_host:       ~
