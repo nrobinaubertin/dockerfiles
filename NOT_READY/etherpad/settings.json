@@ -1,0 +1,86 @@
+{
+    "title": "<ETH_TITLE>",
+    "favicon": "favicon.ico",
+    "skinName": "<ETH_SKIN>",
+    "ip": "0.0.0.0",
+    "port" : 9001,
+    "showSettingsInAdminPage" : true,
+    "dbType" : "sqlite",
+    "dbSettings" : {
+        "filename" : "/etherpad/data/etherpad.db"
+    },
+    "defaultPadText" : "<WELCOME_TEXT>",
+    "padOptions": {
+        "noColors": false,
+        "showControls": true,
+        "showChat": true,
+        "showLineNumbers": true,
+        "useMonospaceFont": false,
+        "userName": false,
+        "userColor": false,
+        "rtl": false,
+        "alwaysShowChat": false,
+        "chatAndUsers": false,
+        "lang": "en-gb"
+    },
+    "padShortcutEnabled" : {
+        "altF9"     : true,
+        "altC"      : true,
+        "cmdShift2" : true,
+        "delete"    : true,
+        "return"    : true,
+        "esc"       : true,
+        "cmdS"      : true,
+        "tab"       : true,
+        "cmdZ"      : true,
+        "cmdY"      : true,
+        "cmdI"      : true,
+        "cmdB"      : true,
+        "cmdU"      : true,
+        "cmd5"      : true,
+        "cmdShiftL" : true,
+        "cmdShiftN" : true,
+        "cmdShift1" : true,
+        "cmdShiftC" : true,
+        "cmdH"      : true,
+        "ctrlHome"  : true,
+        "pageUp"    : true,
+        "pageDown"  : true
+    },
+    "suppressErrorsInPadText" : false,
+    "requireSession" : false,
+    "editOnly" : false,
+    "sessionNoPassword" : false,
+    "minify" : true,
+    "maxAge" : 21600,
+    "abiword" : null,
+    "soffice" : null,
+    "tidyHtml" : null,
+    "allowUnknownFileEnds" : false,
+    "requireAuthentication" : false,
+    "requireAuthorization" : false,
+    "trustProxy" : false,
+    "disableIPlogging" : false,
+    "automaticReconnectionTimeout" : 0,
+    "scrollWhenFocusLineIsOutOfViewport": {
+        "percentage": {
+            "editionAboveViewport": 0,
+            "editionBelowViewport": 0
+        },
+        "duration": 0,
+        "scrollWhenCaretIsInTheLastLineOfViewport": false,
+        "percentageToScrollWhenUserPressesArrowUp": 0
+    },
+    "socketTransportProtocols" : ["xhr-polling", "jsonp-polling", "htmlfile"],
+    "loadTest": false,
+    "indentationOnNewLine": false,
+    "loglevel": "INFO",
+    "logconfig" :
+    {
+        "appenders": [
+            {
+                "type": "console"
+            }
+        ]
+    }
+}

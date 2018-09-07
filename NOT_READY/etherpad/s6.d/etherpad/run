@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /etherpad
+export NODE_ENV=production
+exec node "node_modules/ep_etherpad-lite/node/server.js" $*
