@@ -16,9 +16,9 @@ Propose a lightweight and secure container that is easy to setup. There is no co
 
 ### Build-time variables
 - **WALLABAG_VERSION**: (Optional) version of wallabag you want to install
-- **DOMAIN**: The domain on which you are hosting your wallabag (like https://wallabag.example.com)
 
 ### Run-time variables
+- **DOMAIN**: The domain on which you are hosting your wallabag (like https://wallabag.example.com)
 - **UID**: (Optional) The UID executing the server
 - **GID**: (Optional) The GID executing the server
 
