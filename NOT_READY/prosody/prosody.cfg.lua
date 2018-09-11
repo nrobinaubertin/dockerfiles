@@ -14,7 +14,7 @@ http_index_files = { "index.html", "index.htm" }
 http_files_dir = "/www";
 http_upload_path = "/data";
 http_upload_file_size_limit = 1024 * 1024 * 10; -- 10Mo
-http_upload_expire_after = 60 * 60 * 24 * 7; -- a week in seconds
+http_upload_expire_after = 60 * 60 * 24 * 14; -- 2 weeks in seconds
 http_upload_quota = 1024 * 1024 * 50; -- 50Mo
 
 data_path = "/data"
