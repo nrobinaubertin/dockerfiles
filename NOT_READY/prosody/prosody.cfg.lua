@@ -37,7 +37,7 @@ Component "<SUBDOMAIN>.<DOMAIN>" "muc"
     restrict_room_creation = false;
     max_history_messages = 50;
 
-VirtualHost "<SUBDOMAIN>.<DOMAIN>"
+VirtualHost "<DOMAIN>"
     enabled = true
     http_host = "<SUBDOMAIN>.<DOMAIN>"
 
