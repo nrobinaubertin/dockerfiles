@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sed -i -e "s|DOMAIN|${DOMAIN}|g" /www/index.html
+sed -i -e "s|DOMAIN|${SUBDOMAIN}.${DOMAIN}|g" /www/index.html
 
 sed -i -e "s|<DOMAIN>|${DOMAIN}|g" \
        -e "s|<SUBDOMAIN>|${SUBDOMAIN}|g" \
