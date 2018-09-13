@@ -2,7 +2,7 @@ FROM alpine:3.8
 RUN apk add --no-cache -U su-exec tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG CRYPTPAD_VERSION=2.5.0
+ARG CRYPTPAD_VERSION=2.7.0
 
 ENV DOMAIN=https://localhost:3000/
 
