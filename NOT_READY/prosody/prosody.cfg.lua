@@ -25,14 +25,6 @@ c2s_require_encryption = true
 authentication = "internal_hashed"
 storage = "internal"
 
-conversejs_options = {
-    view_mode = "fullscreen";
-    auto_away = 300;
-    auto_reconnect = false;
-    message_archiving = "always";
-    default_domain = "<DOMAIN>";
-}
-
 admins = { "<ADMIN>" }
 
 ssl = {
@@ -45,7 +37,7 @@ Component "<SUBDOMAIN>.<DOMAIN>" "muc"
     restrict_room_creation = false;
     max_history_messages = 50;
 
-VirtualHost "<DOMAIN>"
+VirtualHost "<SUBDOMAIN>.<DOMAIN>"
     enabled = true
     http_host = "<SUBDOMAIN>.<DOMAIN>"
 
