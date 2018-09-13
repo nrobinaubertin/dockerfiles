@@ -9,12 +9,9 @@ consider_bosh_secure = true
 http_paths = {
     bosh = "/http-bind"; -- Serve BOSH at /http-bind
     files = "/"; -- Serve files from the base URL
-    -- conversejs = "/";
 }
 http_index_files = { "index.html", "index.htm" }
 http_files_dir = "/www";
--- http_dir_listing = true;
--- http_interfaces = { "*" }
 http_upload_path = "/data";
 http_upload_file_size_limit = 1024 * 1024 * 10; -- 10Mo
 http_upload_expire_after = 60 * 60 * 24 * 14; -- 2 weeks in seconds
@@ -22,6 +19,8 @@ http_upload_quota = 1024 * 1024 * 50; -- 50Mo
 
 data_path = "/data"
 allow_registration = true
+-- registration_throttle_max = 5
+-- registration_throttle_period = 1800
 c2s_require_encryption = true
 authentication = "internal_hashed"
 storage = "internal"
@@ -83,7 +82,8 @@ modules_enabled = {
     "time"; -- Let others know the time here on this server
     "ping"; -- Replies to XMPP pings with pongs
     "pep"; -- Enables users to publish their mood, activity, playing music and more
-    -- "register"; -- Allow users to register on this server using a client and change passwords
+	-- https://prosody.im/doc/modules/mod_register
+    "register"; -- Allow users to register on this server using a client and change passwords
 
     -- HTTP modules
     "http"; -- https://prosody.im/doc/http
@@ -97,7 +97,6 @@ modules_enabled = {
     -- "welcome"; -- Welcome users who register accounts
     "watchregistrations"; -- Alert admins of registrations
     -- "motd"; -- Send a message to users when they log in
-    "conversejs"; -- web based client
 }
 
 -- These modules are auto-loaded, but should you want

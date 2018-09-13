@@ -14,23 +14,29 @@ VOLUME ["/data"]
 COPY s6.d /etc/s6.d
 COPY index.html /www/index.html
 
+RUN apk add --no-cache -U prosody openssl
+
 RUN set -xe \
-    && apk add --no-cache -U prosody openssl \
-    && apk add --no-cache --virtual .build-deps nodejs nodejs-npm make ruby ruby-bundler ruby-rdoc ruby-irb git mercurial bash ca-certificates libffi-dev build-base ruby-dev \
+    && apk add --no-cache --virtual .build-deps mercurial ca-certificates \
     && hg clone https://hg.prosody.im/prosody-modules/ /prosody_modules \
     && find /prosody_modules -name "*.lua" -exec cp {} /usr/lib/prosody/modules/ \; \
 	&& rm -rf /prosody_modules \
+    && apk del .build-deps
+
+RUN set -xe \
+    && apk add --no-cache --virtual .build-deps nodejs nodejs-npm make ruby ruby-bundler ruby-rdoc ruby-irb git bash ca-certificates libffi-dev build-base ruby-dev \
     && mkdir -p /converse /www/dist \
     && cd /converse \
     && wget -qO- https://github.com/jcbrand/converse.js/archive/${CONVERSE_VERSION}.tar.gz | tar xz --strip 1 \
-    && make build \
-    && cp /converse/dist/converse.min.js /www/dist/converse.min.js \
-    && cp -r /converse/locale /www \
-    && cp -r /converse/css /www \
-    && cp -r /converse/fonticons /www \
-    && rm -rf /converse /root/.bundle /root/.npm /root/.gem \
-    && apk del .build-deps
+	&& make build \
+	&& cp /converse/dist/converse.min.js /www/dist/converse.min.js \
+	&& cp -r /converse/locale /www \
+	&& cp -r /converse/css /www \
+	&& cp -r /converse/fonticons /www \
+	&& rm -rf /converse /root/.bundle /root/.npm /root/.gem \
+	&& apk del .build-deps
 
+COPY mod_register.lua /usr/lib/prosody/modules/mod_register.lua
 COPY run.sh /usr/local/bin/run.sh
 COPY prosody.cfg.lua /etc/prosody/prosody.cfg.lua
 RUN chmod -R +x /usr/local/bin /etc/s6.d /usr/lib/prosody/modules
