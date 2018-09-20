@@ -10,9 +10,9 @@ echo "\
 
 chown -R "${UID}:${GID}" /lutim /etc/s6.d
 
-sed -i -e "s|<SECRET>|$(cat /dev/urandom | tr -dc "a-zA-Z0-9-_" | fold -w 50 | head -n1)|g" \
-        -e "s|<CONTACT>|${CONTACT}|g" \
-        -e "s|<MAX_FILE_SIZE>|${MAX_FILE_SIZE}|g" \
-        -e "s|<MAX_DELAY>|${MAX_DELAY}|g" /lutim/lutim.conf
+sed -i -e "s|<SECRET>|$(openssl rand -base64 50)|g" \
+       -e "s|<CONTACT>|${CONTACT}|g" \
+       -e "s|<MAX_FILE_SIZE>|${MAX_FILE_SIZE}|g" \
+       -e "s|<MAX_DELAY>|${MAX_DELAY}|g" /lutim/lutim.conf
 
 exec su-exec ${UID}:${GID} /bin/s6-svscan /etc/s6.d
