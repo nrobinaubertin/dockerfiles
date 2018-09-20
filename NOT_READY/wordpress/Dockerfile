@@ -11,7 +11,6 @@ COPY s6.d /etc/s6.d
 COPY php7 /etc/php7
 COPY nginx /etc/nginx
 COPY run.sh /usr/local/bin/run.sh
-# COPY run2.sh /usr/local/bin/run2.sh
 COPY wp-config.php /wordpress/wp-config.php
 
 RUN set -xe \
