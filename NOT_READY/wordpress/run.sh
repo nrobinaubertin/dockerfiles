@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -xe
-
 mv -n /wordpress/wp-content-original/* /wordpress/wp-content/
 
 sed -i -e "s|<AUTH_KEY>|$(openssl rand -base64 48)|g" \
