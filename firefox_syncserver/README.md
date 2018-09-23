@@ -18,7 +18,7 @@ As secure as I can make it.
 - Does not execute the server as root. As secure as possible.
 - No volumes or complex configuration. As simple as possible.
 
-### Build-time variables
+### Run-time variables
 - **URL**: The url that your browser sees. For example: https://sync.example.com
 - **FORCE_WSGI**: (Optional) Set to "true" to resolve a mismatch between a public url and the application url.
 - **UID**: (Optional) The UID executing the server
