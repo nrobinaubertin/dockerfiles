@@ -1,3 +1,4 @@
 #!/bin/sh
-chown -R "alltube:alltube" /php /nginx /etc/s6.d /var/log/nginx /var/tmp/nginx /alltube
+mkdir -p /run/nginx
+chown -R "alltube:alltube" /etc/s6.d /var/tmp/nginx /alltube /etc/php7 /etc/nginx /var/log /run
 su-exec "alltube:alltube" /bin/s6-svscan /etc/s6.d
