@@ -1,5 +1,5 @@
 youtubedl: vendor/rg3/youtube-dl/youtube_dl/__main__.py
-python: /usr/bin/python
+python: /usr/bin/python3
 params:
     - --no-playlist
     - --no-warnings
@@ -8,4 +8,4 @@ params:
 convert: true
 avconv: /usr/bin/ffmpeg
 uglyUrls: false
-stream: true
+stream: false
