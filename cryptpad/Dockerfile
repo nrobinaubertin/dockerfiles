@@ -3,7 +3,7 @@ RUN apk add --no-cache -U su-exec tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG CRYPTPAD_VERSION=2.8.0
-
+ENV UID=791 GID=791
 ENV DOMAIN=https://localhost:3000/
 
 EXPOSE 3000
