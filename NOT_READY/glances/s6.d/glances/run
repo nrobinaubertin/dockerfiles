@@ -1,2 +1,2 @@
 #!/bin/sh
-exec glances --cached-time "${CACHED_TIME}" -wC /glances/glances.conf
+exec glances --cached-time "${CACHED_TIME}" -wC /glances/glances.conf ${GLANCES_OPT}
