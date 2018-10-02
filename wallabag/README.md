@@ -8,7 +8,8 @@ Wallabag
 [Wallabag](https://github.com/wallabag/wallabag) is a self hostable application for saving web pages, freely.
 
 ### Goal of this container
-Propose a lightweight and secure container that is easy to setup. There is no confirmation email and I'm using the sqlite database.
+Propose a lightweight and secure container that is easy to setup. There is no confirmation email and I'm using the sqlite database.  
+**Warning:** Support for SQLite is being [dropped](https://github.com/wallabag/wallabag/issues/2766) by Wallabag in the [future](https://github.com/wallabag/wallabag/issues/2766#issuecomment-352359471). Since I don't really care about migrating my articles and I don't want to add a full-fledge database for this service, I'll do migrations manually.
 
 ### Features
 - Based on Alpine Linux.
