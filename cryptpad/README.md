@@ -4,7 +4,7 @@ Cryptpad
 
 ![cryptpad](cryptpad.jpg)
 
-### What is cryptpad ?
+### What is Cryptpad ?
 CryptPad is the zero knowledge realtime collaborative editor. Encryption carried out in your web browser protects the data from the server, the cloud and the NSA. This project uses the CKEditor Visual Editor and the ChainPad realtime engine. The secret key is stored in the URL fragment identifier which is never sent to the server but is available to javascript so by sharing the URL, you give authorization to others who want to participate.  
 You can find their repo [here](https://github.com/xwiki-labs/cryptpad).
 
@@ -16,7 +16,7 @@ Propose a lightweight and secure container that is easy to setup.
 - No Root processes, as secure as possible.
 
 ### Build-time variables
-- **DOMAIN**: The domain name where cryptpad is hosted
+- **DOMAIN**: The domain name where Cryptpad is hosted
 - **UID**: (Optional) The UID executing the server
 - **GID**: (Optional) The GID executing the server
 
