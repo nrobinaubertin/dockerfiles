@@ -6,7 +6,7 @@ ARG SYNCTHING_VERSION=v0.14.50
 ENV UID=791 GID=791
 
 EXPOSE 8384 22000 21027/udp
-VOLUME ["/data", "/data/syncthing"]
+VOLUME ["/data"]
 
 WORKDIR /data
 
