@@ -1,2 +1,2 @@
 #!/bin/sh
-exec env HOME=/syncthing syncthing -home /syncthing/config -gui-address 0.0.0.0:8384
+exec env HOME=/data syncthing -home /data/syncthing -gui-address 0.0.0.0:8384

@@ -6,17 +6,16 @@ ARG SYNCTHING_VERSION=v0.14.50
 ENV UID=791 GID=791
 
 EXPOSE 8384 22000 21027/udp
-VOLUME ["/syncthing"]
+VOLUME ["/data", "/data/syncthing"]
 
-WORKDIR /syncthing
+WORKDIR /data
 
 COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
-    && apk add --no-cache ca-certificates \
     && wget -qO- https://github.com/syncthing/syncthing/releases/download/${SYNCTHING_VERSION}/syncthing-linux-amd64-${SYNCTHING_VERSION}.tar.gz | tar xz --strip 1 \
-    && mv /syncthing/syncthing /usr/local/bin \
+    && mv /data/syncthing /usr/local/bin \
     && chmod -R +x /usr/local/bin /etc/s6.d
 
 HEALTHCHECK --interval=1m --timeout=10s CMD nc -z localhost 8384 || exit 1
