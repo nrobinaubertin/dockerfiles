@@ -14,7 +14,6 @@ COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
-    && apk add --no-cache ca-certificates \
     && wget -qO- https://github.com/syncthing/syncthing/releases/download/${SYNCTHING_VERSION}/syncthing-linux-amd64-${SYNCTHING_VERSION}.tar.gz | tar xz --strip 1 \
     && mv /data/syncthing /usr/local/bin \
     && chmod -R +x /usr/local/bin /etc/s6.d
