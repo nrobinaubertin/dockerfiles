@@ -3,6 +3,7 @@ RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG ALLTUBE_VERSION=1.2.2
+ARG YOUTUBE_DL_VERSION=2018.10.05
 EXPOSE 8080
 
 COPY s6.d /etc/s6.d
@@ -19,6 +20,8 @@ RUN set -xe \
     && wget -qO alltube.zip https://github.com/Rudloff/alltube/releases/download/${ALLTUBE_VERSION}/alltube-${ALLTUBE_VERSION}.zip \
     && unzip alltube.zip \
     && rm alltube.zip \
+    && mkdir -p /usr/local/bin/youtube-dl && cd /usr/local/bin/youtube-dl \
+    && wget -qO- https://github.com/rg3/youtube-dl/archive/${YOUTUBE_DL_VERSION}.tar.gz | tar xz --strip 1 \
     && apk del .build-deps \
     && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
 

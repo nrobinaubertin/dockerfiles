@@ -1,4 +1,4 @@
-youtubedl: vendor/rg3/youtube-dl/youtube_dl/__main__.py
+youtubedl: /usr/local/bin/youtube-dl/youtube_dl/__main__.py
 python: /usr/bin/python3
 params:
     - --no-playlist
