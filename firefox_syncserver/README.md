@@ -10,7 +10,7 @@ You can find the repository of the service [here](https://github.com/mozilla-ser
 
 ### Goal of this container
 This container should be as simple as possible to set up.  
-It does not requires any volumes since your browser keeps the data during downtime.  
+It does not require any volume since your browser keeps the data during downtime.  
 As secure as I can make it.  
 
 ### Features
