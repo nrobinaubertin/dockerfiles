@@ -17,7 +17,7 @@ COPY run.sh /usr/local/bin/run.sh
 RUN set -xe \
     && apk add --no-cache perl libressl libidn perl-crypt-rijndael perl-test-manifest perl-dbi imagemagick6 imagemagick6-dev shared-mime-info perl-dbd-sqlite \
     && apk add --no-cache --virtual .build-deps build-base libressl-dev ca-certificates perl-dev libidn-dev perl-devel-checklib sqlite-dev perl-dbd-sqlite-dev zlib-dev gnupg postgresql-libs postgresql-dev mariadb-dev \
-    && wget -qO- https://framagit.org/luc/lutim/-/archive/${LUTIM_VERSION}/lutim-${LUTIM_VERSION}.tar.gz | tar xz --strip 1 \
+    && wget -qO- https://framagit.org/fiat-tux/hat-softwares/lutim/-/archive/${LUTIM_VERSION}/lutim-${LUTIM_VERSION}.tar.gz | tar xz --strip 1 \
     && cpan install Carton \
     && echo "requires 'Image::Magick';" >> /lutim/cpanfile \
     && carton install \
