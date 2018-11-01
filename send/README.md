@@ -28,5 +28,5 @@ docker build -t send .
 ```
 Example command to run this container:
 ```
-docker run --init -d -p 1443:1443 --name send send
+docker run -d -p 1443:1443 --name send send
 ```
