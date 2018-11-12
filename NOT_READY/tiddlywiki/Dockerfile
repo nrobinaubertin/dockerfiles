@@ -4,6 +4,7 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG TIDDLYWIKI_VERSION=v5.1.17
 ENV UID=791 GID=791
+ENV USER="" PASSWORD=""
 EXPOSE 8080
 
 COPY s6.d /etc/s6.d
@@ -18,4 +19,5 @@ RUN set -xe \
     && apk del .build-deps \
     && chmod -R +x /usr/local/bin /etc/s6.d
 
+VOLUME ["/data"]
 CMD ["run.sh"]
