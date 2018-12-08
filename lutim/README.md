@@ -6,7 +6,7 @@ Lutim
 
 ### What is lutim ?
 Lutim stores images and allows you to see them, download them or share them on social networks.
-You can find their repo [here](https://framagit.org/luc/lutim).
+You can find their repo [here](https://framagit.org/fiat-tux/hat-softwares/lutim).
 
 ### Goal of this container
 Propose a lightweight and secure container that is easy to setup.
