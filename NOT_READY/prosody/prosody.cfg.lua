@@ -89,7 +89,7 @@ modules_enabled = {
 -- to disable them then uncomment them here:
 modules_disabled = {
     -- "c2s" -- Handle client connections
-    "s2s" -- Handle server-to-server connections
+    -- "s2s" -- Handle server-to-server connections
 }
 
 -- For advanced logging see http://prosody.im/doc/logging
