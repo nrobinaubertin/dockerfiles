@@ -4,17 +4,17 @@
 -- do not daemonize for s6
 daemonize = false
 
--- cross_domain_bosh = true
--- consider_bosh_secure = true
--- http_paths = {
---     bosh = "/http-bind"; -- Serve BOSH at /http-bind
---     files = "/"; -- Serve files from the base URL
--- }
--- http_files_dir = "/www";
+cross_domain_bosh = true
+consider_bosh_secure = true
+http_paths = {
+    bosh = "/http-bind"; -- Serve BOSH at /http-bind
+    files = "/"; -- Serve files from the base URL
+}
+http_files_dir = "/data/www";
 http_upload_path = "/data";
-http_upload_file_size_limit = <HTTP_UPLOAD_FILE_SIZE_LIMIT>;
-http_upload_expire_after = <HTTP_UPLOAD_EXPIRE_AFTER>;
-http_upload_quota = <HTTP_UPLOAD_QUOTA>;
+http_upload_file_size_limit = <HTTP_UPLOAD_FILE_SIZE_LIMIT>; -- bytes
+http_upload_expire_after = <HTTP_UPLOAD_EXPIRE_AFTER>; --seconds
+http_upload_quota = <HTTP_UPLOAD_QUOTA>; --bytes
 
 data_path = "/data"
 allow_registration = true
@@ -42,6 +42,7 @@ ssl = {
 
 VirtualHost "<DOMAIN>"
     enabled = true
+    http_host = "<DOMAIN>"
 
 -- plugin_paths = { "/prosody_modules" }
 modules_enabled = {
@@ -83,7 +84,7 @@ modules_enabled = {
     "http"; -- https://prosody.im/doc/http
     "http_upload"; -- https://modules.prosody.im/mod_http_upload.html
     "bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
-    -- "http_files"; -- Serve static files from a directory over HTTP
+    "http_files"; -- Serve static files from a directory over HTTP
 
     -- Other specific functionality
     -- "groups"; -- Shared roster support
