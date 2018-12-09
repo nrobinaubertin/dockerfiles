@@ -4,18 +4,17 @@
 -- do not daemonize for s6
 daemonize = false
 
-cross_domain_bosh = true
-consider_bosh_secure = true
-http_paths = {
-    bosh = "/http-bind"; -- Serve BOSH at /http-bind
-    files = "/"; -- Serve files from the base URL
-}
-http_index_files = { "index.html", "index.htm" }
-http_files_dir = "/www";
+-- cross_domain_bosh = true
+-- consider_bosh_secure = true
+-- http_paths = {
+--     bosh = "/http-bind"; -- Serve BOSH at /http-bind
+--     files = "/"; -- Serve files from the base URL
+-- }
+-- http_files_dir = "/www";
 http_upload_path = "/data";
-http_upload_file_size_limit = 1024 * 1024 * 10; -- 10Mo
-http_upload_expire_after = 60 * 60 * 24 * 14; -- 2 weeks in seconds
-http_upload_quota = 1024 * 1024 * 50; -- 50Mo
+http_upload_file_size_limit = <HTTP_UPLOAD_FILE_SIZE_LIMIT>;
+http_upload_expire_after = <HTTP_UPLOAD_EXPIRE_AFTER>;
+http_upload_quota = <HTTP_UPLOAD_QUOTA>;
 
 data_path = "/data"
 allow_registration = true
@@ -23,23 +22,27 @@ allow_registration = true
 -- registration_throttle_period = 1800
 c2s_require_encryption = true
 authentication = "internal_hashed"
-storage = "internal"
+-- storage = "internal"
+storage = "sql"
+sql = {
+    driver = "SQLite3"; -- May be "MySQL", "PostgreSQL" or "SQLite3" (case sensitive!)
+    database = "data.db"; -- The database name to use. For SQLite3 this the database filename (relative to the data storage directory).
+    -- host = "localhost"; -- The address of the database server (delete this line for Postgres)
+    -- port = 3306; -- For databases connecting over TCP
+    -- username = "prosody"; -- The username to authenticate to the database
+    -- password = "secretpassword"; -- The password to authenticate to the database
+}
 
 admins = { "<ADMIN>" }
 
 ssl = {
-    certificate = "/etc/prosody/certs/<DOMAIN>.crt";
-    key = "/etc/prosody/certs/<DOMAIN>.key";
+    certificate = "/etc/prosody/certs/cert.pem";
+    key = "/etc/prosody/certs/key.pem";
     protocol = "tlsv1+"
 }
 
-Component "<SUBDOMAIN>.<DOMAIN>" "muc"
-    restrict_room_creation = false;
-    max_history_messages = 50;
-
 VirtualHost "<DOMAIN>"
     enabled = true
-    http_host = "<SUBDOMAIN>.<DOMAIN>"
 
 -- plugin_paths = { "/prosody_modules" }
 modules_enabled = {
@@ -47,7 +50,7 @@ modules_enabled = {
     -- OMEMO support (https://serverfault.com/questions/835635/what-prosody-modules-do-i-need-to-support-conversations)
     "proxy65"; -- https://prosody.im/doc/modules/mod_proxy65
     "blocklist"; -- https://prosody.im/doc/modules/mod_blocklist
-    "cloud_notify"; -- https://modules.prosody.im/mod_cloud_notify.html
+    -- "cloud_notify"; -- https://modules.prosody.im/mod_cloud_notify.html
     "carbons"; -- https://prosody.im/doc/modules/mod_carbons
     "smacks"; -- https://modules.prosody.im/mod_smacks.html
     "mam"; -- https://modules.prosody.im/mod_mam.html
@@ -101,8 +104,8 @@ modules_disabled = {
 
 -- For advanced logging see http://prosody.im/doc/logging
 log = {
-    info = "prosody.log"; -- Change 'info' to 'debug' for verbose logging
-    error = "prosody.err";
+    -- info = "prosody.log"; -- Change 'info' to 'debug' for verbose logging
+    -- error = "prosody.err";
     -- "*syslog" -- Uncomment this for logging to syslog
     "*console"; -- Log to the console, useful for debugging with daemonize=false
 }
