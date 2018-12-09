@@ -22,7 +22,6 @@ allow_registration = true
 -- registration_throttle_period = 1800
 c2s_require_encryption = true
 authentication = "internal_hashed"
--- storage = "internal"
 storage = "sql"
 sql = {
     driver = "SQLite3"; -- May be "MySQL", "PostgreSQL" or "SQLite3" (case sensitive!)
@@ -36,8 +35,8 @@ sql = {
 admins = { "<ADMIN>" }
 
 ssl = {
-    certificate = "/etc/prosody/certs/cert.pem";
-    key = "/etc/prosody/certs/key.pem";
+    certificate = "/data/certs/cert.pem";
+    key = "/data/certs/key.pem";
     protocol = "tlsv1+"
 }
 
