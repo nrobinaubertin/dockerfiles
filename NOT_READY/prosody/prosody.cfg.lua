@@ -8,31 +8,23 @@ cross_domain_bosh = true
 consider_bosh_secure = true
 http_paths = {
     bosh = "/http-bind"; -- Serve BOSH at /http-bind
-    files = "/"; -- Serve files from the base URL
 }
-http_files_dir = "/data/www";
-http_upload_path = "/data";
+http_upload_path = "/data/files";
 http_upload_file_size_limit = <HTTP_UPLOAD_FILE_SIZE_LIMIT>; -- bytes
 http_upload_expire_after = <HTTP_UPLOAD_EXPIRE_AFTER>; --seconds
 http_upload_quota = <HTTP_UPLOAD_QUOTA>; --bytes
 
 data_path = "/data"
 allow_registration = true
--- registration_throttle_max = 5
--- registration_throttle_period = 1800
+registration_throttle_max = 5
+registration_throttle_period = 86400
 c2s_require_encryption = true
 authentication = "internal_hashed"
 storage = "sql"
 sql = {
-    driver = "SQLite3"; -- May be "MySQL", "PostgreSQL" or "SQLite3" (case sensitive!)
-    database = "data.db"; -- The database name to use. For SQLite3 this the database filename (relative to the data storage directory).
-    -- host = "localhost"; -- The address of the database server (delete this line for Postgres)
-    -- port = 3306; -- For databases connecting over TCP
-    -- username = "prosody"; -- The username to authenticate to the database
-    -- password = "secretpassword"; -- The password to authenticate to the database
+    driver = "SQLite3";
+    database = "data.db";
 }
-
-admins = { "<ADMIN>" }
 
 ssl = {
     certificate = "/data/certs/cert.pem";
@@ -77,35 +69,30 @@ modules_enabled = {
     "time"; -- Let others know the time here on this server
     "ping"; -- Replies to XMPP pings with pongs
     "pep"; -- Enables users to publish their mood, activity, playing music and more
-	-- https://prosody.im/doc/modules/mod_register
     "register"; -- Allow users to register on this server using a client and change passwords
 
     -- HTTP modules
     "http"; -- https://prosody.im/doc/http
     "http_upload"; -- https://modules.prosody.im/mod_http_upload.html
     "bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
-    "http_files"; -- Serve static files from a directory over HTTP
+    -- "http_files"; -- Serve static files from a directory over HTTP
 
     -- Other specific functionality
     -- "groups"; -- Shared roster support
     -- "announce"; -- Send announcement to all online users
     -- "welcome"; -- Welcome users who register accounts
-    "watchregistrations"; -- Alert admins of registrations
+    -- "watchregistrations"; -- Alert admins of registrations
     -- "motd"; -- Send a message to users when they log in
 }
 
 -- These modules are auto-loaded, but should you want
 -- to disable them then uncomment them here:
 modules_disabled = {
-    -- "offline" -- Store offline messages
     -- "c2s" -- Handle client connections
     "s2s" -- Handle server-to-server connections
 }
 
 -- For advanced logging see http://prosody.im/doc/logging
 log = {
-    -- info = "prosody.log"; -- Change 'info' to 'debug' for verbose logging
-    -- error = "prosody.err";
-    -- "*syslog" -- Uncomment this for logging to syslog
     "*console"; -- Log to the console, useful for debugging with daemonize=false
 }
