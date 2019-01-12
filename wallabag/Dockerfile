@@ -2,7 +2,7 @@ FROM alpine:3.8
 RUN apk add --no-cache -U su-exec s6 tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG WALLABAG_VERSION=2.3.4
+ARG WALLABAG_VERSION=2.3.6
 ENV DOMAIN=https://wallabag.example.com
 ENV UID=791 GID=791
 EXPOSE 8080
