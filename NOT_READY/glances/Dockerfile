@@ -1,8 +1,8 @@
-FROM alpine:3.8
+FROM alpine:3.9
 RUN apk add --no-cache -U s6 su-exec tini
 ENTRYPOINT ["/sbin/tini", "-s", "--"]
 
-ARG GLANCES_VERSION=v3.0.2
+ARG GLANCES_VERSION=v3.1.0
 ENV CACHED_TIME=15
 ENV GLANCES_OPT=""
 EXPOSE 61208
