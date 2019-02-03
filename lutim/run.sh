@@ -13,6 +13,7 @@ chown -R "${UID}:${GID}" /lutim /etc/s6.d
 sed -i -e "s|<SECRET>|$(openssl rand -base64 50)|g" \
        -e "s|<CONTACT>|${CONTACT}|g" \
        -e "s|<MAX_FILE_SIZE>|${MAX_FILE_SIZE}|g" \
+       -e "s|<DEFAULT_DELAY>|${DEFAULT_DELAY}|g" \
        -e "s|<MAX_DELAY>|${MAX_DELAY}|g" /lutim/lutim.conf
 
 exec su-exec ${UID}:${GID} /bin/s6-svscan /etc/s6.d
