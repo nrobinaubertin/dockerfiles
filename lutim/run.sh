@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -xe
+
 # create cron task
 crontab -r
 # everyday at 1:07 AM
@@ -10,7 +12,7 @@ echo "\
 
 chown -R "${UID}:${GID}" /lutim /etc/s6.d
 
-sed -i -e "s|<SECRET>|$(openssl rand -base64 50)|g" \
+sed -i -e "s|<SECRET>|$(openssl rand -base64 35)|g" \
        -e "s|<CONTACT>|${CONTACT}|g" \
        -e "s|<MAX_FILE_SIZE>|${MAX_FILE_SIZE}|g" \
        -e "s|<DEFAULT_DELAY>|${DEFAULT_DELAY}|g" \
