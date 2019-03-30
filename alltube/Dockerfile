@@ -3,7 +3,7 @@ RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG ALLTUBE_VERSION=1.2.5
-ARG YOUTUBE_DL_VERSION=2019.03.09
+ARG YOUTUBE_DL_VERSION=2019.03.18
 EXPOSE 8080
 
 COPY s6.d /etc/s6.d
