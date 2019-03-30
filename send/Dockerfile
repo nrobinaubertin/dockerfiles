@@ -1,28 +1,32 @@
-FROM alpine:3.9
-RUN apk add --no-cache -U su-exec tini s6
-ENTRYPOINT ["/sbin/tini", "--"]
-
-ARG SEND_VERSION=v2.6.1
-ENV UID=791 GID=791
-EXPOSE 1443
-
+FROM node:10 AS builder
+ARG SEND_VERSION=v3.0.9
 WORKDIR /send
-
-COPY s6.d /etc/s6.d
-COPY run.sh /usr/local/bin/run.sh
-
 RUN set -xe \
-    && apk add --no-cache -U redis nodejs npm \
-    && apk add --no-cache --virtual .build-deps wget tar ca-certificates openssl git yarn \
+	&& apt install git openssl \
+	&& adduser --disabled-password --gecos '' builder \
+	&& chown -R builder: /send
+USER builder
+RUN set -xe \
+	&& id \
     && git clone https://github.com/mozilla/send.git . \
     && git checkout tags/${SEND_VERSION} \
-    && yarn \
-    && yarn build \
-    && rm -rf node_modules \
-    && yarn install --production \
-    && yarn cache clean \
-    && rm -rf .git \
-    && apk del .build-deps \
-    && chmod +x -R /usr/local/bin/run.sh /etc/s6.d
+	&& sed -i '/puppeteer/d' package.json \
+	&& rm package-lock.json \
+	&& id \
+    && npm install \
+	&& /send/node_modules/.bin/webpack
 
+FROM node:10-alpine
+RUN apk add --no-cache -U su-exec tini s6
+ENTRYPOINT ["/sbin/tini", "--"]
+ARG SEND_VERSION=v3.0.9
+ENV UID=791 GID=791
+EXPOSE 1443
+WORKDIR /send
+COPY --from=builder /send .
+COPY s6.d /etc/s6.d
+COPY run.sh /usr/local/bin/run.sh
+RUN set -xe \
+    && apk add --no-cache -U redis \
+    && chmod +x -R /usr/local/bin/run.sh /etc/s6.d
 CMD ["run.sh"]
