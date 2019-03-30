@@ -2,7 +2,7 @@ FROM alpine:3.9
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG TRAEFIK_VERSION=v1.7.9
+ARG TRAEFIK_VERSION=v1.7.10
 ENV EMAIL="admin@example.com"
 
 EXPOSE 80 443
