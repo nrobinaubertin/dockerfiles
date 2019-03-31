@@ -15,6 +15,9 @@ RUN set -xe \
 	&& id \
     && npm install \
 	&& /send/node_modules/.bin/webpack
+RUN set -xe \
+    && rm -rf /send/node_modules \
+    && npm install --production
 
 FROM node:10-alpine
 RUN apk add --no-cache -U su-exec tini s6
