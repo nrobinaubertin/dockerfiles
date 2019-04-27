@@ -14,6 +14,7 @@ Propose a lightweight and secure container that is easy to setup.
 ### Features
 - Based on Alpine Linux.
 - No Root processes, as secure as possible.
+- Automatic update/installation of the latest youtube-dl
 
 ### Ports
 - **8080**
