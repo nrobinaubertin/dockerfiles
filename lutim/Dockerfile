@@ -2,7 +2,7 @@ FROM alpine:3.9
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG LUTIM_VERSION=0.11.4
+ARG LUTIM_VERSION=0.11.5
 EXPOSE 8080
 ENV UID=791 GID=791
 ENV CONTACT=admin@example.com
