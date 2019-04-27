@@ -4,8 +4,8 @@ sed -i -e "s|<EMAIL>|${EMAIL}|g" /config/traefik.toml
 
 # create cron task
 crontab -r
-# every 5mn
-echo "*/5 * * * * /usr/local/bin/dumpcerts.sh /data/acme.json /data/certs" | crontab -
+# every hour
+echo "0 * * * * /usr/local/bin/dumpcerts.sh /data/acme.json /data/certs" | crontab -
 
 mkdir -p /data/certs
 

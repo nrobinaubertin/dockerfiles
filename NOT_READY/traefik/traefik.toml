@@ -31,3 +31,4 @@ domain = "docker.localhost"
 # Logs to stdout
 logLevel = "INFO"
 [accessLog]
+  filePath = "/data/access.log"
