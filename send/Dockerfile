@@ -1,11 +1,15 @@
 FROM node:10 AS builder
-ARG SEND_VERSION=v3.0.9
+
+ARG SEND_VERSION=v3.0.10
 WORKDIR /send
+
 RUN set -xe \
 	&& apt install git openssl \
 	&& adduser --disabled-password --gecos '' builder \
 	&& chown -R builder: /send
+
 USER builder
+
 RUN set -xe \
 	&& id \
     && git clone https://github.com/mozilla/send.git . \
@@ -22,14 +26,20 @@ RUN set -xe \
 FROM node:10-alpine
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
+
 ARG SEND_VERSION=v3.0.9
+
 ENV UID=791 GID=791
+
 EXPOSE 1443
 WORKDIR /send
+
 COPY --from=builder /send .
 COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
+
 RUN set -xe \
     && apk add --no-cache -U redis \
     && chmod +x -R /usr/local/bin/run.sh /etc/s6.d
+
 CMD ["run.sh"]
