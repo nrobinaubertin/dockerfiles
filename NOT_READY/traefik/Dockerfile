@@ -13,9 +13,10 @@ WORKDIR /traefik
 COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 COPY traefik.toml /config/traefik.toml
+COPY logrotate.conf /config/logrotate.conf
 
 RUN set -xe \
-    && apk add --no-cache sed openssl curl jq util-linux bash \
+    && apk add --no-cache sed openssl curl jq util-linux bash logrotate \
     && apk add --no-cache --virtual .build-deps wget ca-certificates \
     && wget -qO /usr/local/bin/dumpcerts.sh https://github.com/containous/traefik/blob/${TRAEFIK_VERSION}/contrib/scripts/dumpcerts.sh \
     && wget -qO /usr/local/bin/traefik https://github.com/containous/traefik/releases/download/${TRAEFIK_VERSION}/traefik_linux-amd64 \
