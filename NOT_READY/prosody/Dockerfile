@@ -14,6 +14,7 @@ VOLUME ["/data"]
 
 COPY s6.d /etc/s6.d
 
+WORKDIR /prosody
 RUN set -xe \
     && apk add --no-cache openssl lua5.2-dbi-sqlite3 \
     && apk add --no-cache --virtual .build-deps mercurial ca-certificates \
