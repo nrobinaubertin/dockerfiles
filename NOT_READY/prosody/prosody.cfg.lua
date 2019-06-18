@@ -36,7 +36,7 @@ VirtualHost "<DOMAIN>"
     enabled = true
     http_host = "<DOMAIN>"
 
--- plugin_paths = { "/prosody_modules" }
+plugin_paths = { "/prosody/plugins" }
 modules_enabled = {
 
     -- OMEMO support (https://serverfault.com/questions/835635/what-prosody-modules-do-i-need-to-support-conversations)
@@ -90,6 +90,7 @@ modules_enabled = {
 modules_disabled = {
     -- "c2s" -- Handle client connections
     -- "s2s" -- Handle server-to-server connections
+    "posix";
 }
 
 -- For advanced logging see http://prosody.im/doc/logging

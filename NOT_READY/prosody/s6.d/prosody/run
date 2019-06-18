@@ -1,2 +1,5 @@
 #!/bin/sh
-exec /prosody/prosody
+export LUA_PATH="/prosody/?.lua;;"
+export LUA_CPATH="/prosody/?.so;;"
+cd /prosody || exit
+exec ./prosody
