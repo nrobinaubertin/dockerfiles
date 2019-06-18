@@ -42,8 +42,8 @@ modules_enabled = {
     -- OMEMO support (https://serverfault.com/questions/835635/what-prosody-modules-do-i-need-to-support-conversations)
     "proxy65"; -- https://prosody.im/doc/modules/mod_proxy65
     "blocklist"; -- https://prosody.im/doc/modules/mod_blocklist
-    "cloud_notify"; -- https://modules.prosody.im/mod_cloud_notify.html
     "carbons"; -- https://prosody.im/doc/modules/mod_carbons
+    "cloud_notify"; -- https://modules.prosody.im/mod_cloud_notify.html
     "smacks"; -- https://modules.prosody.im/mod_smacks.html
     "mam"; -- https://modules.prosody.im/mod_mam.html
     "csi"; -- https://modules.prosody.im/mod_csi

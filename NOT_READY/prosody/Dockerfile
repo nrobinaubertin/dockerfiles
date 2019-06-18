@@ -1,7 +1,8 @@
-FROM alpine:3.8
+FROM alpine:3.9
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
+ARG PROSODY_VERSION=0.11.2
 ENV UID=791 GID=791
 ENV DOMAIN=localhost
 ENV HTTP_UPLOAD_FILE_SIZE_LIMIT=1024*1024*10
@@ -14,14 +15,15 @@ VOLUME ["/data"]
 COPY s6.d /etc/s6.d
 
 RUN set -xe \
-    && apk add --no-cache prosody openssl lua5.2-dbi-sqlite3 \
+    && apk add --no-cache openssl lua5.2-dbi-sqlite3 \
     && apk add --no-cache --virtual .build-deps mercurial ca-certificates \
+    && wget -qO- https://prosody.im/downloads/source/prosody-${PROSODY_VERSION}.tar.gz | tar xz --strip 1 \
     && hg clone https://hg.prosody.im/prosody-modules/ /prosody_modules \
+    && mkdir -p /usr/lib/prosody/modules \
     && find /prosody_modules -name "*.lua" -exec cp {} /usr/lib/prosody/modules/ \; \
 	&& rm -rf /prosody_modules \
     && apk del .build-deps
 
-COPY mod_register.lua /usr/lib/prosody/modules/mod_register.lua
 COPY run.sh /usr/local/bin/run.sh
 COPY prosody.cfg.lua /etc/prosody/prosody.cfg.lua
 RUN chmod -R +x /usr/local/bin /etc/s6.d /usr/lib/prosody/modules
