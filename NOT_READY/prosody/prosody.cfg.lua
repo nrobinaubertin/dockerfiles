@@ -27,9 +27,9 @@ sql = {
 }
 
 ssl = {
-    certificate = "/data/certs/cert.pem";
-    key = "/data/certs/key.pem";
-    protocol = "sslv3+"
+    certificate = "<SSL_CERT>";
+    key = "<SSL_KEY>";
+    protocol = "tlsv1+"
 }
 
 VirtualHost "<DOMAIN>"
