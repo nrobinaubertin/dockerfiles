@@ -20,6 +20,9 @@ sed -i -e "s|<DOMAIN>|${DOMAIN}|g" \
        -e "s|<HTTP_UPLOAD_EXPIRE_AFTER>|${HTTP_UPLOAD_EXPIRE_AFTER}|g" \
        -e "s|<SSL_CERT>|${SSL_CERT}|g" \
        -e "s|<SSL_KEY>|${SSL_KEY}|g" \
+       -e "s|<ADMIN_EMAIL>|${ADMIN_EMAIL}|g" \
+       -e "s|<ADMIN_XMPP>|${ADMIN_XMPP}|g" \
+       -e "s|<MUC_SUBDOMAIN>|${MUC_SUBDOMAIN}|g" \
        -e "s|<HTTP_UPLOAD_QUOTA>|${HTTP_UPLOAD_QUOTA}|g" /prosody/prosody.cfg.lua
 
 chown -R "${UID}:${GID}" /etc/s6.d /data /prosody
