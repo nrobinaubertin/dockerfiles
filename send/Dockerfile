@@ -27,7 +27,7 @@ FROM node:10-alpine
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG SEND_VERSION=v3.0.9
+ARG SEND_VERSION=v3.0.12
 
 ENV UID=791 GID=791
 

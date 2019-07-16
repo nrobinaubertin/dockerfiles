@@ -20,9 +20,9 @@ RUN set -xe \
     && apk add --no-cache php7-fpm php7-session php7-ctype php7-dom php7-simplexml php7-json php7-gd php7-mbstring php7-xml php7-tidy php7-iconv php7-curl php7-gettext php7-tokenizer php7-bcmath php7-pdo_sqlite php7-phar php7-openssl php7-zlib \
     && apk add --no-cache --virtual .build-deps git tar openssl ca-certificates wget make php7 bash php7-xmlreader php7-amqp php7-sockets \
     && wget -qO- https://github.com/wallabag/wallabag/archive/${WALLABAG_VERSION}.tar.gz | tar xz --strip 1 \
-    && wget -qO- http://getcomposer.org/installer | php \
+    && wget -qO- https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
-    && echo "    secret : $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n1)" >> /wallabag/parameters.yml \
+    && echo "    secret : $(tr -dc 'a-zA-Z0-9' </dev/urandom | head -c 50)" >> /wallabag/parameters.yml \
     && mv parameters.yml /wallabag/app/config/parameters.yml \
     && composer install \
     && sed -i 's|IGNORE_ROOT=0|IGNORE_ROOT=1|g' scripts/install.sh \
