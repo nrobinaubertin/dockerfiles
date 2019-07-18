@@ -1,0 +1,1195 @@
+<html>
+    <head>
+        <title>UT2004: weapons</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/global.css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>Weapons</h1>
+            <p class=quote>Try turning the safety off!- Blackjack</p>
+            <p>In case you're new to the Unreal franchise: every weapon in the game has 2 
+                methods of firing. They have only changed a small bit since UT2003, but we'll 
+                discuss this in a moment. First we have some global properties:</p>
+            <ul>
+                <li>the option <i>'weapons stay'</i> makes that if you pick up a weapon, a copy 
+                    will spawn immediately. You can't pick up aweapon from a spawn spot if you 
+                    already posses it, but you can throw away your weapon and then pick it up 
+                    (<i>eg. when you have less ammo than what you start with</i>)</li>
+                <li>weapons that are thrown away will disappear after 10 seconds (this includes 
+                    the weapon you drop when you die)</li>
+                <li>damage is independent from the distance: every bullet or projectile will 
+                    deal just as much damage from far away as from close by, as long as the player 
+                    there's a hit.</li>
+                <li>it doesn't matter where a player is hit on his body. The only exception 
+                    is the headshot: you'll deal twice the damage if you can hit someone's head 
+                    with the <a href="weapons.html#LightningGun">lightning gun</a> or <a href="weapons.html#SniperRifle">sniper 
+                        rifle</a>.<br>
+                </li>
+                <li>besides damage, weapons also make sure that the victims are pushed aside 
+                    to some extend. This property is called momentum, and it can be a big difference 
+                    in <a href="ons_combat.html">infantry vs vehicle combat</a>.</li>
+                <li>momentum is an important factor on levels with death zones, because in this 
+                    game you are awarded the frag when you push someone over the edge.</li>
+                <li>it takes 0.5 second to switch to another weapon, which is about the same 
+                    speed as in Quake 3. Use this property to get <a href="predictions.html#Health">the 
+                        right weapon for the right job</a>. </li>
+                <li>superweapons and power-ups spawn 27.5 seconds after the beginning of the 
+                    game</li>
+                <li>some weapons can be charged (<a href="weapons.html#BioRifle">bio rifle</a> 
+                    and <a href="weapons.html#RocketLauncher">rocket launcher</a>). While 
+                    charging up you can't switch to another weapon. If you do, the weapon switch 
+                    will wait until the weapon fires.</li>
+            </ul>
+            <p>Update: I got by the damage results partially by searcing in the source code 
+                and partially by shooting an empty leviathan (FF on). Just recently, Spineblaze 
+                pointed me to <a href="http://gra.midco.net/thenut/weapons.html">his page</a> 
+                on damage charts, which I used it to fill in some uncertainties. Boksha's explanation 
+                of the shieldgun mechanics is also used (source: <a href="http://www.ataricommunity.com/forums/showthread.php?s=79ae35583aba5fb59df8ea3bf45d4844&threadid=433102">INA 
+                    forums</a>).</p>
+            <h2><a name="Shieldgun"></a>Shieldgun</h2>
+            <p>Your basic melee weapon; every player starts out with it. It can be used to 
+                pound enemies into oblivion, make big jumps or prevent  incoming damage.<br>
+                <b>Prim fire</b>: holding down this button charges the weapon; upon contact 
+                with an enemy, it is automatically fired...<i>if</i> you can get close enough...<br>
+                <b>Alt fire</b>: it's this modus that gives the weapon its name: holding alt 
+                fire will place a shield in front of the player. This shield blocks a part of 
+                the damage and can even deflect shock rifle and link gun primary. The shield 
+                isn't permanent: there's a meter that runs back from 100 while the weapon is 
+                active (5.5 ammo/second). It also takes 15 ammo to set up the shield, and each 
+                damage point it stops costs an additional 0.5 shieldgun ammo...and the double 
+                if you carry the flag. The meter charges back up to 100 if the shield isn't 
+                used (5.5 ammo/second).<br>
+                <b>Usage:</b> this can be a good weapon in the hands of someone who knows how 
+                to move. But still...it's a weapon that relies on stealth and speed, which can 
+                only be safe to use in close quarters.<br>
+                The shield is unique in the fact that it's the only weapon that is purely defensive, 
+                which is absolutely usefull in a lot of circumstances. Remember that <i>all 
+                    kinds</i> of damage are reduced, even falling damage. If you fall down from 
+                high above, you can switch to this weapon, look down, and hold down alt fire 
+                to reduce the falling damage.<br>
+                Don't forget about your shield when you respawn in front of a fully armed enemy; 
+                in combination with the spawn protection is it all you need to get out of sight.</p>
+            <p><b>Remarks:</b></p>
+            <ul>
+                <li>there are a lot of good jump techniques with this weapon; check <a href="movement.html#Shieldgun">here</a> 
+                    for more details</li>
+                <li>the shieldgun is rarely the preffered weapon; go search for a better one 
+                    as fast as you can.</li>
+                <li>don't try to get a shieldgun kill if you know your opponent has a flak cannon</li>
+                <li>don't try to hit someone you know is wearing an armor: you'll have to hit 
+                    your prey twice, which is also twice as hard</li>
+                <li>you can't charge the weapon and use the shield at the same time</li>
+                <li>when playing on a server with high ping, it's possible the shieldgun automatically 
+                    fires when you're close to an enemy, yet you still misses him/her. This is 
+                    caused by a flaw in the network code </li>
+            </ul>
+            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                <tr>  <th width=227">Shield gun</th>
+                    <th width=228">Primary fire</th>
+                    <th width=228">Alt fire</th>
+                </tr>
+                <tr> 
+                    <td width=227">Damage/hit</td>
+                    <td width=228">40-&gt;150 (self: 20-&gt;45)</td>
+                    <td width=228">-</td>
+                </tr>
+                <tr>
+                    <td width=227">Rate of fire [bullets/sec]</td>
+                    <td width=228">Continuous</td>
+                    <td width=228">-</td>
+                </tr>
+                <tr>
+                    <td width=227">Spread</td>
+                    <td width=228">-</td>
+                    <td width=228">-</td>
+                </tr>
+                <tr>
+                    <td width=227">splash damage</td>
+                    <td width=228">small</td>
+                    <td width=228">-</td>
+                </tr>
+                <tr>
+                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                    <td width=456 colspan=2">100 (alt fire, replenishes automatically when not used)</td>
+                </tr>
+            </table>
+            <h2><a name="Translocator"></a>Translocator</h2>
+            <p align="left">The translocator is a portable teleporter. It comes with a throwable disc that serves as the destination point. If you transport yourself into an enemy, you'll score a frag no matter what the other player's health is. Still, this device  isn't so much a weapon, but more a means of transportation (familiars with  UT99 or UT2003 already know the impact of the translocator on the gameplay). This technique is discussed <a href="movement.html#Translocator">on this page</a>. Advanced possibilities for CTF are discussed in the <a href="ctf_guide.html#Translocator">CTF guide</a>. Here, we'll just consider the overall posibilities of the weapon. <br>
+                <b>Prim fire</b>: throws the disc, or retrieves it when it's already out. Broken translocators can't be retrieved.<br>
+                <b>Alt fire</b>: attempts to transport yourself to the disc. If there isn't enough room 
+                to transport to (or when you try to transport into a team member), you'll hear a beep and the disc is retrieved.<br>
+                <strong>Camera:</strong> if you press the translocator button while the disc is fired (Q by default), you will activate the disc's camera. This is a screen-filling image of the disc's point of view. It can be used to watch out for enemies or to time the location of the translocation better (press - in succession - prim fire, the camera button and alt fire).<br>
+                <strong>Last weapon:</strong>If 
+                you hold down alt fire while translocating and then press prim fire, you'll 
+                switch back to your last held weapon.
+                <p align="left">  <b>Remarks:</b>
+                    <ul>
+                        <li>by default, players only spawn with translocators in CTF and BR. It can't be found as a pickup weapon</li>
+                        <li>by default,  throwing the ball in BR will drain the translocator (more details in the <a href="br_guide.html#Basics">BR guide</a>). </li>
+                        <li>translocating into an enemy results in a frag, no matter what the health 
+                            and armor of the player.</li>
+                        <li>discs can be shot down with a couple shots. Trying to translocate into a broken disc results in an immediate telefrag </li>
+                        <li>the camera can reveal wether the disc is destroyed: the disc is broken if 
+                            there are sparks showing on the screen.</li>
+                        <li>you can choose to throw the disc either in an arc or in a straight line. 
+                            You do this by going to <span class="setting">Settings-Game-High beam trajectory</span> (on or off)</li>
+                        <li>translocating keeps all momentum you had from before -&gt; you can't use it to save yourself from falling to your death <br>
+                            <br>
+                        </li>
+                    </ul>
+                    <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                        <tr> 
+                            <th width=227">Translocator</th>
+                            <th width=228">Primary fire</th>
+                            <th width=228">Alt fire</th>
+                        </tr>
+                        <tr> 
+                            <td width=227">Damage/hit</td>
+                            <td width=228">infinite</td>
+                            <td width=228">-</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Rate of fire [bullets/sec]</td>
+                            <td width=228">-</td>
+                            <td width=228">-</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Spread</td>
+                            <td width=228">-</td>
+                            <td width=228">-</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">splash damage</td>
+                            <td width=228">-</td>
+                            <td width=228">-</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                            <td width=456 colspan=2">6 (auto replenishes at a rate of 0.5 ammo/second)</td>
+                        </tr>
+                    </table>
+                    <h2><a name="AssaultRifle"></a>Assault rifle</h2>
+                    <p>Your main starting weapon in the game. It handles as a light variant of the 
+                        minigun, since it shoots fast bullets. In contradiction to the other weapons 
+                        is the alt fire a way to shoot that is completely different from the prim fire: 
+                        it throws grenades.<br>
+                        <b>Prim. fire</b>: shoots trace-hit bullets in rapid succession, but these spread 
+                        out a lot and do only minimal damage<br>
+                        <b>Alt fire</b>: throws a grenade, alternating from the left and right. The 
+                        longer you hold the button, the further away you throw them. They bounce back 
+                        from walls and explode on contact with players.<br>
+                        <b>Usage:</b> both fire modes of this weapon are weak: the bullets don't do 
+                        enough damage and are only usefull at very close range because of the spread. 
+                        The grenades, on the other hand, are too small and are too easy to avoid.<br>
+                        But there's one advantage to the thing: you can switch between prim and alt 
+                        fire extremely fast. Hold down prim fire while you run into an opponent and 
+                        throw a grenade once you're close enough to hit him / her with it.<br>
+                        <b>Remarks</b>:</p>
+                    <ul>
+                        <li>get another weapon as soon as possible</li>
+                        <li>the first shot of prim fire fires directly at the crosshair. Using short 
+                            bursts of fire instead of holding the button might therefore be preferred 
+                            if your opponent is at long distance.<br>
+                        </li>
+                    </ul>
+                    <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                        <tr> 
+                            <th width=227">Assault Rifle</th>
+                            <th width=228 colspan=2">Primary fire</th>
+                            <th width=228 colspan=2">Alt fire</th>
+                        </tr>
+                        <tr> 
+                            <td width=227">Damage/hit</td>
+                            <td width=228 colspan=2">7</td>
+                            <td width=228 colspan=2">67-&gt;69</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Rate of fire [bullets/sec]</td>
+                            <td width=228 colspan=2">6,9</td>
+                            <td width=228 colspan=2">1,1</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Spread</td>
+                            <td width=228 colspan=2">large</td>
+                            <td width=228 colspan=2">small</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">splash damage</td>
+                            <td width=228 colspan=2">-</td>
+                            <td width=228 colspan=2">medium</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                            <td width=152">100 / 4</td>
+                            <td width=152 colspan=2">50 / 4</td>
+                            <td width=152">200 / 8</td>
+                        </tr>
+                    </table>
+                    <h2><a name="DualAssaultRifle"></a>Dual Assault rifle</h2>
+                    <p>Yes, it's possible to wield two assault rifles at once! Some custom maps feature 
+                        assault rifle pickup spots, but the most likely way to get this is to kill someone 
+                        that carries an assault rifle. Dual assault rifles increases the maximum ammo 
+                        and firing rate of prim fire. Unfortunately, grenades haven't changed.<br>
+                        <b>Prim. fire</b>: the same as the assault rife, but the rate of fire is almost 
+                        doubled<br>
+                        <b>Alt fire</b>: the same as assault rifle alt fire<br>
+                        <b>Usage</b>: even with two assault rifles, the other weapons are usually the 
+                        better choice. </p>
+                    <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                        <tr> 
+                            <th width=227">Dual Assault rifle</th>
+                            <th width=228 colspan=2">Primary fire</th>
+                            <th width=228 colspan=2">Alt fire</th>
+                        </tr>
+                        <tr> 
+                            <td width=227">Damage/hit</td>
+                            <td width=228 colspan=2">7</td>
+                            <td width=228 colspan=2">67-&gt;69</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Rate of fire [bullets/sec]</td>
+                            <td width=228 colspan=2">12,5</td>
+                            <td width=228 colspan=2">1,1</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Spread</td>
+                            <td width=228 colspan=2">large</td>
+                            <td width=228 colspan=2">small</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">splash damage</td>
+                            <td width=228 colspan=2">-</td>
+                            <td width=228 colspan=2">medium</td>
+                        </tr>
+                        <tr> 
+                            <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                            <td width=152">?</td>
+                            <td width=152 colspan=2">50/40</td>
+                            <td width=152">400/16</td>
+                        </tr>
+                    </table>
+                    <h2><a name="BioRifle"></a>Bio rifle</h2>
+                    <p>This is a tactical weapon. It shoots balls of slime that explode on contact 
+                        with players. On a miss, the slime will remain on the floor/wall/ceiling/whatever 
+                        for a couple seconds, after which it will explode. The slime will also explode 
+                        if an explosive weapon is shot at it.<br>
+                        <b>Prim fire</b>: shoots small slime bullets<br>
+                        <b>Alt fire</b>: charges the gun up. If the button is released, the gun shoots 
+                        a big and very deadly blubber. If it hits the scenery, it bursts open to 9 smaller 
+                        cells.<br>
+                        <b>Usage</b>: the projectiles shoot slowly and can easily be avoided. These 
+                        are serious disadvantages, but if you can maintain your surprise element, this 
+                        weapon can be as good as any other. Never run around with this thing without 
+                        charging it up. Search for duelling opponents and throw the big ball in the 
+                        center of the fight. Since these opponents are focussing on each other, there's 
+                        a good chance one of them will accidentaly step into your trap.<br>
+                        In 1on1 situations is this weapon only usefull in small areas: try to cover 
+                        the floor with slime rather than trying to hit your opponent with bullets. Exploding 
+                        slime causes a chain reaction: it detonates all slime in the area, so opponents 
+                        can get killed by just stepping on one small bubble.<br>
+                        Don't throw the stuff everywhere; make sure you don't corner yourself: leave 
+                        an escape route for yourself.<br>
+                        <p>The bio rifle is the weapon of choice when it comes to delay your opponents 
+                            rather than killing them.<br>
+                            If you shoot <i>directly</i> at the floor while running, the balls will drop 
+                            behind you.<br>
+                            <b>Remarks</b>: 
+                            <ul>
+                                <li>Never use this weapon in big, open areas. Your enemies will just increase 
+                                    the distance between you while returning fire</li>
+                                <li>Slime doesn't float in water anymore</li>
+                                <li>You can use the bio rifle for <a href="movement.html#Other">goo jumps</a><br>
+                                </li>
+                                <li>the many meshes, pipes, rocks and other irregularities in walls are a curse 
+                                    for big slime balls. If you accidentaly shoot the ball in there, it won't 
+                                    burst open in many small parts.<br>
+                                </li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Bio rifle</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">20-&gt;39</td>
+                                    <td width=228 colspan=2">19-&gt;219</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">3,33</td>
+                                    <td width=228 colspan=2">10 balls after 4 seconds</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">small</td>
+                                    <td width=228 colspan=2">large</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">small</td>
+                                    <td width=228 colspan=2">medium-&gt;large</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">20</td>
+                                    <td width=152 colspan=2">20</td>
+                                    <td width=152">50</td>
+                                </tr>
+                            </table>
+                            <h2><a name="ShockRifle"></a>Shock rifle</h2>
+                            <p>This weapon is usefull both on short, long and intermediate distances. This 
+                                makes it a great all-terrain weapon, though specialized weapons are better at 
+                                their territory.<br>
+                                <b>Prim fire</b>: shoots a blue trace-hit beam. Note that this doesn't <i>appear</i> 
+                                to be trace-hit, but the beam gets drawn <i>after</i> the arrival of the damage<br>
+                                <b>Alt fire</b>: shoots a kind of bubble that isn't too easy to avoid.<br>
+                                <b>Combo</b>: hit one of the bubbles with prim fire and the thing will explode, 
+                                damaging everything in the area. You can even make a frag by hitting a bubble 
+                                of your opponent. Beware: a combo takes 5 ammo, but can still be executed if 
+                                you have between 2 and 4 ammo.<br>
+                                <b>Usage</b>: never forget that there are 3 ways to use the weapon; if there's 
+                                someone right next to you, you shouldn't go for that combo move (some on-line 
+                                players never miss a combo, but are clueless against a shieldgun whore). Snipe 
+                                when they are far away, spam the bubbles at close range, and use the combo's 
+                                for mid-range.<br>
+                                Since UT99 deals the weapon less damage on all parts, but the rate of fire is 
+                                increased.<br>
+                                The combo is kinda hard to get used to, because it requires a good aim. When 
+                                using fixed aim, it's not that hard though (full combo trick guide not yet translated).<br>
+                                Combo's can be executed in fast succession. In the ideal situation the passageway 
+                                is small so no one can pass you, or avoid it. Furthermore, it's one of the few 
+                                ways to take out enemies behind the corner.<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>ammo is very important for the good use of this weapon, due to the huge 
+                                    ammo-usage of the combo</li>
+                                <li>never follow someone with a shock rifle behind a corridor, especially not 
+                                    on-line: those people will await you with a shock combo</li>
+                                <li>the bubble can block rockets, goo and flak grenades</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Shock rifle</th>
+                                    <th width=232">Primary fire</th>
+                                    <th width=232">Alt fire</th>
+                                    <th width=232">Combo</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=232">45</td>
+                                    <td width=232">45</td>
+                                    <td width=232">up to 191(200 in center?)</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=232">1,61</td>
+                                    <td width=232">2,95</td>
+                                    <td width=232">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=232">-</td>
+                                    <td width=232">-</td>
+                                    <td width=232">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=232">-</td>
+                                    <td width=232">small</td>
+                                    <td width=232">large</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=232">20</td>
+                                    <td width=232">10</td>
+                                    <td width=232">50</td>
+                                </tr>
+                            </table>
+
+                            <h2><a name="LinkGun"></a>Link gun</h2>
+                            <p>This green plasma gun was introduced in UT2003, but it handles just like UT99's 
+                                pulse gun, except in team games.<br>
+                                <b>Prim fire</b>: shoots small, easily avoidable plasma cells. Their rate of 
+                                fire is high, so you can endanger big area's fast.<br>
+                                <b>Alt fire</b>: shoots a continuous green beam (hold down the button). In contradiction 
+                                to the minigun is this beam 100% accurate, so the preferred weapon choice for 
+                                people that are good at following their target with the mouse. To make things 
+                                worse for enemies is the fact that the beam has a negative momentum: it hinders 
+                                your opponent's movement and dodge capacities.<br>
+                                In onslaught has the link gun an important extra function: it can repair <a href="ons_position.html#Node">nodes</a> 
+                                and vehicles, and decreases the buildtime of nodes under construction. Remember 
+                                that linking up with teammates increases the power more than 2 individual beams, 
+                                so keep an eye out for other linking players. <br>
+                                <b>Linking up</b>: if you 'shoot' at your team mates with link gun alt fire 
+                                while they are carrying a link gun as well, you'll establish a link between 
+                                the two of you. This gives a bonus to the damage of the other team mate, causing 
+                                him/her to deal more damage <i>and to build/repair stuff faster!<br>
+                                </i>It's not that easy to tell how much that bonus is exactly, because link 
+                                chains can consist of more than 2 players.<br>
+                                For prim fire, the formula is as follows: <font color="#008000">damage/hit=( 
+                                    1+ amount of linked players) * damage</font><br>
+                                For alt fire, the formula comes down to: <font color="#008000">damage/second=(1+1.5 
+                                    * amount of linked players) * damage/second</font><br>
+                                <b>Usage</b>: this is a weapon that can only be used in close to medium range. 
+                                Mix up the two firemodes: use prim fire if the opponent is avoiding you, to 
+                                have more chance to hit him / her. If that opponent then tries to avoid these 
+                                plasma bullets, use the alt fire.<br>
+                                Avoid this weapon to destroy enemies in onslaught; it's better save the ammo 
+                                for nodes and vehicles.<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>prim fire costs 2 ammo per shot</li>
+                                <li>the alt fire beam is limited in length! You can't use it on enemies at far 
+                                    range </li>
+                                <li>the green glow of the plasma betrays your location pretty well</li>
+                                <li> the 'saw'-technique from UT99 doesn't work anymore; moving back and forth 
+                                    while you're targetting your foe won't give a damage bonus anymore</li>
+                                <li>as soon as you've established a link with a teammate, this link stays connected 
+                                    until you turn 30&deg; away from him/her, or until you stop firing</li>
+                                <li>the negative momentum the link beam comes in handy when facing flag carriers 
+                                    or ball runners.</li>
+                                <li>linking up doesn't save or waste ammo: linkers don't lose ammo while mere 
+                                    keeping the link alive. As soon as the 'leader' of the link fires, all participants 
+                                    lose the same amount of ammo</li>
+                                <li>the double damage gets calculated <i>after</i> the calculation of the linking 
+                                    up; it's not important who among the chain has the thing. This means that 
+                                    2 people sharing a link and a single damage amp deal (2*30) *2 =120 damage/hit 
+                                    on an infantry</li>
+                                <li>it doesn't matter how the people in the link chain are linked up (daisy 
+                                    chain or HUB setup); these all give the front player the same bonus</li>
+                                <li>the alt fire seems continuous, but it only deals 9 damage every 0.109 seconds<br>
+                                </li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Link gun</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">30; 20 on vehicles</td>
+                                    <td width=228 colspan=2">9</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">5.55</td>
+                                    <td width=228 colspan=2">0.109 (87.6 damage/second)</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">low</td>
+                                    <td width=228 colspan=2">- (lenght of the beam: 1100 units)</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">70</td>
+                                    <td width=152 colspan=2">50</td>
+                                    <td width=152">220</td>
+                                </tr>
+                            </table>
+                            <h2><a name="Minigun"></a>Minigun</h2>
+                            <p>The classic spray-weapon: holding the button fires bullets.<br>
+                                <b>Prim fire</b>: shoots trace-hit bullets, with quite a lot of spread on the 
+                                bullets<br>
+                                <b>Alt fire</b>: shoots explosive bullets (no splash damage though). The rate 
+                                of fire is slower, but more focussed on the center; bullets do more damage per 
+                                bullet<br>
+                                <b>Usage</b>: the prim fire is the best choice for close range, as it deals 
+                                the most damage per second. Alt fire is better over longer distances, because 
+                                it has less spread.<br>
+                                Both ways have a charge time: it takes a short time for the gun to start/stop 
+                                spinning whenever you open / cease Fire.<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>this is a good finishing weapon: if you have damaged your opponent hard 
+                                    with something (eg a sniper rifle), you can switch to this weapon to drain 
+                                    out the last of their health</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Minigun</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">7-&gt;8</td>
+                                    <td width=228 colspan=2">14-&gt;16</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">15 (after 0.27 sec)</td>
+                                    <td width=228 colspan=2">5 (after 0.15 sec)</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">medium</td>
+                                    <td width=228 colspan=2">very small</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">150</td>
+                                    <td width=152 colspan=2">50</td>
+                                    <td width=152">300</td>
+                                </tr>
+                            </table>
+                            <h2><a name="FlakCannon"></a>Flak cannon</h2>
+                            <p>Is an enemy bothering you over a short distance? Use this weapon and it will 
+                                soon be a thing of the past.<br>
+                                <b>Prim fire</b>: fires 9 shards that spread out and bounce back (once) from 
+                                walls and ceilings. Each shard deals 13 damage on impact. Beware of this, or 
+                                kill yourself if you're not carefull enough<br>
+                                <b>Alt fire</b>: throws a grenade that explodes on impact. This impact causes 
+                                splash damage and bursts open in 6 shards. The grenade comes down due to gravity 
+                                very fast.<br>
+                                <b>Usage</b>: this weapon is extremely powerfull at close range; either by sneaking 
+                                up on someone, or just moving closer can result in a quick frag. The rate of 
+                                fire is kinda slow though, and the damage from the weapon can kill yourself 
+                                easily. Also: at point blank, enemies don't have to move much to get away from 
+                                your crosshair, so you'll need some good reflexes.<br>
+                                Yet this is the weapon that deals the most damage per second of the normal weapons, 
+                                and it's a popular weapon (especially in narrow levels).<br>
+                                The use of the alt fire resembles passing a volleybal: the further away your 
+                                opponent is, the <i>higher</i> you'll have to lead to hit him/her (the crosshair 
+                                is almost useless for firing the flak cannon).<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>it's a very convenient weapon to block a passage in narrow corridors</li>
+                                <li>the weapon doesn't come with much ammo, but the low rate of fire makes up 
+                                    for this</li>
+                                <li>flak grenades drop down as soon as they come in contact with water.</li>
+                                <li>bots are too good with this weapon; they never accidentally turn too far, 
+                                    and their reflexes are too good to be human. Stay at a distance against these 
+                                    guys</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Flak cannon</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">9*13</td>
+                                    <td width=228 colspan=2">90+6*13</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">1.23</td>
+                                    <td width=228 colspan=2">1</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">medium-&gt;high</td>
+                                    <td width=228 colspan=2">small</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">- (shards don't deal splash damage)</td>
+                                    <td width=228 colspan=2">medium</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">15</td>
+                                    <td width=152 colspan=2">10</td>
+                                    <td width=152">35</td>
+                                </tr>
+                            </table>
+                            <h2><a name="RocketLauncher"></a>Rocket launcer</h2>
+                            <p>All First Person Shooters come with a rocket launcher these days, and UT2004 
+                                is not an exception.<br>
+                                <b>Prim fire</b>: shoots rockets that can be avoided reasonably. Luckily, rockets 
+                                provide some splash damage on impact.<br>
+                                The weapon also has an 'autolock' function: if you can hold your cursor over 
+                                your opponent for a few seconds, you'll hear a beep. If you then shoot a rocket 
+                                (or start loading them with alt fire), they will bend toward the unfortunate 
+                                victim. This applies for vehicle drivers as well, though <a href="weapons.html#AVRiL">AVRiL's</a> 
+                                are a better choice there.<br>
+                                <b>Alt fire</b>: by holding down alt fire, you'll charge up to 3 rockets, which 
+                                will be shot when you release the button. At this point, the loaded rockets 
+                                fly next to each other toward their goal.<br>
+                                <b>Combo</b>: if you press prim fire while holding alt fire, the rockets will 
+                                have a different trajectory: they will whirl around each other when flying<br>
+                                <b>Usage</b>: of all the weapons, this one needs the most leading in order to 
+                                make a hit. Luckily, the spash damage makes up for this inconvenience. Alt fire 
+                                is preferred mostly: shooting more rockets lessens the chance of avoidance. 
+                                I advice a 'normal' launch if your opponent goes from side to side from you, 
+                                and a combo when he/she is avoiding you, or when he/she is close by.<br>
+                                You can't really count on the 'autolock' feature: the rockets don't turn very 
+                                good, so they are barely harder to avoid. Autolock is a better option in low 
+                                gravity...<i>if</i> you insist in using the rocket launcher there<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>You can't throw away your rocket launcer while loading rockets</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Rocket launcer</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">80-&gt;88</td>
+                                    <td width=228 colspan=2">80-&gt;88 per hit</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">1.25</td>
+                                    <td width=228 colspan=2">1.07</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">medium</td>
+                                    <td width=228 colspan=2">medium-&gt;high</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">12</td>
+                                    <td width=152 colspan=2">9</td>
+                                    <td width=152">30</td>
+                                </tr>
+                            </table>
+                            <h2><a name="LightningGun"></a>Lightning Gun</h2>
+                            <p>Introduced in UT2003 and heavily tweaked in UT2004: a sniper rifle that shoots 
+                                lightning bolts.<br>
+                                <b>Prim fire</b>: shoots a trace-hit lightning bolt that gives a little splash 
+                                damage to whatever comes near it. If you can hit someone in the head this way, 
+                                you will score twice the damage (=headshot). It also spawns a few 'child bolts' 
+                                directly next to the area of impact. These are random, and the chance of hitting 
+                                someone (let alone <i>two</i> players) is minimal. The damage of these things 
+                                isn't clear (check <a href="http://forums.beyondunreal.com/showthread.php?t=168331">this 
+                                    thread</a> for opinions).<br>
+                                <b>Alt fire</b>: a zoom that focusses your view approximately 11.5 times. A 
+                                second 'shot' brings your vision back to normal<br>
+                                <b>Usage</b>: like any sniper rifle, the lightning gun is made for long range 
+                                fire or for quick attacks against unsuspecting victims. The bolt betrays your 
+                                position, so hiding isn't a good idea with this thing.<br>
+                                Remember that the headshot-part of a player is small...very small. Don't feel 
+                                frustrated when it seems like you hit someone straight between the eyes and 
+                                it doesn't pull off a headshot...That's just the way it is. Luckily, the weapon 
+                                deals a good 70 damage on its own...<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>the zoom might be beautifull, but it's a disadvantage to keep an eye on 
+                                    the environment. Choose a good crosshair for it to be able to aim without 
+                                    zoom if your enemy is close by</li>
+                                <li>lightning gun+invisibility=dangerous situation for enemies</li>
+                                <li>unlike in 'Realistic Shooters', running around doesn't affect your aim at 
+                                    all: you <i>always </i> shoot directly at your crosshair.</li>
+                                <li>ammo is rarely a problem, since you really shouldn't spam with this weapon</li>
+                                <li>enemies in a small corridor are easier targets than the same ones in open 
+                                    ground</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Lightning gun</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">70 (headshot: 140)</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">0.71</td>
+                                    <td width=228 colspan=2">Zoom</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">small</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">15</td>
+                                    <td width=152 colspan=2">10</td>
+                                    <td width=152">40</td>
+                                </tr>
+                            </table>
+                            <h2><a name="SniperRifle"></a>Sniper rifle</h2>
+                            <p>This weapon makes its return since UT99: the classic sniper rifle<br>
+                                <b>Prim fire</b>: shoots a trace-hit bullet. It can also be used to make headshots 
+                                (check the info on the <a href="weapons.html#LightningGun">lightning gun</a>)<br>
+                                <b>Alt fire</b>: a zoom that focusses approx. 11.5 times. A second 'shot' brings 
+                                the field of vision back to normal<br>
+                                <b>Usage</b>: even though this weapon works similar to the lightning gun, there 
+                                are a couple differences.<br>
+                                The most important one is the fact that snipers are much harder to trace: only 
+                                a small smoke flare betrays the position of the sniper.<br>
+                                The second difference is that the zoom has less 'eye candy' in it, so it's better 
+                                suited to overview the area.<br>
+                                Finally: the sniper rifle deals only 60 damage.<br>
+                                <b>Remarks</b>:</p>
+                            <ul>
+                                <li>same as the remakrs on the <a href="weapons.html#LightningGun">lightning 
+                                        gun</a></li>
+                                <li>the smoke flare obscures your vision, but it clears up as soon as you move 
+                                    even the smallest bit</li>
+                            </ul>
+                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                <tr> 
+                                    <th width=227">Sniper rifle</th>
+                                    <th width=228 colspan=2">Primary fire</th>
+                                    <th width=228 colspan=2">Alt fire</th>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Damage/hit</td>
+                                    <td width=228 colspan=2">60 (headshot: 120)</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                    <td width=228 colspan=2">0.85</td>
+                                    <td width=228 colspan=2">Zoom</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Spread</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">splash damage</td>
+                                    <td width=228 colspan=2">-</td>
+                                    <td width=228 colspan=2">-</td>
+                                </tr>
+                                <tr> 
+                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                    <td width=152">15</td>
+                                    <td width=152 colspan=2">10</td>
+                                    <td width=152">35</td>
+                                </tr>
+                            </table>
+                            <h2><a name="Redeemer"></a>Redeemer</h2>
+                            <p>This weapon of mass destruction hasn't changed much since UT99: it's a nuclear 
+                                bomb that explodes as soon as it hits something.<br>
+                                <b>Prim fire</b>: fires the weapon, a slow moving projectile that will cause 
+                                an enormous explosion on impact. Everyone that is in the blast radius will die, 
+                                except the ones on the very edge of the explosion<br>
+                                <b>Alt fire</b>: a camera on the bomb allows you to steer the thing yourself. 
+                                Pressing any fire button will detonate it, just like hitting something while 
+                                flying. If you hold your 'walk' button while steering, you'll have it easier 
+                                in the corners.<br>
+                                <b>Usage</b>: the incredible firepower of this thing is only balanced a little 
+                                with the few disadvantages of it.<br>
+                                First of all: everyone can shoot the projectile from the sky, which causes only 
+                                a small explosion.<br>
+                                Secondly: this a weapon that has to be shot very cautiously when indoors, since 
+                                even the slightest touch of an object will trigger the explosion.<br>
+
+                                <p>Finally: the redeemer camera fills your entire field of view, leaving yourself 
+                                    undefended. Any opponent can take you out fast, and the bomb will fizzle if 
+                                    you die while steering. Therefore, make sure there's no enemy resistance around 
+                                    before using alt fire.<br>
+                                    <b>Remarks</b>: 
+                                    <ul>
+                                        <li>the explosion doesn't affect you behind walls; hide yourself if there's 
+                                            going to be a redeemer blast somewhere</li>
+                                        <li>the alt-fire button can't be used for an explosion at point blank range: 
+                                            the projectile has to fly a couple seconds before the selfdestruct-button 
+                                            is activated</li>
+                                        <li>release the redeemer in open places with lots of players</li>
+                                        <li>in onslaught, a redeemer can take out <i>a fully healed node</i>...And everyone 
+                                            that might be defending it! This fact makes makes defending in onslaught very 
+                                            important, because they have to look out for the thing and shoot it down when 
+                                            it is heading for the node<br>
+                                        </li>
+                                    </ul>
+                                    <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                        <tr> 
+                                            <th width=227">Redeemer</th>
+                                            <th width=228 colspan=2">Primary fire</th>
+                                            <th width=228 colspan=2">Alt fire</th>
+                                        </tr>
+                                        <tr> 
+                                            <td width=227">Damage/hit</td>
+                                            <td width=228 colspan=2">1500 (depends on the distance to the center 
+                                                of the explosion)</td>
+                                            <td width=228 colspan=2">1500 (depends on the distance to the center 
+                                                of the explosion)</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width=227">Rate of fire [bullets/sec]</td>
+                                            <td width=228 colspan=2">-</td>
+                                            <td width=228 colspan=2">-</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width=227">Spread [degrees]</td>
+                                            <td width=228 colspan=2">0</td>
+                                            <td width=228 colspan=2">-</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width=227">splash damage [units]</td>
+                                            <td width=228 colspan=2">enormous</td>
+                                            <td width=228 colspan=2">enormous</td>
+                                        </tr>
+                                        <tr> 
+                                            <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                            <td width=152">1</td>
+                                            <td width=152 colspan=2">-</td>
+                                            <td width=152">1</td>
+                                        </tr>
+                                    </table>
+                                    <h2><a name="IonPainter"></a>Ion painter</h2>
+                                    <p>Since UT2003 is this weapon added to the arsenal of superweapons: it provides 
+                                        a big blast from the sky. Don't worry if you can't spot a satellite anymore: 
+                                        it is no longer required to fire this weapon.<br>
+                                        <b>Prim fire</b>: paints an infrared target. If this target is hold still for 
+                                        2 seconds on the ground in open air, then the blast will hit from above.<br>
+                                        <b>Alt fire</b>: a zoom that focusses approx. 11.5 times. A second 'shot' brings 
+                                        the field of vision back to normal<br>
+                                        <b>Usage</b>: it isn't easy to use this weapon since you'll have to be (almost) 
+                                        completely motionless for 2 seconds, making a sitting duck of yourself. <i>Never</i> 
+                                        use it if an enemy knows your location.<br>
+                                        And there are other disadvantages: the range is limited, you can't use it indoors 
+                                        <i>and</i> doesn't lock when you aren't aiming straight at the ground. Luckily, 
+                                        the damage area is big enough to take out everything and everyone...including 
+                                        yourself, if you don't watch out.<br>
+                                        <b>Remarks</b>:
+                                        <ul>
+                                            <li>it's best to use this weapon while on higher ground</li>
+                                            <li>targetting a healthy node will bring it straight into the red<br>
+                                            </li>
+                                        </ul>
+                                        <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                            <tr> 
+                                                <th width=227">Ion painter</th>
+                                                <th width=228 colspan=2">Primary fire</th>
+                                                <th width=228 colspan=2">Alt fire</th>
+                                            </tr>
+                                            <tr> 
+                                                <td width=227">Damage/hit</td>
+                                                <td width=228 colspan=2">900 (in the center)</td>
+                                                <td width=228 colspan=2">zoom</td>
+                                            </tr>
+                                            <tr> 
+                                                <td width=227">Rate of fire [bullets/sec]</td>
+                                                <td width=228 colspan=2">-</td>
+                                                <td width=228 colspan=2">-</td>
+                                            </tr>
+                                            <tr> 
+                                                <td width=227">Spread</td>
+                                                <td width=228 colspan=2">0</td>
+                                                <td width=228 colspan=2">-</td>
+                                            </tr>
+                                            <tr> 
+                                                <td width=227">splash damage</td>
+                                                <td width=228 colspan=2">enormous</td>
+                                                <td width=228 colspan=2">-</td>
+                                            </tr>
+                                            <tr> 
+                                                <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                                <td width=152">1</td>
+                                                <td width=152 colspan=2">-</td>
+                                                <td width=152">1</td>
+                                            </tr>
+                                        </table>
+                                        <h2><a name="GrenadeLauncher"></a>Grenade launcher</h2>
+                                        <p>Grenade launchers are a common thing in First Person Shooters, but these grenades 
+                                            have something special: they stick onto enemies and vehicles. They also don't 
+                                            explode after a given time: this is completely up to the owner of the grenades.<br>
+                                            <b>Prim fire</b>: throws a grenade that sticks on enemies, vehicles or nodes. 
+                                            You can queue up to 8 grenades this way.<br>
+                                            <b>Alt fire</b>: destroys all your grenades<br>
+                                            <b>Usage</b>: this weapon is a perfect tool to sabotage enemy vehicles and take 
+                                            down unguarded nodes. Due to the combination of a high rate of fire and big 
+                                            splash damage, this weapon is even usefull in deathmatch.<br>
+                                            By queueing 8 grenades on a node before detonation, you can surprise the other 
+                                            team by tearing it down before they can send in backup. When attacking a node 
+                                            with grenades it's best to detonate about every 5 or 6 grenades, to deny the 
+                                            other team to spawn there.<br>
+                                            <b>Remarks</b>: 
+                                            <ul>
+                                                <li>all your grenades explode if you die</li>
+                                                <li>you can't cover yourself with grenades, so forget about kamikaze ideas ;-) 
+                                                </li>
+                                                <li>by sticking a couple grenades on your vehicle, you can turn it into a vehicle 
+                                                    that can't be carjacked; you can also cover a weak vehicle with 8 grenades 
+                                                    and drive it into an enemy vehicle. If you can time your explosion well, you 
+                                                    can deal up to 800 damage to their vehicle!</li>
+                                                <li>grenades bounce back on floors, walls and ceilings</li>
+                                                <li>grenades that don't stick to anyone/anything will bounce a couple times 
+                                                    and then remain on the floor</li>
+                                                <li>grenades can be destroyed with explosive weapons<br>
+                                                </li>
+                                            </ul>
+                                            <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                                <tr> 
+                                                    <th width=227">Grenade launcher</th>
+                                                    <th width=228 colspan=2">Primary fire</th>
+                                                    <th width=228 colspan=2">Alt fire</th>
+                                                </tr>
+                                                <tr> 
+                                                    <td width=227">Damage/hit</td>
+                                                    <td width=228 colspan=2">100 on vehicles; 93 on infantry</td>
+                                                    <td width=228 colspan=2">Detonates the grenades</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width=227">Rate of fire [bullets/sec]</td>
+                                                    <td width=228 colspan=2">1.6</td>
+                                                    <td width=228 colspan=2">-</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width=227">Spread</td>
+                                                    <td width=228 colspan=2">small</td>
+                                                    <td width=228 colspan=2">-</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width=227">splash damage</td>
+                                                    <td width=228 colspan=2">medium</td>
+                                                    <td width=228 colspan=2">-</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                                    <td width=152">10</td>
+                                                    <td width=152 colspan=2">5</td>
+                                                    <td width=152">20</td>
+                                                </tr>
+                                            </table>
+                                            <h2><a name="MineLayer"></a>Mine layer</h2>
+                                            <p>This weapon produces robot spiders that will automatically attack anything 
+                                                hostile nearby, and self-destruct pretty hard when they hit someone.<br>
+                                                <b>Prim fire</b>: positions a spider mine; you can deploy up to 8 spiders at 
+                                                a given time; if you try to add more, the first one will systematically be destroyed<br>
+                                                <b>Alt fire</b>: an infrared target painter. It orders your spiders to run to 
+                                                that point.<br>
+                                                <b>Usage</b>: the spiders from this weapon provides a splendid defence. These 
+                                                creatures move fast but they can be taken out easy with explosive weapons (including 
+                                                the minigun alt fire). When they explode, they deal even more splash damage, 
+                                                which can take out adjacent spider mines with them. For this reason, you must 
+                                                spread out your spiders. Only order them around if you really have to, because 
+                                                that puts the spiders close together.<br>
+                                                Always throw the mines in an arc: they explode if they try to deploy on unstable 
+                                                terrain like nodes, vehicles, edges,... This can be painfull if you're standing 
+                                                too close to them.<br>
+                                                <p>There is no need to keep pointing the target with the alt fire: spider mines 
+                                                    will remember the point where they have to go, and they only change their direction 
+                                                    if they notice someone hostile or when you give them a different order.<br>
+                                                    You can throw spiders around you while running between nodes on foot. Don't 
+                                                    forget to tell the spiders to follow you to your destination.<br>
+                                                    <b>Remarks</b>: 
+                                                    <ul>
+                                                        <li>you can put a <a href="weapons.html#GrenadeLauncher">sticky grenade</a> on a spider 
+                                                            to increase their damage radius. Unfortunately, this makes the spider move 
+                                                            slower</li>
+                                                        <li>you can place spiders on top of vehicles like the manta; they will jump 
+                                                            off the vehicle as soon as they notice an enemy nearby<br>
+                                                        </li>
+                                                    </ul>
+                                                    <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                                        <tr> 
+                                                            <th width=227">Mine layer</th>
+                                                            <th width=228 colspan=2">Primary fire</th>
+                                                            <th width=228 colspan=2">Alt fire</th>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td width=227">Damage/hit</td>
+                                                            <td width=228 colspan=2">approx. 100</td>
+                                                            <td width=228 colspan=2">Orders spiders around</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td width=227">Rate of fire [bullets/sec]</td>
+                                                            <td width=228 colspan=2">1</td>
+                                                            <td width=228 colspan=2">-</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td width=227">Spread</td>
+                                                            <td width=228 colspan=2">small</td>
+                                                            <td width=228 colspan=2">-</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td width=227">splash damage [units]</td>
+                                                            <td width=228 colspan=2">medium</td>
+                                                            <td width=228 colspan=2">-</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                                            <td width=152">4</td>
+                                                            <td width=152 colspan=2">8</td>
+                                                            <td width=152">25</td>
+                                                        </tr>
+                                                    </table>
+                                                    <h2><a name="AVRiL"></a>AVRiL</h2>
+                                                    <p>this weapon (Anti-Vehicle Rocket Launcer) is the second rocket launcer of UT2004. 
+                                                        As the name suggests is it specifically designed to use against vehicles.<br>
+                                                        <b>Prim fire</b>: shoots a rocket. Normally, this rocket flies in a straight 
+                                                        trajectory. If you aim at an enemy vehicle, then all your AVRiL rockets will 
+                                                        bend toward that vehicle (your crosshair also changes).<br>
+                                                        <b>Alt fire</b>: locks your aim on a given vehicle. When you aim at an enemy 
+                                                        vehicle, you should hold down this button to fix your view (and your AVRiL rockets) 
+                                                        straight on the vehicle.<br>
+                                                        <b>Usage</b>: this weapon gives infantry a use in onslaught. Vehicles receive 
+                                                        a '<i>missile lock</i>'-warning when an AVRiL is coming their way, but if the 
+                                                        drivers don't react fast, they get hit. This is how a driver can get rid of 
+                                                        the missile lock:
+                                                        <ul>
+                                                            <li> exit the vehicle: AVRiL's don't lock on abandoned vehicles, so exiting 
+                                                                stops the lock</li>
+                                                            <li>outrun the rocket: AVRiL's only remain locked as long as the owner keeps 
+                                                                the vehicle in his/her field of vision. If the vision becomes obscured, the 
+                                                                missile lock stops. Note that the rocketeer can still move around to keep 
+                                                                the vehicle within sight</li>
+                                                            <li>take out the rocketeer: the lock doesn't outlive the shooter. Once again: 
+                                                                AVRiL'lers can still avoid being killed</li>
+                                                            <li>(when in a manta) play matador with the rocket. One good feint move (eg. 
+                                                                jump, then quickly duck) can make the rocket hit straight into the ground 
+                                                                or wall.<br>
+                                                            </li>
+                                                            <li>shoot the rocket out of the sky. This isn't easy and usually happens 'by 
+                                                                accident'. The hellbender can weave a shield of sky mines that can effectively 
+                                                                keep AVRiL's at bay.</li>
+                                                        </ul>
+                                                        <p>Even with all these options, AVRiL's usually hit their targets. Remember that 
+                                                            when you think infantry is useless in onslaught.<br>
+                                                            The best way to make a hit is to first shoot into the open air (even if there 
+                                                            is no enemy vehicle around), and <i>then</i> lock in on vehicles. This way, 
+                                                            the rocket is much closer to the target, the driver will have a harder time 
+                                                            avoiding it and the second rocket can be shot faster.<br>
+                                                            <b>Remarks</b>: </p>
+                                                        <ul>
+                                                            <li>in online games, fast vehicles can escape the alt fire lock when they keep 
+                                                                driving at full speed. I don't know if this is meant to be or that it's some 
+                                                                kind of bug</li>
+                                                            <li>it <i>is</i> a known bug that on some occasions the missile lock doesn't 
+                                                                disappear when the rocket lost its target</li>
+                                                            <li>AVRiL rockets fly faster than regular rockets</li>
+                                                            <li>AVRiL's don't lock against infantry, so don't try to use it as a weapon 
+                                                                against them</li>
+                                                            <li>mix up AVRiL rockets and regular ones against (almost) stationary vehicles 
+                                                                at close range<br>
+                                                            </li>
+                                                        </ul>
+                                                        <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                                            <tr> 
+                                                                <th width=227">AVRiL</th>
+                                                                <th width=228 colspan=2">Primary fire</th>
+                                                                <th width=228 colspan=2">Alt fire</th>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td width=227">Damage/hit</td>
+                                                                <td width=228 colspan=2">200 (on vehicles)</td>
+                                                                <td width=228 colspan=2">locks to vehicles</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td width=227">Rate of fire [bullets/sec]</td>
+                                                                <td width=228 colspan=2">0.27</td>
+                                                                <td width=228 colspan=2">-</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td width=227">Spread [degrees]</td>
+                                                                <td width=228 colspan=2">0</td>
+                                                                <td width=228 colspan=2">-</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td width=227">splash damage [units]</td>
+                                                                <td width=228 colspan=2">low</td>
+                                                                <td width=228 colspan=2">-</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                                                <td width=152">5</td>
+                                                                <td width=152 colspan=2">5</td>
+                                                                <td width=152">25</td>
+                                                            </tr>
+                                                        </table>
+                                                        <h2><a name="TargetPainter"></a>Target painter</h2>
+                                                        <p>This weapon resembles the <a href="weapons.html#IonPainter">ion painter</a> 
+                                                            in the way you have to use it. But this weapon doesn't activate a satellite; 
+                                                            instead, it calls for a bomber plane to throw bombs on the battlefield.<br>
+                                                            <b>Prim fire</b>: paints an infrared target. If this target is hold still for 
+                                                            2 seconds on the ground in open air, players will hear the announcer say '<i>Warning: 
+                                                                incoming airstrike</i>'. A bomber plane will come and drop bombs over the specific 
+                                                            area.<br>
+                                                            <b>Alt fire</b>: a zoom that focusses approximately 11.5 times. A second 'shot' 
+                                                            brings the field of vision back to normal <br>
+                                                            <b>Usage</b>: the bomber drops 15 bombs in a straigt line. This line is marked 
+                                                            by 2 points: the targetted spot (which is also the center of the bombing) and 
+                                                            the position from which you painted the target. This means your position is 
+                                                            crucial to predict where the bombs will fall.<br>
+                                                            More important is the problem of leading: after the painting, it will take <i>almost 
+                                                                20 seconds</i> before the first bomb hits the ground. This makes it very hard 
+                                                            to predict where your target will be when the bombs hit. Nodes aren't much of 
+                                                            a better target either, since the distance between the bombs is just a bit longer 
+                                                            than the size of a node. So with some bad luck, the bombs drop directly before 
+                                                            and after the node, missing it completely. And don't forget that you can usually 
+                                                            tear down a node yourself in 20 seconds.<br>
+                                                            Finally: the bomber can be shot down with trace-hit weapons. Defenders should 
+                                                            therefore watch the skies when they hear the '<i>incoming airstrike</i>'-warning. 
+                                                            <br>
+
+                                                            <p>You'll get the best best results with this weapon when you use it to target 
+                                                                a path where enemies will be likely to travel (eg the middle of the route between 
+                                                                two nodes).<br>
+                                                                <b>Remarks</b>: 
+                                                                <ul>
+                                                                    <li>you can only shoot down enemy bombers, not the ones from your own team (maybe 
+                                                                        if team damage is on?)</li>
+                                                                    <li>target painters only appear in onslaught games; it is not considered a superweapon</li>
+                                                                    <li>you can't target indoor (just like the ion painter)</li>
+                                                                    <li>this weapon deals by far the most damage, but since this is impossible to 
+                                                                        aim decently, most damage (if not all) will miss completely<br>
+                                                                    </li>
+                                                                </ul>
+                                                                <table class=Tabel border=1 cellspacing=0 cellpadding=0>
+                                                                    <tr> 
+                                                                        <th width=227">Target painter</th>
+                                                                        <th width=228 colspan=2">Primary fire</th>
+                                                                        <th width=228 colspan=2">Alt fire</th>
+                                                                    </tr>
+                                                                    <tr> 
+                                                                        <td width=227">Damage/hit</td>
+                                                                        <td width=228 colspan=2"> 1200 per bomb</td>
+                                                                        <td width=228 colspan=2">Zoom</td>
+                                                                    </tr>
+                                                                    <tr> 
+                                                                        <td width=227">Rate of fire [bullets/sec]</td>
+                                                                        <td width=228 colspan=2">-</td>
+                                                                        <td width=228 colspan=2">-</td>
+                                                                    </tr>
+                                                                    <tr> 
+                                                                        <td width=227">Spread</td>
+                                                                        <td width=228 colspan=2">0</td>
+                                                                        <td width=228 colspan=2">-</td>
+                                                                    </tr>
+                                                                    <tr> 
+                                                                        <td width=227">splash damage</td>
+                                                                        <td width=228 colspan=2">enormous</td>
+                                                                        <td width=228 colspan=2">-</td>
+                                                                    </tr>
+                                                                    <tr> 
+                                                                        <td width=227">Starting ammo / Pick-up / Max ammo</td>
+                                                                        <td width=152">1</td>
+                                                                        <td width=152 colspan=2">-</td>
+                                                                        <td width=152">1</td>
+                                                                    </tr>
+                                                                </table>
+                                                                &nbsp;</div>
+        <div class=bottom>
+</html>

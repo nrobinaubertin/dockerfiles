@@ -6,7 +6,7 @@ ENV TINI_VERSION v0.18.0
 
 ENV ADMIN_PASSWORD=
 ENV ADMIN_NAME=admin
-ENV MOTD='GL&HF'
+ENV MOTD=GLHF
 ENV GAMESTATS=True
 
 RUN set -xe \
@@ -28,6 +28,7 @@ COPY nginx /etc/nginx
 COPY run-ut2004.sh /usr/local/bin/run-ut2004.sh
 COPY fix-acl.sh /usr/local/bin/fix-acl.sh
 COPY run.sh /usr/local/bin/run.sh
+COPY public /public
 
 RUN chmod +x -R /usr/local/bin /var/lib/nginx
 CMD ["/usr/local/bin/run.sh"]

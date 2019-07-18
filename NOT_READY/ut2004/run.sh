@@ -8,6 +8,6 @@ sed -i "s/<ADMIN_NAME>/$ADMIN_NAME/g" /etc/ut2004/ut2004-server.ini
 
 echo "* * * * * /usr/local/bin/fix-acl.sh" | crontab -
 
-chown "$UID:$GID" -R /etc/ut2004 /etc/supervisor
-chmod 755 -R /etc/ut2004
+chown "$UID:$GID" -R /etc/ut2004 /etc/supervisor /public
+chmod 755 -R /etc/ut2004 /public
 exec supervisord -c /etc/supervisor/supervisord.conf --nodaemon

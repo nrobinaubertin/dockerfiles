@@ -1,0 +1,437 @@
+<html>
+    <head>
+        <title>Advanced commands</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/global.css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>Advanced commands</h1>
+            <p class=quote>Incoming! - efficient and valuable information in the middle of a match</p>
+            <p>When playing a FPS, time is of the essence. You have to be able to act and 
+                react in a matter of seconds...fractions of seconds even. Getting the right 
+                mindset for this is one thing, but you have to be able to move your fingers 
+                to the right buttons just as fast. Luckily, computer gamers have an entire keyboard 
+                at our disposal, from which all buttons can be bound to specific actions.<br>
+                If there was one best key setup, then my job here would be easy: I would post 
+                this setup and tell everyone to get used to it. Unfortunately, things aren't 
+                that easy. Some of us can handle a separate button for each weapon and be able 
+                to draw exactly the right tool for the job whenever they want, others prefer 
+                to stick with a 'selectbestweapon' bind or even the &quot;nextweapon/previous 
+                weapon&quot; from the mousewheel. Some use WASD as their buttons for moving 
+                around, others swear by ESDF, RDFG or even use buttons that aren't shaped in 
+                cross-pattern. I even know a good player who claims he still plays with his 
+                arrow keys.</p>
+            <p>All in all, key setup is a matter of taste. Changing your binds takes time 
+                to get used to and a change is not always made for the better. Observe yourself 
+                while playing: if you're constantly fumbling to get the right weapon, you should 
+                add some binds. Or suppose you see an enemy run off with the flag. By the time 
+                you typed '<i>Hey, I just saw the enemy flag carrier passing by here. And 'here' 
+                    is on the left side, at the flak cannon</i>' that flag carrier will be gone... 
+                and you will probably be dead because someone couldn't resist type killing. 
+                You can bind these events to buttons as well, so you won't lose much time by 
+                explaining stuff.<br>
+                And there are many more examples that could help you in some situations where 
+                it's either helpfull or at leastconvenient.</p>
+            <p>You shouldn't bind yourself a whole new key setup at once. Take it one step 
+                at a time, to allow yourself to properly remember which button gives which effect. 
+                Try to group similar buttons together for easier remembering. And finally: keep 
+                your most important keys (like weapon switching and -throwing) close by, and 
+                put the taunts and game setting-changing buttons further away.</p>
+            <p>There are 4 ways to edit your keys:</p>
+            <ul>
+                <li>The most common way is by going to <font color="blue">'Settings-&gt;Input-&gt;Configure 
+                        controls</font>' This provides only the most basic 'this action can be bound 
+                    to this key'. It's fast, it's easy and it's completely useless for the more 
+                    advanced keybinds.</li>
+                <li>The second way is by going ingame, opening the console and typing '<font color="green">preferences</font>'. 
+                    This pulls up a drop-down menu with all options that can be changed ingame. 
+                    All buttons are listed alphabetically in '<font color="blue">Advanced-&gt;Raw 
+                        key bindings</font>'. You can add,change or delete the command for each key 
+                    individually, and immediately check the results ingame</li>
+                <li>You can also bind your keys from ingame with the command '<font color="green">set 
+                        input &lt;key&gt; &lt;command&gt;</font>'. This is the best way to immediately 
+                    test the setting, but not convenient to bind multiple keys</li>
+                <li>The last way to set keys is to go to the <font color="blue">\System</font> 
+                    subfolder of UT2004 and open up <font color="blue">user.ini</font>. There, 
+                    under the <font color="blue">[Engine.Input]</font> part, is the list of 
+                    keys and their commands. This method doesn't require UT2004 to be running, 
+                    and is therefore a lot faster than the others. The downsize of this is that 
+                    you must (re)start UT2004 to check the results of your changes. This method 
+                    also makes it easier to accidentaly remove a part of the .ini file that's 
+                    crucial for the game.</li>
+            </ul>
+            <p>All methods store their data in <font color="blue">\System\user.ini</font>. 
+                This is also the reason why the first method of binding is explained here: if 
+                you don't know the name of a button, you can still use the first method to bind 
+                this key to a temporary action (like TurnLeft or turnRight). By opening user.ini 
+                after setting these binds, you can easily search for this action and replace 
+                it with the bind you had in mind for this one.</p>
+            <p>So...now you know how to bind stuff to keys, let's find out what possibilities 
+                you have in binding. I'll illustrate each possibility with an example from my 
+                own user.ini file. If you want, you can even download my entire <a href="files/UT2004User.ini">user.ini</a> 
+                file to examine my settings. But before we get started, take a look at the notes:</p>
+            <ul>
+                <li>it is not possible to bind dodge moves to buttons. I've seen a lot of sites 
+                    about this subject, and they all agreed on this. And frankly: I'm glad for 
+                    this. Proper dodging is hard, almost an art, and providing a quick fix would 
+                    only give the newer players an excuse not to learn how to do this on a constant 
+                    basis.</li>
+                <li>square brackets ('&lt;', '&gt;') are used to serve as a spot that has to 
+                    be replaced by one (and only one) character of the given type (&lt;key&gt; 
+                    can be either A, <i>or</i> B, <i>or</i> shift, <i>or</i>...)</li>
+                <li>The colors used in this page are as follows: green indicates a command that 
+                    has to be added after the button. To give an example: <font color="green">Say 
+                        &lt;any text&gt;</font> can be translated to the third key binding method 
+                    as <i>&quot;</i>type the following in the command prompt:<i> set input X say 
+                        I am now pressing my X button&quot;</i>, or 'copy the following into the line 
+                    after &quot;X=&quot; in your user.ini file: <i>say I am now pressing my X 
+                        button</i>'<br>
+                    dark blue marks how to get to a certain point.</li>
+                <li>all commands are case insensitive</li>
+                <li>there are too many commands to list them all here. You can find out of a 
+                    lot of them by binding them with the first method and then checking the syntax 
+                    in the user.ini file. Others can be found on pages like <a href="All%20commands:%20http://www.planetunreal.com/ut2004/console/">this</a>, 
+                    or on forums like <a href="http://www.ataricommunity.com/forums/showthread.php?s=&threadid=408970">this 
+                        one</a> (that has also some good explanation, btw). Oh, and I've explained 
+                    a lot of my binds in <a href="http://forums.beyondunreal.com/showthread.php?t=143941&highlight=idle_character02">this 
+                        thread</a>...also usefull stuff.</li>
+            </ul>
+            <h2><a name="Buttons"></a>Advanced buttons</h2>
+            <p><b>Selecting the right weapon:</b> there are 3 commands that lets you switch 
+                between weapons: <font color="green">switchweapon &lt;weapon number&gt;</font>, 
+                <font color="green">getweapon &lt;weapon class&gt; </font>and <font color="green">pipedswitchweapon 
+                    &lt;weapon number&gt;</font>. These methods differ as follows</p>
+            <ul>
+                <li><font color="green">switchweapon &lt;weapon number&gt;</font> is the main 
+                    choice for selecting weapons (0 for superweapons,1 for shieldgun,..., 9 for 
+                    sniper rifles, 10 for translocator). However: to keep the amount of buttons 
+                    down, Epic gives some weapons the same number. If you push this button, you'll 
+                    switch to the weapon with the highest weapon priority (provided that you have 
+                    both weapons). Pushing the button repeatedly cycles through both weapons (or 
+                    three weapons, in case of switchweapons 0).</li>
+                <li><font color="green">getweapon &lt;weapon class&gt;</font> selects you 
+                    a <i>specific</i> weapon, or doesn't change at all. The possible weapons are 
+                    as follows: <font color="green">XWeapons.shieldgun, XWeapons.assaultRifle, 
+                        XWeapons.BioRifle, Onslaught.ONSMineLayer, XWeapons.Shockrifle, XWeapons.LinkGun, 
+                        XWeapons.minigun, XWeapons.FlakCannon, Onslaught.ONSGrenadeLauncher, XWeapons.RocketLauncher, 
+                        Onslaught.ONSAVRiL, Xweapons.Sniperrifle</font> (=Lightning gun), <font color="green">UTClassic.ClassicSniperRifle, 
+                        XWeapons.painter</font> (=ion painter), <font color="green">XWeapons.redeemer</font> 
+                    or <font color="green">OnslaughtFull.ONSPainter</font> (=target painter)</li>
+                <li><font color="green">pipedswitchweapon &lt;weapon number&gt;</font> is 
+                    a special case of the switchweapon command. It works the same, if used by 
+                    itself, but if you group these together with another pipedswitchweapon command, 
+                    it cycles between these two. You can also group 3 or more pipedswitchweapons, 
+                    but the computer will always try to cycle between the first two, and only 
+                    change if a weapon isn't available or doesn't have enough ammo.</li>
+            </ul>
+            <p><b>Multiple actions bound to one button:</b> you achieve this by using the 
+                '|'-symbol to separate each command.<br>
+                Example: <font color="green">Use | SwitchWeapon 10</font>. This is a perfect 
+                combination: ONS, vCTF and AS are played without translocator, BR and CTF without 
+                vehicles. The only time this action can cause a problem is in assault, ir you 
+                want to exit a vehicle at the time an objective is completed; it'll also transport 
+                you straight to the new respawn spot (<font color="green">SwitchWeapon 10 
+                    | use</font> prevents you from entering a vehicle at the same time the objective 
+                is completed).</p>
+            <p>Example: <font color="green">getweapon XWeapons.RocketLauncher | PipedSwitchWeapon 
+                    7</font>. 7 is the combination flak cannon/grenade launcher, so what will happen 
+                with this bind if you have two or more of these weapons? This bind is set up 
+                to have the rocket launcher as a priority, so if you have it on you, you'll 
+                switch to that. Pressing the button again (or pressing it for the first time 
+                if you don't have the RL and ammo for it) activates the pipedswitch that will 
+                give you weapon nr. 7. Which weapon this is depends on whichever has the highest 
+                priority. Pressing the button again will try to select the RL again. If this 
+                fails (no RL or no ammo for it), the pipedswitch is activated again, thus giving 
+                you the lower priority weapon.<br>
+                This is how the two commands interact with each other. For this example, I'll 
+                describe the possible weapon cycling scenario's:<br>
+                -one weapon: bind switches to this weapon<br>
+                -RL+flak: cycles RL, flak, RL, flak, ...<br>
+                -RL+grenades: cycles RL, grenades, RL, grenades, ...<br>
+                -flak+grenades: cycles &lt;highest priority weapon&gt;, &lt;lowest prioriy weapon&gt;, 
+                &lt;highest priority weapon&gt;, ...<br>
+                -RL+grenades+flak: cycles RL, &lt;highest priority weapon&gt;, RL, &lt;highest 
+                priority weapon&gt;, ...</p>
+            <p>Example: <font color="green">getweapon Onslaught.ONSAVRiL | switchtolastweapon</font> 
+                this continuously switches between the AVRiL and your last weapon.</p>
+            <p>Example: <font color="green"> SwitchToBestWeapon | PipedSwitchWeapon 8 | 
+                    PipedSwitchWeapon 7 | PipedSwitchWeapon 4 | PipedSwitchWeapon 9 | PipedSwitchWeapon 
+                    3 | PipedSwitchWeapon 6 | PipedSwitchWeapon 5</font>. This is a long one, yet 
+                it's purpose is simple. The first command switches you to your highest priority 
+                weapon. Since the pipedswitch will only trigger once, you can see the entire 
+                rest of the command as '<i>select the best weapon that isn't the highest priority 
+                    weapon</i>'. So in short, this command lets you cycle between your best weapon 
+                and your second best weapon.<br>
+                If you want to use this command, make sure you put the entire thing in one line 
+                or it will screw up. Oh, and change the numbers to fit your personal priority 
+                settings (you can leave out 'pipedswitchweapon 0'...you usually don't have enough 
+                superweapons to add it in)</p>
+            <p><b>Change name and character:</b> you change your display name with the 'setname 
+                &lt;name&gt;' command (only the first 20 characters are used for a name). If 
+                you know the names of the characters, you can change these with the 'changecharacter 
+                &lt;char.name&gt;' command. Note that you won't change until your next respawn. 
+                These commands assume that the rest of the command line is the parameter, so 
+                don't put any other commands after them.<br>
+                Example: <font color="green">setname [Ci-t]Golden_Dragon</font> changes the 
+                current name to [Ci-t]Golden_Dragon.<br>
+                Example: <font color="green">changecharacter Motig</font> changes your skin 
+                to Motig, next time you respawn.</p>
+            <p><b>Actions bound to the release of a button:</b> this is done by use of the 
+                'onrelease' keyword<br>
+                Example: <font color="green">getweapon xweapons.shieldgun | onrelease suicide</font>. 
+                There are quite some occasions in which staying alive hurts your team more than 
+                committing suicide (<i>eg. when you should hurry back to the base, or when you 
+                    can save a couple seconds while falling in a ravine</i>), so you really should 
+                have a key for this one.<br>
+                This command allows for a suicide that doesn't give your opponents any weapons 
+                <i>if you hold the button down for a second</i>. However: most of the time, 
+                you'll simply push the button to suicide.<br>
+                Example: <font color="green">SwitchWeapon 2 | OnRelease ThrowWeapon | OnRelease 
+                    SwitchToLastWeapon</font>. Many consider the assault rifle too useless to keep 
+                around. So if you don't throw it away straight from the start, you can do this 
+                on another occasion. Note that you'll have to keep the button pressed until 
+                the AR is actually selected.</p>
+            <p><b>FOV &amp; behindview:</b> Field Of View is the angle you see in front of 
+                you (between 1 and 170). Normally, this is set somewhere at 90-100, but you 
+                can set these on-the-fly as well (at least in off-line practice). Low FPS gives 
+                a 'zoom'-effect because your view becomes limited to what is directly in front 
+                of you. High FOV shows more terrain at once, which makes focussing somewhat 
+                harder.<br>
+                Behindview is the ability to see yourself from behind (wow...who would have 
+                guessed that?). Though not very convenient, it allows for the following 'cheat':<br>
+                Example: <font color="green">behindview 1 | fov 150 | onrelease behindview 
+                    0 | onrelease fov 100</font>; wondering if an opponent is waiting for you around 
+                the corner? Just press this button to do a quick check.<br>
+                Note that in online games, the FOV is fixed to a certain number, to prevent 
+                this kind of exploiting.</p>
+            <p><b>No need to hold your buttons:</b> the command 'toggle' will allow you to 
+                set certain actions to keep going until the button is pressed again (even if 
+                you are shot inbetween).<br>
+                Update: This command doesn't seem to work when entered at the command prompt, 
+                so you'll have to bind it to a key<br>
+                Examples:<br>
+                <font color="green">toggle brun</font>: makes your character walk/run<br>
+                <font color="green">toggle bduck</font>: keeps your character in a crouched 
+                position<br>
+                <font color="green">toggle bfire</font> or <font color="green">toggle baltfire</font>: 
+                starts a spamfest</p>
+            <p><b>Executing external commands:</b> If you promise not to use this command 
+                to mindlessly spam the chat box with text, then I'll explain to you how the 
+                'exec &lt;file&gt;' function works. You do? Well then...this command searches 
+                for a file in the <font color="blue">\System</font> subfolder of UT2004 and 
+                tries to evaluate all commands within that file.<br>
+                Example: <font color="green">set input z exec graphic1.txt</font> (<a href="pics/graphic1.txt">contents 
+                    of graphic1.txt</a>). This will show a big 'LOL' on screen...it might be somewhat 
+                disfigured, but UT2004 chat wasn't designed for art, and my ASCII drawing skills 
+                are close to zero.</p>
+            <p><b>Changing any setting:</b> practically any setting in the game that is stored 
+                in UT2004.ini or user.ini can be altered with a command. The syntax for this 
+                is '<i>set &lt;class&gt; &lt;variable&gt; &lt;value&gt;</i>'.</p>
+            <ul>
+                <li>Classes are stored in .ini's between square brackets and usually consists 
+                    of 2 parts, separated by a point (<i>eg. &quot;<font color="blue">Engine.Input</font>&quot;, 
+                        found in <font color="blue">user.ini</font></i>). All lines below belong 
+                    to this class...until the next class line is found (the following lines belong 
+                    to this class, and so on).</li>
+                <li>Variables are the left side of all the other lines, ended by the &quot;=&quot; 
+                    line (<i>eg. &quot;<font color="blue">bNeverSwitchOnPickup</font>&quot;, 
+                        under <font color="blue">user.ini</font></i>)</li>
+                <li>The value is what's on the other side of the equals sign.</li>
+            </ul>
+            <p>To properly use this option, you need to know the exact name of where the setting 
+                is stored, and what the possible valid values are.<br>
+                <font color="red">Note: entering invalid settings withing .ini files can 
+                    cause problems. Always keep a backup of the file, before changing stuff.</font></p>
+            <p>Example: there's a bug in the '<font color="green">togglescreenshotmode</font>' 
+                command (this command allows you to remove/bring back your HUD): once you bring 
+                back your HUD, your weapon hand is set to 'right hand'. You could whine against 
+                Epic to fix this, or you could do it yourself: by using a command that not only 
+                contains the togglescreenshot command, but also sets your weapon hand to 'hidden'.<br>
+                The first step is to find out where this 'weapon hand' line is stored. After 
+                some search through user.ini and UT2004.ini, you will end up with 2 possibilities: 
+                <font color="green">Engine.PlayerController Handedness</font> and <font color="green">Engine.Controller 
+                    Handedness</font>. To know which one affects the player hand, you should note 
+                both settings, enter the game and then change the weapon hand. Go back to user.ini 
+                and check which setting is changed: this is <font color="green">Engine.PlayerController 
+                    Handedness</font>.<br>
+                Noting the settings also gives a better idea of the valid values of a setting. 
+                As you can find out from altering the setting ingame, this is done by a numbering 
+                system: <font color="green">-1</font> corresponds to 'weapon hand=left', <font color="green">0</font> 
+                is 'weapon hand=center', <font color="green">1</font> is 'weapon hand=right' 
+                and <font color="green">2</font> is 'weapon hand=hidden'. All other settings 
+                are invalid, and can cause your computer to explode for all I know ;-)<br>
+                In the end, this is the complete command for a 'fixed' togglescreenshot command: 
+                <font color="green">togglescreenshotmode | set Engine.PlayerController Handedness 
+                    2</font><br>
+                UPDATE: <font color="green">ToggleScreenshotMode|OnRelease shot|OnRelease 
+                    ToggleScreenshotMode|OnRelease showgun</font> is a better way to take screenshots.</p>
+            <p><b>Speeches and taunts:</b> in case you're blind and deaf: all characters have 
+                some ways to curse, order other people around, dance and play with different 
+                vehicle horns. If you haven't taken a look at the <a href="http://www.ataricommunity.com/forums/showthread.php?s=&threadid=408970">INA 
+                    forums page</a>, I suggest you do so now. A taunt list is also available <a href="http://www.beyondunreal.com/content/articles/22_1.php">here</a>.<br>
+                Examples:</p>
+            <ul>
+                <li><font color="green">speech friendlyfire 0 | teamsay ff hurts | taunt gesture_cheer</font>; 
+                    makes it all the more clear that you're on the same team ;-)</li>
+                <li><font color="green">playvehiclehorn 0 | randomtaunt</font> and <font color="green">playvehiclehorn 
+                        1 | taunt Idle_Character01</font>. Another 'perfect match': you don't taunt 
+                    while in a car, and you don't honk if you're not in a car. The Idle_Character01 
+                    action depends on your character; randomtaunt does a random taunt.</li>
+                <li><font color="green">teamsay grave;@@Status: grave;&Agrave;@%a, %h, 
+                        %s, %w</font>: if you're playing a teamgame, this will bring up something 
+                    like '<i>Status: 0 adrenaline, 100 health, 50 shield, assault rifle</i>'. 
+                    You can also add the '%l' parameter (it shows your location), but this is 
+                    already given in the 'teamsay' command.<br>
+                    Note: the 'grave;@@' part is a remains of a patch that allowed players 
+                    to add color to their name (thearacter makes the next 3 characters 
+                    parameters for the color). Because of some complaints from people who got 
+                    confused about which player was on which team, Epic removed this feature in 
+                    their next patch. The reason why it's still used in this bind is that some 
+                    servers use <a href="http://ut2004.gameamp.com/ut2004/viewUtcomp">UTComp</a>, 
+                    a mutator that still allows colored names and messages. Oh, and you can find 
+                    a program that allows you to choose colors <a href="http://forums.beyondunreal.com/showthread.php?t=135058&highlight=message">here</a>.</li>
+                <li><font color="green">fire | onrelease taunt idle_character01</font>: this 
+                    example is one of the many ideas you can do to make your character appear 
+                    more funny while playing (for others; you can't see any of these effects for 
+                    yourself). The idle_character01 taunt is a weapons check for the Gen Mo'Kai, 
+                    so everytime you stop firing, you'll check your weapon. Note that some taunts 
+                    are halted as soon as you move (and unfortunately: the weapons check is one 
+                    of those), so use behindview to check if a taunt + &lt;regular action&gt; 
+                    actually does anything.</li>
+            </ul>
+            <p><b>Cheats: </b>most of the players find pleasure in the training ability of 
+                the game, like increasing their skills, improving their aim or predicting other 
+                players movements. No matter how great a game is, there are some times you don't 
+                feel like playing the game to win. Some start up ONS-Tricky and try to top their 
+                best daredevil score. Others find comfort in irritating other players, and (try 
+                to) use aimbots to ruin games, or accuse better players of using one. And since 
+                Epic understands this kind of behaviour as well, they added cheats that you 
+                can use to take revenge on those damn cheating Godlike bots!<br>
+                Example: <font color="green">god | loaded | allammo | summon XWeapons.redeemer 
+                    | set Engine.PlayerController bAimingHelp True</font>: makes you invincible, 
+                gets you all weapons and ammo, spawns an extra redeemer and puts on aiming help 
+                (don't forget to set aiming help back off if you're going back to 'regular' 
+                bot matches).</p>
+            <p><b>Mod &amp; mutator keys:</b> mods and mutators often come with their own 
+                commands to change things. The best ones extend the <font color="green">Settings 
+                    - Input - Configure controls</font> menu, while others just claim whatever key 
+                is available (eg. Team Arena Master). It's not hard to use these commands in 
+                advanced commands, provided you know what they are (refer to the readme, or 
+                bind it to an unused key and then check the user.ini file to what command it's 
+                bound).<br>
+                Example: <font color="green">MyMenu | menu3spn</font> &quot;MyMenu&quot; is 
+                the menu from UTComp, and &quot;menu3spn&quot; is the Team Arena Master menu. 
+                These two mods/mutators aren't compatible with each other, so no server will 
+                have both of them running on the server. As a result, there's no reason to use 
+                two different keys to get either menu.</p>
+            <h2><a name="Aliasses"></a>Aliasses</h2>
+            <p>Aliasses are groups of actions that are granted a certain name. They are closely 
+                related to advanced buttons, but their name allows them to be used in more complex 
+                tasks. Keep in mind that aliasses are limited: there are only 40 aliasses available, 
+                and 32 are already used by default. It is <i>strongly</i> advised not to touch 
+                these.</p>
+            <p>Aliasses can be found in user.ini, in the Engine.Input-class. They have a certain 
+                syntax, and you should follow this one exactly, or your alias won't do anything:<br>
+                <font color="blue">Aliases[&lt;number&gt;]=(Command=&quot;&lt;line of commands&gt;&quot;,Alias=&quot;&lt;name 
+                    of alias&gt;&quot;)</font> </p>
+            <p>Note that the double quotation marks for are mandatory: they mark the beginning 
+                and ending of the name and the list of commands. Your alias simply won't work 
+                without it. To use an alias, you can simply bind a key to the name.<br>
+                I'm just going to copy-paste my examples for my illustrations, to prevent the 
+                syntax of becoming too complex. Make sure you change the number and/or button 
+                references to use it properly.</p>
+            <p><b>Switching a command:</b> suppose you have a setting you like to turn on 
+                or off, depending on a given situation. You could of course bind two buttons 
+                for this (one with the 'on' command, the other with the 'off' one), but why 
+                do this if you have aliasses? If you create 2 aliasses and include a command 
+                for each one to bind a button to change to the other one, you can use that button 
+                to cycle between these actions.<br>
+                Examples:<br>
+            </p>
+            <ul>
+                <li><font color="green">Aliases[32]=(Command=&quot;Set ALAudio.ALAudioSubsystem 
+                        MusicVolume 0.0 | set ALAudio.ALAudioSubsystem AmbientVolume 0.0 | set input 
+                        F6 MusicSFX&quot;,Alias=&quot;MusicOff&quot;)<br>
+                        Aliases[33]=(Command=&quot;set ALAudio.ALAudioSubsystem AmbientVolume 0.5 
+                        | set input F6 MusicOn&quot;,Alias=&quot;MusicSFX&quot;)<br>
+                        Aliases[34]=(Command=&quot;Set ALAudio.ALAudioSubsystem MusicVolume 0.20 | 
+                        set input F6 MusicOff&quot;,Alias=&quot;MusicOn&quot;)<br>
+                        F6=MusicSFX</font><br>
+                    I almost never play with music on. It distracts and muffles other sounds like 
+                    footsteps and even sounds of incoming rockets. Yet there are times I just 
+                    want to play with a soft background music...like when I'm trick jumping through 
+                    the level. In this case, I press F6. The music gets set (ALAudio.ALAudioSubsystem 
+                    is the sound level, found in UT2004.ini), and the F6 button gets set to 'press 
+                    me to turn off the music'.<br>
+                    The ambient volume is somewhat a dilemma: sometimes you need it, most of the 
+                    time it's better left off (more info <a href="mysetup.html#Sound">here</a>). 
+                    Therefore, I included it in this bind. The result of the bind is a constant 
+                    cycling between these 3 states:<br>
+                    1) sound effects &amp; music off<br>
+                    2) only sound effects<br>
+                    3) sound effects &amp; music<br>
+                </li>
+                <li><font color="green">Aliases[35]=(Command=&quot;demorec | stat fps | set 
+                        input F4 enddemo&quot;,Alias=&quot;begindemo&quot;)<br>
+                        Aliases[36]=(Command=&quot;stopdemo | stat fps | set input F4 begindemo&quot;,Alias=&quot;enddemo&quot;)<br>
+                        F4=begindemo</font><br>
+                    You can record demo's of your game with the 'demorec' and 'stopdemo' commands. 
+                    Unfortunately, UT2004 does not provide a 'demo recording now in session' mark, 
+                    so it can be confusing to know if the button started or stopped the demo if 
+                    you want to record many small demo's (like...a dozen tries to make one trick 
+                    jump ;-) ). That's why I included 'stats fps' in the alias. This toggles an 
+                    onscreen display how much FPS you're getting. The convenience here is that 
+                    you know a demo is being recorded if this display is shown.<br>
+                    Note: if a level is ended, the demo automatically stops, but the bind (and 
+                    the FPS notification) stays the same. Keep this in mind, because when you 
+                    start the next level, the first time you'll push F4, it does nothing but turn 
+                    off the FPS indicator.</li>
+                <li><font color="green">Aliases[37]=(Command=&quot;set engine.playerinput 
+                        mousesensitivity 0.3 | set input z normalsens&quot;,Alias=&quot;lowsens&quot;)<br>
+                        Aliases[38]=(Command=&quot;set engine.playerinput mousesensitivity 3 | set 
+                        input z lowsens&quot;,Alias=&quot;normalsens&quot;)<br>
+                        z=lowsens</font><br>
+                    Some time ago, someone asked me for a way to increase his mouse sensitivity 
+                    when he's entering a turret. I warned him that he shouldn't do this, because 
+                    it would be hard to adjust to two different mouse sensitivities. But as you 
+                    can see, I provided him with a button to allow for instant sensitivity increase/decrease.<br>
+                    Note: 3 and 0.3 are just illustrative figures. Everyone's mouse setting is 
+                    dependant on a lot of variables like the OS and the brand of the mouse. 3 
+                    is my standard mouse setting, but make sure that <i>if</i> you use this alias 
+                    (even though I warn against it), you replace this with your default mouse 
+                    sensitivity.</li>
+                <li><font color="green">Aliases[37]=(Command=&quot;switchweapon 2 | set input 
+                        M Changeseat2&quot;,Alias=&quot;Changeseat1&quot;)<br>
+                        Aliases[38]=(Command=&quot;switchweapon 3 | set input M Changeseat3&quot;,Alias=&quot;Changeseat2&quot;)<br>
+                        Aliases[39]=(Command=&quot;switchweapon 1 | set input M Changeseat1&quot;,Alias=&quot;Changeseat3&quot;)<br>
+                        M=Changeseat1<br>
+                        T=Use | SwitchWeapon 10 | set input M changeSeat1</font><br>
+                    Switching seats in a vehicle is easy: just press the corresponding 'switchweapon' 
+                    key. Unfortunately, some players (like yours truly) like to rearrange their 
+                    entire setup from time to time. Before I made this bind, I had to press 3 
+                    keys in completely different parts of my N52 speedpad...Not really convenient 
+                    if you're charging into battle with an empty hellbender.<br>
+                    To make sure you always switch in the same order, you'll need a 'reset' function 
+                    (the <font color="green"> set input M changeSeat1</font> part), which is 
+                    best appended at the 'Use' key.</li>
+            </ul>
+            <p>That's about all there is to know about key binding as it applies in UT2004. 
+                If you wish to know more on editing your .ini files, I suggest you visit <a href="http://www.ruination.eclipse.co.uk/ut2004/tweakbind.htm">UT2004 
+                    binding/tweaking guide</a> or check the <a href="http://wiki.beyondunreal.com/wiki/Binding_Keys">wiki</a> 
+                on this subject. Oh, and <a href="http://www.ataricommunity.com/forums/showthread.php?s=c4f16ead91bccd21dd32c74ede61889d&threadid=408970">this</a> 
+                INA thread also contains one helluvalotof information</p>
+            <p>I'd like to end this guide with a note: good keybinds just makes gaming more 
+                comfortable, they don't win you the game. There are more ideas that can be 'convenient' 
+                to have close by (<i>eg: a bind that pulls up the shieldgun and sets up the 
+                    shield, and switches back to the previous weapon once released</i>), but I choose 
+                not to describe these for a good reason: simplicity. Binding a key is one thing, 
+                but learning to instinctively press it while you're under fire is something 
+                completely different. And it takes about the same time to learn how to press 
+                and hold that button as it would have taken you to switch to your shieldgun 
+                with one button, alt-fire with a second, and finish up with your weapon-of-choice 
+                key...But the second solution allows for a faster shield jumps as well.<br>
+            </p>
+        </div>
+</html>
