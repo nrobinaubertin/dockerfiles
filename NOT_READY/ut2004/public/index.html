@@ -12,14 +12,24 @@
                 text-decoration: none;
                 margin: 10px;
             }
+			body {
+				background: #111;
+				color: darkgrey;
+				line-height: 1.5rem;
+			}
+			a:hover { text-decoration: underline }
+			hr {
+				border: none;
+				border-bottom: 1px solid #777;
+			}
         </style>
     </head>
     <body>
         <img src="pics/ut2004_logo.png" style="display: block;margin: 0 auto;">
         <div style="width:calc(100% - 50px); margin: 0 auto; text-align:center">
-            <a href="stats">Server statistics</a>
-            <hr/>
-            <a href="server_config_help.html">Server configuration help</a>
+            <span><SERVER_NAME> - <SERVER_IP></span>
+			<br/>
+            <a href="stats/OLStatsIndex.html">Server statistics</a>
             <hr/>
             <div>
                 <a style="color:grey" href="http://users.skynet.be/taleweaver/UT2004/movement.html"><h3>Taleweaver's UT2004 guide</h3></a>

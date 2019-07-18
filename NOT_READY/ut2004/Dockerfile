@@ -8,10 +8,11 @@ ENV ADMIN_PASSWORD=
 ENV ADMIN_NAME=admin
 ENV MOTD=GLHF
 ENV GAMESTATS=True
+ENV SERVER_NAME=ut2004
 
 RUN set -xe \
     && apt-get update \
-    && apt-get install -y --no-install-recommends libstdc++5 gosu curl ca-certificates nginx supervisor cron \
+    && apt-get install -y --no-install-recommends libstdc++5 gosu curl ca-certificates nginx supervisor cron dnsutils \
     && curl -Lso /usr/local/bin/tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini \
     && chmod +x /usr/local/bin/tini \
     && rm -rf /var/lib/apt/lists/*
@@ -26,7 +27,7 @@ COPY ut2004-server.ini /etc/ut2004/ut2004-server.ini
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 COPY nginx /etc/nginx
 COPY run-ut2004.sh /usr/local/bin/run-ut2004.sh
-COPY fix-acl.sh /usr/local/bin/fix-acl.sh
+COPY publish_stats.sh /usr/local/bin/publish_stats.sh
 COPY run.sh /usr/local/bin/run.sh
 COPY public /public
 
