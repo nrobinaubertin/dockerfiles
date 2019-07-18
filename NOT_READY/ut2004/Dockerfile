@@ -18,7 +18,7 @@ RUN set -xe \
 
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
 VOLUME /ut2004
-EXPOSE 7777 7778 8080
+EXPOSE ["7777/udp", "7778/udp", "8080"]
 
 COPY ut2004-server.ini /etc/ut2004/ut2004-server.ini
 COPY supervisord.conf /etc/supervisor/supervisord.conf
