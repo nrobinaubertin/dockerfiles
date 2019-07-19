@@ -1,4 +1,6 @@
 #!/bin/sh
 
+mkdir -p /public/stats
 cp -r /ut2004/UserLogs/* /public/stats
-chmod 755 -R /public
+chown "$UID:$GID" -R /public/stats
+chmod 755 -R /public/stats
