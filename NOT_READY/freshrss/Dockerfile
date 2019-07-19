@@ -20,6 +20,7 @@ RUN set -xe \
         php7-xml php7-zip php7-ctype php7-dom php7-fileinfo php7-iconv \
         php7-json php7-session php7-simplexml php7-xmlreader php7-zlib php7-pdo_sqlite \
 	&& wget -qO- https://github.com/FreshRSS/FreshRSS/archive/${FRESHRSS_VERSION}.tar.gz | tar xz --strip 1 \
+    && mv /freshrss/data /freshrss/data_default \
     && cd /freshrss/extensions \
     && wget -qO- https://github.com/kevinpapst/freshrss-youtube/archive/${FRESHRSS_YOUTUBE}.tar.gz | tar xz --strip 1 \
     && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
