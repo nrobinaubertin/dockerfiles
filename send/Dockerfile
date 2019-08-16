@@ -1,25 +1,22 @@
 FROM node:10 AS builder
 
-ARG SEND_VERSION=v3.0.12
+ARG SEND_VERSION=v3.0.16
 WORKDIR /send
 
 RUN set -xe \
-	&& apt install git openssl \
-	&& adduser --disabled-password --gecos '' builder \
-	&& chown -R builder: /send
+    && apt install git openssl \
+    && adduser --disabled-password --gecos '' builder \
+    && chown -R builder: /send
 
 USER builder
 
 RUN set -xe \
-	&& id \
     && git clone https://github.com/mozilla/send.git . \
     && git checkout tags/${SEND_VERSION} \
-	&& sed -i '/puppeteer/d' package.json \
-	&& rm package-lock.json \
-	&& id \
+    && sed -i '/puppeteer/d' package.json \
+    && rm package-lock.json \
     && npm install \
-	&& /send/node_modules/.bin/webpack
-RUN set -xe \
+    && /send/node_modules/.bin/webpack \
     && rm -rf /send/node_modules \
     && npm install --production
 
