@@ -14,7 +14,7 @@ COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 COPY traefik.toml /config/traefik.toml
 COPY logrotate.conf /config/logrotate.conf
-COPY dumpcerts.sh /usr/local/bin/dumcerts.sh
+COPY dumpcerts.sh /usr/local/bin/dumpcerts.sh
 
 RUN set -xe \
     && apk add --no-cache sed openssl curl jq util-linux bash logrotate \
