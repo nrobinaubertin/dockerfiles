@@ -1,6 +1,6 @@
 FROM node:10 AS builder
 
-ARG SEND_VERSION=v3.0.16
+ARG SEND_VERSION=v3.0.18
 WORKDIR /send
 
 RUN set -xe \
