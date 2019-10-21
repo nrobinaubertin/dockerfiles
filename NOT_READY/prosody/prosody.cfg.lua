@@ -105,12 +105,16 @@ modules_enabled = {
     "bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
     -- "http_files"; -- Serve static files from a directory over HTTP
 
+    -- Increase reliability of prosody stanzas
+    "smacks_offline"; -- no doc yet, https://modules.prosody.im/mod_smacks.html
+
     -- Other specific functionality
     -- "groups"; -- Shared roster support
     -- "announce"; -- Send announcement to all online users
     -- "welcome"; -- Welcome users who register accounts
-    -- "watchregistrations"; -- Alert admins of registrations
+    "watchregistrations"; -- Alert admins of registrations
     -- "motd"; -- Send a message to users when they log in
+    "log_auth"; -- https://modules.prosody.im/mod_log_auth.html
 }
 
 -- These modules are auto-loaded, but should you want
@@ -123,5 +127,8 @@ modules_disabled = {
 
 -- For advanced logging see http://prosody.im/doc/logging
 log = {
-    "*console"; -- Log to the console, useful for debugging with daemonize=false
+    {
+        to = "*console", -- Log to the console, useful for debugging with daemonize=false
+        levels = { min = "warn" } -- Only match messages with a level of 'warn' or higher
+    }
 }
