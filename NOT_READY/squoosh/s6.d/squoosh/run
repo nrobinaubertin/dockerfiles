@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /squoosh
+exec npm start
