@@ -22,7 +22,7 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 ENV UID=791 GID=791
 
-EXPOSE 8081
+EXPOSE 8080
 WORKDIR /squoosh
 
 COPY --from=builder /build .
@@ -30,6 +30,7 @@ COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
+    && npm rebuild node-sass \
     && chmod +x -R /usr/local/bin/run.sh /etc/s6.d
 
 CMD ["run.sh"]
