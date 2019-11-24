@@ -27,10 +27,13 @@ WORKDIR /squoosh
 
 COPY --from=builder /build .
 COPY s6.d /etc/s6.d
+COPY nginx /etc/nginx
 COPY run.sh /usr/local/bin/run.sh
 
 RUN set -xe \
+    && apk add nginx \
     && npm rebuild node-sass \
-    && chmod +x -R /usr/local/bin/run.sh /etc/s6.d
+    && mkdir -p /run/nginx \
+    && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
 
 CMD ["run.sh"]

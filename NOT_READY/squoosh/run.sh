@@ -1,5 +1,4 @@
 #!/bin/sh
 
-export NODE_ENV=production
-chown -R "${UID}:${GID}" /squoosh /etc/s6.d
+chown -R "${UID}:${GID}" /squoosh /etc/s6.d /etc/nginx /var/log/ /var/tmp/ /run/nginx
 exec su-exec "${UID}:${GID}" /bin/s6-svscan /etc/s6.d
