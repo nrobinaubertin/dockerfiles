@@ -1,8 +1,8 @@
-FROM alpine:3.10
+FROM alpine:3.11
 RUN apk add --no-cache -U su-exec s6 tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG KANBOARD_VERSION=v1.2.11
+ARG KANBOARD_VERSION=v1.2.13
 ENV UID=791 GID=791
 EXPOSE 8080
 
