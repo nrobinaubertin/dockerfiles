@@ -9,7 +9,7 @@ Wallabag
 
 ### Goal of this container
 Propose a lightweight and secure container that is easy to setup. There is no confirmation email and I'm using the sqlite database.  
-**Warning:** Support for SQLite is being [dropped](https://github.com/wallabag/wallabag/issues/2766) by Wallabag in the [future](https://github.com/wallabag/wallabag/issues/2766#issuecomment-352359471) (or maybe [later](https://github.com/wallabag/wallabag/issues/2766#issuecomment-490918115)). Since I don't really care about migrating my articles and I don't want to add a full-fledge database for this service, I'll do migrations manually.  
+**Warning:** Support for SQLite is being [dropped](https://github.com/wallabag/wallabag/issues/2766) by Wallabag in the [future](https://github.com/wallabag/wallabag/issues/2766#issuecomment-352359471) (or maybe [later](https://github.com/wallabag/wallabag/issues/2766#issuecomment-490918115)). Since I don't really care about migrating my articles and I don't want to add a full-fledge database for this service, I'll do migrations [manually](https://github.com/wallabag/wallabag/issues/4126).  
 **Warning:** This container will stay on alpine 3.9 until wallabag 2.4 ([php 7.3 is not supported by 2.3.x](https://github.com/wallabag/wallabag/issues/3899)).
 
 ### Features
