@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM python:3-alpine3.11
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
