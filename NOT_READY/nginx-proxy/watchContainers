@@ -1,9 +1,0 @@
-#!/bin/sh
-
-t=$(getLastStartEvent)
-p=$(cat /tmp/lastStartEvent)
-if [ "$t" -gt "$p" ]; then
-    printf "%s" "$t" > /tmp/lastStartEvent
-    genProxyConfig > /etc/nginx/proxies.conf
-    nginx -s reload
-fi

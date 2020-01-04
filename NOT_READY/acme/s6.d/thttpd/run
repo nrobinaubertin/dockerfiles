@@ -1,2 +1,0 @@
-#!/bin/sh
-exec su-exec "${UID}:${GID}" thttpd -D -d /http -p 8080
