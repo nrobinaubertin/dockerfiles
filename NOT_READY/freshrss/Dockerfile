@@ -23,6 +23,7 @@ RUN set -xe \
     && mv /freshrss/data /freshrss/data_default \
     && cd /freshrss/extensions \
     && wget -qO- https://github.com/kevinpapst/freshrss-youtube/archive/${FRESHRSS_YOUTUBE}.tar.gz | tar xz --strip 1 \
+    && mkdir -p /var/lib/nginx \
     && chmod -R +x /usr/local/bin /etc/s6.d /var/lib/nginx
 
 VOLUME ["/freshrss/data"]
