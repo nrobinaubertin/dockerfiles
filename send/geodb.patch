@@ -1,0 +1,11 @@
+diff --git a/server/amplitude.js b/server/amplitude.js
+index bb1ebcec..a6e1812f 100644
+--- a/server/amplitude.js
++++ b/server/amplitude.js
+@@ -1,5 +1,5 @@
+ const crypto = require('crypto');
+-const geoip = require('fxa-geodb')();
++// const geoip = require('fxa-geodb')();
+ const fetch = require('node-fetch');
+ const config = require('./config');
+ const pkg = require('../package.json');
