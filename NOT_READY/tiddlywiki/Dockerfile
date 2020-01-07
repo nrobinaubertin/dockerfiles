@@ -1,8 +1,8 @@
-FROM alpine:3.9
+FROM alpine:3.11
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG TIDDLYWIKI_VERSION=v5.1.19
+ARG TIDDLYWIKI_VERSION=v5.1.21
 ENV UID=791 GID=791
 ENV USER="" PASSWORD=""
 EXPOSE 8080
