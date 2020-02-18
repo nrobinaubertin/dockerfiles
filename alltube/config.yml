@@ -8,4 +8,5 @@ params:
 convert: true
 avconv: /usr/bin/ffmpeg
 uglyUrls: false
-stream: false
+stream: true
+remux: true
