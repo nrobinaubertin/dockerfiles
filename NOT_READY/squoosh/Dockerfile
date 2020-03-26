@@ -1,6 +1,6 @@
 FROM node:10 AS builder
 
-ARG SQUOOSH_VERSION=v1.8.1
+ARG SQUOOSH_VERSION=v1.9.1
 WORKDIR /build
 
 RUN set -xe \
