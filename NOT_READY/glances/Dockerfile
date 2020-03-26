@@ -2,7 +2,7 @@ FROM alpine:3.11
 RUN apk add --no-cache -U s6 su-exec tini
 ENTRYPOINT ["/sbin/tini", "-s", "--"]
 
-ARG GLANCES_VERSION=v3.1.3
+ARG GLANCES_VERSION=v3.1.4.1
 ENV CACHED_TIME=15
 ENV GLANCES_OPT=""
 EXPOSE 61208
