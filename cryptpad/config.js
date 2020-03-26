@@ -1,3 +1,4 @@
+// cf: https://raw.githubusercontent.com/xwiki-labs/cryptpad/master/config/config.example.js
 var domain = ' <DOMAIN>';
 module.exports = {
 
@@ -37,14 +38,7 @@ module.exports = {
     logToStdout: false,
     verbose: false,
 
-    mainPages: [
-        'index',
-        'privacy',
-        'terms',
-        'about',
-        'contact',
-        'what-is-cryptpad'
-    ],
+    mainPages: ['index'],
 
     removeDonateButton: true,
     allowSubscriptions: false,
