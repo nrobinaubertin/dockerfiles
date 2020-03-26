@@ -2,9 +2,9 @@ Syncthing
 ========
 *Simple, lightweight and secure Syncthing container based on Alpine Linux*
 
-![syncthing](syncthing.png)
+![Syncthing](syncthing.png)
 
-### What is syncthing ?
+### What is Syncthing ?
 Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers.
 You can find the original repo [here](https://github.com/syncthing/syncthing).
 
@@ -21,7 +21,7 @@ Propose a lightweight and secure container that is easy to setup.
 - **21027**
 
 ### Build-time variables
-- **SYNCTHING_VERSION**: (Optional) version of syncthing you want to install
+- **SYNCTHING_VERSION**: (Optional) version of Syncthing you want to install
 
 ### Run-time variables
 - **UID**: (Optional) The UID executing the server
