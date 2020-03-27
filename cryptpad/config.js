@@ -4,7 +4,7 @@ var domain = ' <DOMAIN>';
 // Content-Security-Policy
 var baseCSP = [
   "default-src 'none'",
-  "style-src 'unsafe-inline' 'self' " + domain,
+  "style-src 'unsafe-inline' 'self'" + domain,
   "font-src 'self' data:" + domain,
 
   /*  child-src is used to restrict iframes to a set of allowed domains.
@@ -47,8 +47,8 @@ module.exports = {
   padContentSecurity: baseCSP.join('; ') + "script-src 'self' 'unsafe-eval' 'unsafe-inline'" + domain,
 
   httpPort: 3000,
-  httpUnsafeOrigin: domain,
-  httpSafeOrigin: domain,
+  httpUnsafeOrigin: domain.trim(),
+  httpSafeOrigin: domain.trim(),
   websocketPath: '/cryptpad_websocket',
   websocketPort: 3000,
   useSecureWebsockets: false,
@@ -69,7 +69,7 @@ module.exports = {
 
   removeDonateButton: true,
   allowSubscriptions: false,
-  myDomain: domain,
+  myDomain: domain.trim(),
   defaultStorageLimit: 50 * 1024 * 1024, // 50MB
   adminEmail: false,
   channelExpirationMs: 30000,

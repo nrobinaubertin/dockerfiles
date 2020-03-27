@@ -2,7 +2,7 @@
 
 set -x
 
-sed -i -e "s|<DOMAIN>|${DOMAIN}|g" /cryptpad/config/config.example.js
+sed -i -e "s|<DOMAIN>|${DOMAIN}|g" /cryptpad/config/config.js
 
 # Create some directories
 mkdir -p customize cfg config blobstage datastore data block blob
