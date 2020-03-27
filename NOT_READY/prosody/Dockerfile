@@ -1,9 +1,10 @@
-FROM alpine:3.10
+FROM alpine:3.11
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG LUA_VERSION=5.2
-ARG PROSODY_VERSION=0.11.3
+ARG PROSODY_VERSION=0.11.5
+ARG PROSODY_MODULES_VERSION=7e96b95924bd
 ENV UID=791 GID=791
 ENV DOMAIN=localhost
 ENV HTTP_UPLOAD_FILE_SIZE_LIMIT=1024*1024*10
@@ -53,8 +54,9 @@ RUN set -xe \
         --runwith=lua${LUA_VERSION} \
     && make \
     && hg clone https://hg.prosody.im/prosody-modules/ /prosody_modules \
-    && rm -rf /prosody_modules/mod_captcha_registration \
-    && find /prosody_modules -name "*.lua" -exec cp {} /prosody/plugins/ \; \
+    && cd /prosody_modules && hg update -r ${PROSODY_MODULES_VERSION} && cd /prosody \
+    && rm -rf /prosody_modules/mod_captcha_registration /prosody_modules/.hg \
+    && cp -r /prosody_modules/* /prosody/plugins/ \
     && rm -rf /prosody_modules \
     && ln -s /usr/bin/lua${LUA_VERSION} /usr/bin/lua \
     && apk del .build-deps

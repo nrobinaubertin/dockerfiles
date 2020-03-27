@@ -97,22 +97,19 @@ modules_enabled = {
     "pep"; -- Enables users to publish their mood, activity, playing music and more
     "register"; -- Allow users to register on this server using a client and change passwords
     "server_contact_info"; -- Allow contact infos to be published
-    "vcard_legacy"; -- https://prosody.im/doc/modules/mod_vcard_legacy
 
     -- HTTP modules
     "http"; -- https://prosody.im/doc/http
     "http_upload"; -- https://modules.prosody.im/mod_http_upload.html *
     "bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
     -- "http_files"; -- Serve static files from a directory over HTTP
-
-    -- Increase reliability of prosody stanzas
-    "smacks_offline"; -- no doc yet, https://modules.prosody.im/mod_smacks.html
+    "conversejs";
 
     -- Other specific functionality
     -- "groups"; -- Shared roster support
     -- "announce"; -- Send announcement to all online users
     -- "welcome"; -- Welcome users who register accounts
-    "watchregistrations"; -- Alert admins of registrations
+    -- "watchregistrations"; -- Alert admins of registrations
     -- "motd"; -- Send a message to users when they log in
     "log_auth"; -- https://modules.prosody.im/mod_log_auth.html
 }

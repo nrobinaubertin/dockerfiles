@@ -3,16 +3,16 @@
 mkdir -p /data/files
 
 if [ -z "${SSL_CERT}" ] || [ -z "${SSL_KEY}" ]; then
-	mkdir -p /data/certs
-	SSL_CERT="/data/certs/cert.pem"
-	SSL_KEY="/data/certs/key.pem"
+    mkdir -p /data/certs
+    SSL_CERT="/data/certs/cert.pem"
+    SSL_KEY="/data/certs/key.pem"
 fi
 
 # generate selfsigned certificate if needed
 if ! [ -f "${SSL_CERT}" ] || ! [ -f "${SSL_KEY}" ]; then
-	openssl req -new -x509 -days 3650 -nodes \
-		-out "${SSL_CERT}" -newkey rsa:4096 \
-		-keyout "${SSL_KEY}" -subj "/CN=${DOMAIN}"
+    openssl req -new -x509 -days 3650 -nodes \
+        -out "${SSL_CERT}" -newkey rsa:4096 \
+        -keyout "${SSL_KEY}" -subj "/CN=${DOMAIN}"
 fi
 
 sed -i -e "s|<DOMAIN>|${DOMAIN}|g" \
