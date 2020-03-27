@@ -7,11 +7,9 @@ ENV UID=791 GID=791
 ENV DOMAIN=https://localhost:3000/
 
 EXPOSE 3000
-VOLUME /cryptpad/datastore /cryptpad/customize
+VOLUME /cryptpad/datastore
+VOLUME /cryptpad/customize
 WORKDIR /cryptpad
-
-COPY run.sh /usr/local/bin/run.sh
-COPY config.js /cryptpad/config.js
 
 RUN set -xe \
     && apk add --no-cache nodejs \
@@ -22,8 +20,11 @@ RUN set -xe \
     && npm install \
     && npm install -g bower \
     && bower install --allow-root \
-    && chmod +x /usr/local/bin/run.sh \
     && npm uninstall -g bower \
     && apk del .build-deps
+
+COPY run.sh /usr/local/bin/run.sh
+COPY config.js /cryptpad/config/config.js
+RUN set -xe && chmod +x /usr/local/bin/run.sh
 
 CMD ["run.sh"]
