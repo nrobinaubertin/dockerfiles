@@ -16,7 +16,7 @@ const conf = convict({
   },
   expire_times_seconds: {
     format: Array,
-    default: [300, 3600, 86400].concat(Array(<MAX_EXPIRE_DAYS>).fill(1).map((e,i)=>e*++i)),
+    default: [300, 3600, 86400].concat(Array(<MAX_EXPIRE_DAYS>).fill(1).map((e,i)=>e*++i*86400)),
     env: 'EXPIRE_TIMES_SECONDS'
   },
   default_expire_seconds: {
