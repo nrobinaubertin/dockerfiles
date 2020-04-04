@@ -31,6 +31,7 @@ RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ENV UID=791 GID=791
+ENV MAX_EXPIRE_DAYS=30
 
 EXPOSE 1443
 WORKDIR /send
@@ -38,6 +39,7 @@ WORKDIR /send
 COPY --from=builder /build .
 COPY s6.d /etc/s6.d
 COPY run.sh /usr/local/bin/run.sh
+COPY config.js /send/server/config.js
 
 RUN set -xe \
     && apk add --no-cache -U redis \
