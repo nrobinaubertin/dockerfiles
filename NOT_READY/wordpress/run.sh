@@ -14,7 +14,17 @@ sed -i -e "s|<AUTH_KEY>|$(openssl rand -base64 48)|g" \
        -e "s|<NONCE_SALT>|$(openssl rand -base64 48)|g" /wordpress/wp-config.php
 
 mkdir -p /run/nginx /var/tmp/nginx /run/mysqld
-chown -R "${UID}:${GID}" /etc/s6.d /wordpress /etc/php7 /etc/nginx /var/lib/nginx /var/log /run /var/tmp/nginx
+chown -R "${UID}:${GID}" \
+  /etc/s6.d \
+  /wordpress \
+  /etc/php7 \
+  /etc/nginx \
+  /var/lib/nginx \
+  /var/log \
+  /run \
+  /var/tmp/nginx \
+  /etc/phpmyadmin \
+  /usr/share/webapps
 su-exec "${UID}:${GID}" mysql_install_db --datadir="/wordpress/wp-content/mysql"
 (
     sleep 10
