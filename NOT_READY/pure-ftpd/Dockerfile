@@ -57,7 +57,7 @@ ENV PURE_USER=
 ENV PURE_PASSWD=
 
 COPY s6.d /etc/s6.d
-COPY pure-ftpd.conf $PURE_CONFIGFILE
+COPY pure-ftpd.conf /etc/pure-ftpd.conf
 COPY run.sh /usr/local/bin/run.sh
 RUN chmod -R +x /usr/local/bin /etc/s6.d
 

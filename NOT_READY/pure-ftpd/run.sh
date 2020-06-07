@@ -28,6 +28,10 @@ if ! [ -f "${PURE_CERTFILE}" ] || ! [ -f "${PURE_KEYFILE}" ]; then
         -keyout "${PURE_KEYFILE}" -subj "/CN=${DOMAIN}"
 fi
 
+if ! [ -f "${PURE_CONFIGFILE}" ]; then
+  cp /etc/pure-ftpd.conf "$PURE_CONFIGFILE"
+fi
+
 sed -i \
   -e "s|<PURE_PASSIVIP>|${PURE_PASSIVIP}|g" \
   -e "s|<PURE_CERTFILE>|${PURE_CERTFILE}|g" \
