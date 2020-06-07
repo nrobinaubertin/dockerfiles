@@ -1,2 +1,2 @@
 #!/bin/sh
-exec pure-ftpd /data/config/pure-ftpd.conf
+exec pure-ftpd "$PURE_CONFIGFILE"

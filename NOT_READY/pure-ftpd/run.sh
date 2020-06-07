@@ -2,14 +2,17 @@
 
 set -xe
 
+addgroup -g "$GID" ftpuser
+adduser -u "$UID" -G ftpuser -D ftpuser
+
 if [ -z "$PURE_PASSIVIP" ]; then
   PURE_PASSIVIP="$(dig +short -4 myip.opendns.com @resolver1.opendns.com 2>/dev/null)"
   [ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
 fi
 
 if [ -z "${PURE_CERTFILE}" ] || [ -z "${PURE_KEYFILE}" ]; then
-    PURE_CERTFILE="/data/pure-ftpd/certs/cert.pem"
-    PURE_KEYFILE="/data/pure-ftpd/certs/key.pem"
+    PURE_CERTFILE="/config/certs/cert.pem"
+    PURE_KEYFILE="/config/certs/key.pem"
 fi
 
 # create missing directories
@@ -32,16 +35,15 @@ sed -i \
   -e "s|<PURE_QUOTA>|${PURE_QUOTA}|g" \
   "$PURE_CONFIGFILE"
 
-addgroup -g "$GID" ftpuser
-adduser -u "$UID" -G ftpuser -D ftpuser
-
 if [ -n "$PURE_USER" ] && [ -n "$PURE_PASSWD" ]; then
   echo -ne "$PURE_PASSWD\n$PURE_PASSWD\n" | pure-pw useradd "$PURE_USER" -u ftpuser -d "/data/$PURE_USER"
 fi
 
-pure-pw mkdb /etc/pureftpd.pdb -f /data/config/pureftpd.passwd
+if [ -f "$PURE_PASSWDFILE" ]; then
+  pure-pw mkdb /etc/pureftpd.pdb -f "$PURE_PASSWDFILE"
+fi
 
-chown -R ftpuser:ftpuser /data
-chmod -R 755 /data
+#chown -R "ftpuser:ftpuser" /data
+#chmod -R 755 /data
 
 exec /bin/s6-svscan /etc/s6.d
