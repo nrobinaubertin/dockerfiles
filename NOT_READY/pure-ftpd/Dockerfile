@@ -43,7 +43,7 @@ RUN apk --update --no-cache add \
 COPY --from=builder /pure-ftpd /
 
 VOLUME ["/data", "/config"]
-EXPOSE 2121 50000-55000
+EXPOSE 2121 50000-50009
 
 ENV PURE_PASSWDFILE="/config/pureftpd.passwd"
 ENV PURE_CONFIGFILE="/config/pure-ftpd.conf"
