@@ -2,12 +2,16 @@
 
 set -xe
 
-if [ "$(id -u pureftpd)" != "$UID" ]; then
+if [ -n "$(id -u pureftpd)" ]; then
   deluser pureftpd
-  delgroup pureftpd
-  addgroup -g "$GID" pureftpd
-  adduser -u "$UID" -G pureftpd -D pureftpd
 fi
+
+if [ -n "$(id -g pureftpd)" ]; then
+  delgroup pureftpd
+fi
+
+addgroup -g "$GID" pureftpd
+adduser -u "$UID" -G pureftpd -D pureftpd
 
 if [ -z "$PURE_PASSIVIP" ]; then
   PURE_PASSIVIP="$(/sbin/ip route|awk '/default/ { print $3 }')"
