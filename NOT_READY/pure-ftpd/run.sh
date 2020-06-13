@@ -2,11 +2,16 @@
 
 set -xe
 
-addgroup -g "$GID" ftpuser
-adduser -u "$UID" -G ftpuser -D ftpuser
+if [ "$(id -u pureftpd)" != "$UID" ]; then
+  deluser pureftpd
+  delgroup pureftpd
+  addgroup -g "$GID" pureftpd
+  adduser -u "$UID" -G pureftpd -D pureftpd
+fi
 
 if [ -z "$PURE_PASSIVIP" ]; then
-  PURE_PASSIVIP="$(dig +short -4 myip.opendns.com @resolver1.opendns.com 2>/dev/null)"
+  PURE_PASSIVIP="$(/sbin/ip route|awk '/default/ { print $3 }')"
+  #[ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="$(dig +short -4 myip.opendns.com @resolver1.opendns.com 2>/dev/null)"
   [ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
 fi
 
@@ -40,14 +45,11 @@ sed -i \
   "$PURE_CONFIGFILE"
 
 if [ -n "$PURE_USER" ] && [ -n "$PURE_PASSWD" ]; then
-  echo -ne "$PURE_PASSWD\n$PURE_PASSWD\n" | pure-pw useradd "$PURE_USER" -u ftpuser -d "/data/$PURE_USER"
+  echo -ne "$PURE_PASSWD\n$PURE_PASSWD\n" | pure-pw useradd "$PURE_USER" -u pureftpd -d "/data/$PURE_USER"
 fi
 
 if [ -f "$PURE_PASSWDFILE" ]; then
   pure-pw mkdb /etc/pureftpd.pdb -f "$PURE_PASSWDFILE"
 fi
-
-#chown -R "ftpuser:ftpuser" /data
-#chmod -R 755 /data
 
 exec /bin/s6-svscan /etc/s6.d
