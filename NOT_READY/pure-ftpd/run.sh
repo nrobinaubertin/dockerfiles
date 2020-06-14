@@ -20,8 +20,8 @@ if [ -z "$PURE_PASSIVIP" ]; then
 fi
 
 if [ -z "${PURE_CERTFILE}" ] || [ -z "${PURE_KEYFILE}" ]; then
-    PURE_CERTFILE="/config/certs/cert.pem"
-    PURE_KEYFILE="/config/certs/key.pem"
+    PURE_CERTFILE="/certs/cert.pem"
+    PURE_KEYFILE="/certs/key.pem"
 fi
 
 # create missing directories
