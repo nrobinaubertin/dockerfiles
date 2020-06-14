@@ -45,20 +45,21 @@ COPY --from=builder /pure-ftpd /
 VOLUME ["/data", "/config"]
 EXPOSE 2121 50000-50009
 
-ENV PURE_PASSWDFILE="/config/pureftpd.passwd"
+ENV PURE_PASSWDFILE="/config/pure-ftpd.passwd"
 ENV PURE_CONFIGFILE="/config/pure-ftpd.conf"
+ENV PURE_PDBFILE="/config/pure-ftpd.pdb"
 ENV PURE_QUOTA="1000:10"
 ENV UID=791 GID=791
 ENV PURE_PASSIVIP=
 ENV PURE_CERTFILE=
 ENV PURE_KEYFILE=
 ENV DOMAIN=localhost
-ENV PURE_USER=
-ENV PURE_PASSWD=
 
 COPY s6.d /etc/s6.d
 COPY pure-ftpd.conf /etc/pure-ftpd.conf
 COPY run.sh /usr/local/bin/run.sh
-RUN chmod -R +x /usr/local/bin /etc/s6.d
+COPY addpureuser /usr/local/bin/addpureuser
+COPY updatepuredb /usr/local/bin/updatepuredb
+RUN chmod -R +x /usr/local/bin/* /etc/s6.d
 
 CMD ["run.sh"]

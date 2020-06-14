@@ -1,0 +1,13 @@
+#!/bin/sh
+
+PURE_USER="$1"
+PURE_PASSWD="$2"
+PURE_DIR="$3"
+
+if [ -n "$PURE_USER" ] && [ -n "$PURE_PASSWD" ]; then
+  echo -ne "$PURE_PASSWD\n$PURE_PASSWD\n" | pure-pw useradd "$PURE_USER" -u pureftpd -d "/data/$PURE_DIR"
+fi
+
+if [ -f "$PURE_PASSWDFILE" ]; then
+  pure-pw mkdb "$PURE_PDBFILE" -f "$PURE_PASSWDFILE"
+fi
