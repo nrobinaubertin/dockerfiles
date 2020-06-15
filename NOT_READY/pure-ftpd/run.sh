@@ -13,11 +13,12 @@ fi
 addgroup -g "$GID" pureftpd
 adduser -u "$UID" -G pureftpd -D pureftpd
 
-if [ -z "$PURE_PASSIVIP" ]; then
-  #PURE_PASSIVIP="$(/sbin/ip route | awk '/default/ { print $3 }')"
-  PURE_PASSIVIP="$(dig +short -4 myip.opendns.com @resolver1.opendns.com 2>/dev/null)"
-  [ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
-fi
+#if [ -z "$PURE_PASSIVIP" ]; then
+#  PURE_PASSIVIP="bridge"
+#  #PURE_PASSIVIP="$(/sbin/ip route | awk '/default/ { print $3 }')"
+#  #PURE_PASSIVIP="$(dig +short -4 myip.opendns.com @resolver1.opendns.com 2>/dev/null)"
+#  #[ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
+#fi
 
 if [ -z "${PURE_CERTFILE}" ] || [ -z "${PURE_KEYFILE}" ]; then
     PURE_CERTFILE="/certs/cert.pem"
