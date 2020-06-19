@@ -1,6 +1,6 @@
 FROM node:10-buster AS builder
 
-ARG SEND_VERSION=v3.0.21
+ARG SEND_VERSION=v3.0.22
 WORKDIR /build
 
 RUN set -xe \
@@ -14,11 +14,7 @@ RUN set -xe \
     && git clone https://github.com/mozilla/send.git . \
     && git checkout tags/${SEND_VERSION}
 
-COPY geodb.patch /build/geodb.patch
 RUN set -xe \
-    && git apply --stat geodb.patch \
-    && git apply --check geodb.patch \
-    && git apply geodb.patch \
     && sed -i '/puppeteer/d' package.json \
     && rm package-lock.json \
     && npm install \
