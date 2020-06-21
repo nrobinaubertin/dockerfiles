@@ -1,6 +1,6 @@
-FROM node:10 AS builder
+FROM node:10.21.0-buster AS builder
 
-ARG SQUOOSH_VERSION=v1.9.1
+ARG SQUOOSH_VERSION=v1.10.3
 WORKDIR /build
 
 RUN set -xe \
@@ -16,7 +16,7 @@ RUN set -xe \
     && npm install \
     && npm run build
 
-FROM node:10-alpine
+FROM node:10.21.0-alpine3.11
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
