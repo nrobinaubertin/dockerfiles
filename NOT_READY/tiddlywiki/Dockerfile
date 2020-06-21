@@ -1,8 +1,8 @@
-FROM alpine:3.11
+FROM alpine:3.12
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG TIDDLYWIKI_VERSION=v5.1.21
+ARG TIDDLYWIKI_VERSION=v5.1.22
 ENV UID=791 GID=791
 ENV USER="" PASSWORD=""
 EXPOSE 8080
@@ -15,7 +15,7 @@ WORKDIR /tiddlywiki
 RUN set -xe \
     && apk add --no-cache nodejs \
     && apk add --no-cache --virtual .build-deps ca-certificates wget \
-    && wget -qO- https://github.com/Jermolene/TiddlyWiki5/archive/${TIDDLYWIKI_VERSION}.tar.gz | tar xz --strip 1 \
+    && wget -qO- "https://github.com/Jermolene/TiddlyWiki5/archive/${TIDDLYWIKI_VERSION}.tar.gz" | tar xz --strip 1 \
     && apk del .build-deps \
     && chmod -R +x /usr/local/bin /etc/s6.d
 
