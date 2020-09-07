@@ -2,7 +2,7 @@ FROM alpine:3.12
 RUN apk add --no-cache -U su-exec tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG SYNC_VERSION=1.9.0
+ARG SYNC_VERSION=1.8.0
 ENV UID=791 GID=791
 
 # This must be edited to point to the public URL of your server,
@@ -24,7 +24,7 @@ WORKDIR /sync
 COPY run.sh /usr/local/bin/run.sh
 COPY get-pip-20.2.1.py /usr/local/bin/get-pip-20.2.1.py
 
-RUN set -xe && apk add --no-cache python2 make libstdc++ openssl
+RUN set -xe && apk add --no-cache python2 make libstdc++ openssl sqlite
 
 RUN set -xe \
     && apk add --no-cache --virtual .build-deps \
@@ -40,10 +40,14 @@ RUN set -xe \
         py2-setuptools \
         python2-dev \
         readline \
+        sqlite-dev \
     && python /usr/local/bin/get-pip-20.2.1.py \
     && pip install virtualenv \
     && wget -qO- https://github.com/mozilla-services/syncserver/archive/${SYNC_VERSION}.tar.gz | tar xz --strip 1 \
     && sed -i 's/--no-site-packages //' Makefile \
+    && echo "urllib3==1.21.1" >> requirements.txt \
+    && echo "chardet==3.0.4" >> requirements.txt \
+    && echo "pysqlite==2.8.3" >> requirements.txt \
     && make build \
     && apk del .build-deps \
     && chmod +x /usr/local/bin/run.sh
