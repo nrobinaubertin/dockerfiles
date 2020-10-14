@@ -23,7 +23,7 @@ sed -i -e "s|<TITLE>|${TITLE}|g" \
        -e "s|<MAX_UPLOAD_SIZE>|${MAX_UPLOAD_SIZE}|g" \
     /jirafeau/lib/config.local.php
 
-mkdir -p /var/run/nginx /jirafeau/data/files /jirafeau/data/links /jirafeau/data/async \
+mkdir -p /jirafeau/data/files /jirafeau/data/links /jirafeau/data/async \
 chmod 755 -R /jirafeau
 
 exec /bin/s6-svscan /etc/s6.d
