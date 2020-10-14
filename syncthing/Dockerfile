@@ -2,7 +2,7 @@ FROM alpine:3.12
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG SYNCTHING_VERSION=v1.8.0
+ARG SYNCTHING_VERSION=v1.10.0
 ENV UID=791 GID=791
 
 EXPOSE 8384 22000 21027/udp
