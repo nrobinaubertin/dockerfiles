@@ -4,7 +4,7 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG JIRAFEAU_VERSION=4.1.1
 ENV TITLE=""
-ENV DOMAIN="localhost"
+ENV DOMAIN="http://localhost"
 ENV ADMIN_PASSWORD=""
 ENV AVAIL_MINUTE="true"
 ENV AVAIL_HOUR="true"

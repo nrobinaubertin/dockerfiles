@@ -27,7 +27,7 @@
 
 /* URL of installation, with traling slash (eg. »https://exmaple.com/jirafeau/«)
  */
-$cfg['web_root'] = 'http://<DOMAIN>/';
+$cfg['web_root'] = '<DOMAIN>/';
 
 /* Path to data directory, with trailing slash (eg. »/var/www/data/var_314159265358979323846264«
  */

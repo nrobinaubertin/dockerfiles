@@ -8,6 +8,7 @@ echo "\
 16 3 * * * php /jirafeau/admin.php clean_async" | crontab -
 
 sed -i -e "s|<TITLE>|${TITLE}|g" \
+       -e "s|<DOMAIN>|${DOMAIN}|g" \
        -e "s|<ADMIN_PASSWORD>|${ADMIN_PASSWORD}|g" \
        -e "s|<ENABLE_CRYPT>|${ENABLE_CRYT}|g" \
        -e "s|<AVAIL_MINUTE>|${AVAIL_MINUTE}|g" \
