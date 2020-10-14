@@ -27,11 +27,11 @@
 
 /* URL of installation, with traling slash (eg. »https://exmaple.com/jirafeau/«)
  */
-$cfg['web_root'] = 'http://localhost/';
+$cfg['web_root'] = 'http://<DOMAIN>/';
 
 /* Path to data directory, with trailing slash (eg. »/var/www/data/var_314159265358979323846264«
  */
-$cfg['var_root'] = '/jirafeau/var/';
+$cfg['var_root'] = '/jirafeau/data/';
 
 /* Language - choice between 'auto' or any language located in the /lib/locales/ folder.
  * The mode »auto« will cause the script to detect the user's browser information

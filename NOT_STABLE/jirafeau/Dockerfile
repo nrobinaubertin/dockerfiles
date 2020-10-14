@@ -4,6 +4,7 @@ ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG JIRAFEAU_VERSION=4.1.1
 ENV TITLE=""
+ENV DOMAIN="localhost"
 ENV ADMIN_PASSWORD=""
 ENV AVAIL_MINUTE="true"
 ENV AVAIL_HOUR="true"
@@ -36,4 +37,5 @@ RUN set -xe \
 
 COPY config.local.php /jirafeau/lib/config.local.php
 
+VOLUME ["/jirafeau/data"]
 CMD ["run.sh"]
