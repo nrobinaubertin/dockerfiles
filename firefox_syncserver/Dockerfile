@@ -2,7 +2,7 @@ FROM alpine:3.12
 RUN apk add --no-cache -U su-exec tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG SYNC_VERSION=1.8.0
+ARG SYNC_VERSION=1.9.1
 ENV UID=791 GID=791
 
 # This must be edited to point to the public URL of your server,

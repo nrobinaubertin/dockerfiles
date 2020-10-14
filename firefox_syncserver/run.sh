@@ -1,8 +1,8 @@
 #!/bin/sh
 
-cd /sync
+cd /sync || exit
 
-SECRET=$(cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 50 | head -n1)
+SECRET=$(tr -dc "a-zA-Z0-9" < /dev/urandom | head -c 50)
 
 echo "\
 [server:main]
