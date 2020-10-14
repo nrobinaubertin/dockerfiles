@@ -32,7 +32,6 @@ RUN set -xe \
     && wget -qO- https://gitlab.com/mojo42/jirafeau/-/archive/${JIRAFEAU_VERSION}/jireafeau-${JIRAFEAU_VERSION}.tar.gz | tar xz --strip 1 \
     && rm -rf docker \
     && apk del .build-deps \
-    && mkdir -p /var/run/nginx /jirafeau/var/files /jirafeau/var/links /jirafeau/var/async \
     && chmod -R +x /usr/local/bin /etc/s6.d
 
 COPY config.local.php /jirafeau/lib/config.local.php
