@@ -1,11 +1,10 @@
-FROM alpine:3.11
+FROM alpine:3.12
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
 ARG LUA_VERSION=5.2
-ARG PROSODY_VERSION=0.11.5
-ARG PROSODY_MODULES_VERSION=7e96b95924bd
-ENV UID=791 GID=791
+ARG PROSODY_VERSION=0.11.7
+ARG PROSODY_MODULES_VERSION=7c632d7b1f52
 ENV DOMAIN=localhost
 ENV HTTP_UPLOAD_FILE_SIZE_LIMIT=1024*1024*10
 ENV HTTP_UPLOAD_EXPIRE_AFTER=60*60*24*14
@@ -16,14 +15,14 @@ ENV ADMIN_EMAIL=
 ENV ADMIN_XMPP=
 ENV MUC_SUBDOMAIN=conference
 
-EXPOSE 5000 5222 5280 5281 5269
+EXPOSE 5000 5222 5280 5281 5269 3478-3479 5349-5350 49152-49162
 VOLUME ["/data"]
 
 COPY s6.d /etc/s6.d
 
 WORKDIR /prosody
 RUN set -xe \
-    && apk add --no-cache openssl busybox \
+    && apk add --no-cache openssl busybox coturn \
         libcrypto1.1 libidn \
         lua${LUA_VERSION} \
         lua${LUA_VERSION}-busted \
@@ -55,13 +54,15 @@ RUN set -xe \
     && make \
     && hg clone https://hg.prosody.im/prosody-modules/ /prosody_modules \
     && cd /prosody_modules && hg update -r ${PROSODY_MODULES_VERSION} && cd /prosody \
-    && rm -rf /prosody_modules/mod_captcha_registration /prosody_modules/.hg \
+    #&& rm -rf /prosody_modules/mod_captcha_registration /prosody_modules/.hg \
+    && rm -rf /prosody_modules/.hg \
     && cp -r /prosody_modules/* /prosody/plugins/ \
     && rm -rf /prosody_modules \
     && ln -s /usr/bin/lua${LUA_VERSION} /usr/bin/lua \
     && apk del .build-deps
 
 COPY run.sh /usr/local/bin/run.sh
+COPY turnserver.conf /etc/coturn/turnserver.conf
 COPY prosody.cfg.lua /prosody/prosody.cfg.lua
 RUN chmod -R +x /usr/local/bin /etc/s6.d /prosody/plugins
 

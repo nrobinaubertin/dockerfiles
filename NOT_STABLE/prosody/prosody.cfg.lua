@@ -33,6 +33,19 @@ contact_info = {
     admin = { "mailto:<ADMIN_EMAIL>", "xmpp:<ADMIN_XMPP>" };
 }
 
+turncredentials_secret = "<TURNCREDENTIALS_SECRET>";
+turncredentials_host = "<DOMAIN>";
+turncredentials_port = 3478;
+turncredentials_ttl = 86400;
+
+-- For advanced logging see http://prosody.im/doc/logging
+log = {
+    {
+        to = "*console", -- Log to the console, useful for debugging with daemonize=false
+        levels = { min = "warn" } -- Only match messages with a level of 'warn' or higher
+    }
+}
+
 Component "conference.<DOMAIN>" "muc"
     modules_enabled = {
         "muc_mam";
@@ -74,7 +87,7 @@ modules_enabled = {
     "mam"; -- https://modules.prosody.im/mod_mam.html
     "csi"; -- https://modules.prosody.im/mod_csi
 
-    -- csi additions
+    -- Csi additions
     "throttle_presence"; -- https://modules.prosody.im/mod_throttle_presence.html *
     "filter_chatstates"; -- https://modules.prosody.im/mod_filter_chatstates.html *
 
@@ -87,7 +100,6 @@ modules_enabled = {
 
     -- Not essential, but recommended
     "private"; -- Private XML storage (for room bookmarks, etc.)
-    "vcard"; -- Allow users to set vCards
 
     -- Nice to have
     "version"; -- Replies to server version requests
@@ -95,8 +107,10 @@ modules_enabled = {
     "time"; -- Let others know the time here on this server
     "ping"; -- Replies to XMPP pings with pongs
     "pep"; -- Enables users to publish their mood, activity, playing music and more
-    "register"; -- Allow users to register on this server using a client and change passwords
+    -- "register"; -- Allow users to register on this server using a client and change passwords
     "server_contact_info"; -- Allow contact infos to be published
+    -- "vcard_muc"; -- https://modules.prosody.im/mod_vcard_muc.html
+    "vcard_legacy"; -- https://prosody.im/doc/modules/mod_vcard_legacy
 
     -- HTTP modules
     "http"; -- https://prosody.im/doc/http
@@ -104,6 +118,9 @@ modules_enabled = {
     "bosh"; -- Enable BOSH clients, aka "Jabber over HTTP"
     -- "http_files"; -- Serve static files from a directory over HTTP
     "conversejs";
+
+    -- A/V Calls https://gist.github.com/iNPUTmice/a28c438d9bbf3f4a3d4c663ffaa224d9#notes-for-server-admins
+    "turncredentials"; -- https://modules.prosody.im/mod_turncredentials.html
 
     -- Other specific functionality
     -- "groups"; -- Shared roster support
@@ -120,12 +137,4 @@ modules_disabled = {
     -- "c2s" -- Handle client connections
     -- "s2s" -- Handle server-to-server connections
     "posix";
-}
-
--- For advanced logging see http://prosody.im/doc/logging
-log = {
-    {
-        to = "*console", -- Log to the console, useful for debugging with daemonize=false
-        levels = { min = "warn" } -- Only match messages with a level of 'warn' or higher
-    }
 }
