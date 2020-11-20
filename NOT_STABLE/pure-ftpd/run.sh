@@ -13,6 +13,11 @@ fi
 addgroup -g "$GID" pureftpd
 adduser -u "$UID" -G pureftpd -D pureftpd
 
+if [ -z "$PURE_PASSIVIP" ]; then
+  PURE_PASSIVIP="$(sbin/ip route | grep "$(/sbin/ip route | awk '/^default/ {print $5}')" | tail -n1 | awk '{print $9}')"
+  [ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
+fi
+
 if [ -z "${PURE_CERTFILE}" ] || [ -z "${PURE_KEYFILE}" ]; then
     PURE_CERTFILE="/certs/cert.pem"
     PURE_KEYFILE="/certs/key.pem"
