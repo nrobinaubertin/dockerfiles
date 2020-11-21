@@ -2,6 +2,11 @@
 
 set -xe
 
+if [ -z "$PURE_PASSIVIP" ]; then
+  echo "PURE_PASSIVIP is not defined !"
+  exit 1
+fi
+
 if [ -n "$(id -u pureftpd)" ]; then
   deluser pureftpd
 fi
@@ -12,11 +17,6 @@ fi
 
 addgroup -g "$GID" pureftpd
 adduser -u "$UID" -G pureftpd -D pureftpd
-
-if [ -z "$PURE_PASSIVIP" ]; then
-  PURE_PASSIVIP="$(sbin/ip route | grep "$(/sbin/ip route | awk '/^default/ {print $5}')" | tail -n1 | awk '{print $9}')"
-  [ -z "$PURE_PASSIVIP" ] && PURE_PASSIVIP="127.0.0.1"
-fi
 
 if [ -z "${PURE_CERTFILE}" ] || [ -z "${PURE_KEYFILE}" ]; then
     PURE_CERTFILE="/certs/cert.pem"
