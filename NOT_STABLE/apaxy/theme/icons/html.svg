@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="81px" height="93px" viewBox="0 0 81 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>html</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-478.000000, -444.000000)">
+            <g id="files" transform="translate(43.000000, 230.000000)">
+                <g id="html" transform="translate(435.000000, 214.000000)">
+                    <path d="M13,0 L65.7339131,0 L81,18.640625 L81,90 C81,91.6568542 79.6568542,93 78,93 L13,93 C11.3431458,93 10,91.6568542 10,90 L10,3 C10,1.34314575 11.3431458,3.04359188e-16 13,0 Z" id="Rectangle-2" fill="#E6F2FF"></path>
+                    <path d="M66.1679688,0.083984375 L66.1679688,15.6293945 C66.1679688,17.2862488 67.5111145,18.6293945 69.1679688,18.6293945 L81.0048828,18.6293945 L66.1679688,0.083984375 Z" id="Rectangle-2-Copy" fill="#AEC3DA"></path>
+                    <rect id="Rectangle-3" fill="#F16529" x="0" y="53" width="66" height="32" rx="3"></rect>
+                    <path d="M6.44,59.84 L9.56,59.84 L9.56,65.12 L15.62,65.12 L15.62,59.84 L18.74,59.84 L18.74,74 L15.62,74 L15.62,67.88 L9.56,67.88 L9.56,74 L6.44,74 L6.44,59.84 Z M24.36,62.6 L20.32,62.6 L20.32,59.84 L31.52,59.84 L31.52,62.6 L27.48,62.6 L27.48,74 L24.36,74 L24.36,62.6 Z M33.1,59.84 L37.82,59.84 L41.08,69.08 L41.12,69.08 L44.4,59.84 L49.1,59.84 L49.1,74 L45.98,74 L45.98,63.14 L45.94,63.14 L42.22,74 L39.84,74 L36.26,63.14 L36.22,63.14 L36.22,74 L33.1,74 L33.1,59.84 Z M52.1,59.84 L55.22,59.84 L55.22,71.12 L61,71.12 L61,74 L52.1,74 L52.1,59.84 Z" id="HTML" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

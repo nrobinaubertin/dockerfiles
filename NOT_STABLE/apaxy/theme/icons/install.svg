@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="70px" viewBox="0 0 76 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>install</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-750.000000, -1460.000000)">
+            <g id="icons" transform="translate(386.000000, 1460.000000)">
+                <g id="install" transform="translate(364.000000, 0.000000)">
+                    <rect id="Rectangle" fill="#213144" x="0" y="0" width="76" height="70" rx="3"></rect>
+                    <polygon id="Rectangle" fill="#3F5A7A" transform="translate(39.500000, 29.000000) rotate(-180.000000) translate(-39.500000, -29.000000) " points="26 27.7351314 40.0494357 6 53 27.7351314 43.949545 21.79907 46.8139887 52 40.0494357 47.0262643 33.7279014 52 35.9783036 21.79907"></polygon>
+                    <rect id="Rectangle-5" fill="#3F5A7A" x="14" y="53" width="48" height="11" rx="3"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

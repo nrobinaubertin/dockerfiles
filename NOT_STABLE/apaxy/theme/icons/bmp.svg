@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71px" height="93px" viewBox="0 0 71 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>bmp</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-775.000000, -1195.000000)">
+            <g id="files" transform="translate(43.000000, 230.000000)">
+                <g id="bmp" transform="translate(732.000000, 965.000000)">
+                    <path d="M3,0 L55.7339131,0 L71,18.640625 L71,90 C71,91.6568542 69.6568542,93 68,93 L3,93 C1.34314575,93 2.02906125e-16,91.6568542 0,90 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z" id="Rectangle-2" fill="#1D2F44"></path>
+                    <path d="M56.1679688,0.083984375 L56.1679688,15.6293945 C56.1679688,17.2862488 57.5111145,18.6293945 59.1679688,18.6293945 L71.0048828,18.6293945 L56.1679688,0.083984375 Z" id="Rectangle-2-Copy" fill="#3A6291"></path>
+                    <g id="image" transform="translate(4.000000, 26.000000)">
+                        <g id="Group" fill="#A5C5E9">
+                            <rect id="Rectangle" x="0" y="0" width="63" height="59" rx="4.5"></rect>
+                        </g>
+                        <g id="Group-2" transform="translate(9.000000, 13.615385)">
+                            <polygon id="Triangle-4" fill="#BB7334" points="11.25 0 22.5 36.3076923 0 36.3076923"></polygon>
+                            <path d="M11.25,0 L15.5629578,13.6153846 C15.5629578,13.6153846 15.1130078,15.3494982 13.782074,15.3347591 C13.076436,15.3269446 11.6660558,13.3122772 10.947876,13.6153846 C10.2440359,13.91244 9.76023254,16.7117544 9.22467041,16.7117544 C8.48959351,16.7117544 7.0194397,13.6153846 7.0194397,13.6153846 L11.25,0 Z" id="Triangle-4" fill="#FFFFFF"></path>
+                        </g>
+                        <path d="M0,40.8461538 C0,40.8461538 14.0462624,46.1461545 28.930794,45.7327507 C35.716949,45.5442716 43.9904975,38.8030037 48.8700727,39.2950675 C54.2877961,39.8413989 63,47.1991696 63,47.1991696 L63,54.5049479 C63,56.9874966 60.9928922,59 58.4944782,59 L4.50552184,59 C2.01719084,59 0,56.9878587 0,54.5008739 L0,40.8461538 Z" id="Rectangle" fill="#70CF47"></path>
+                        <ellipse id="Oval-2" fill="#F8E71C" cx="49.5" cy="13.6153846" rx="9" ry="9.07692308"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

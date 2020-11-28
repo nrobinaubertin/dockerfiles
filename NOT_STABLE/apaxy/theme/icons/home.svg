@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="97px" height="77px" viewBox="0 0 97 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>home</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-495.000000, -38.000000)">
+            <g id="folder-icons" transform="translate(43.000000, 38.000000)">
+                <g id="home" transform="translate(452.000000, 0.000000)">
+                    <rect id="Rectangle" fill="#2C6EBB" x="4" y="4" width="88" height="73" rx="3"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#2C6EBB" x="4" y="0" width="35" height="29" rx="3"></rect>
+                    <path d="M7,6.00781243 L89,6.00781243 C90.6568542,6.00781243 92,7.31401592 92,8.92529959 L92,74.0825128 C92,75.6937965 90.6568542,77 89,77 L7,77 C5.34314575,77 4,75.6937965 4,74.0825128 L4,8.92529959 C4,7.31401592 5.34314575,6.00781243 7,6.00781243 Z" id="Rectangle-Copy-3" fill="#E1EFFF"></path>
+                    <path d="M17.5026487,7.71195122 L83.6617397,7.71195122 C84.9985198,7.71195122 86.0821942,8.79750737 86.0821942,10.1366088 L86.0821942,64.2872937 C86.0821942,65.6263951 84.9985198,66.7119512 83.6617397,66.7119512 L17.5026487,66.7119512 C16.1658686,66.7119512 15.0821942,65.6263951 15.0821942,64.2872937 L15.0821942,10.1366088 C15.0821942,8.79750737 16.1658686,7.71195122 17.5026487,7.71195122 Z" id="Rectangle-Copy-4" fill="#CAE2FF" transform="translate(50.582194, 37.211951) rotate(-14.000000) translate(-50.582194, -37.211951) "></path>
+                    <path d="M3.10438253,11 L93.8693114,11 C95.7032658,11 97.0897097,12.4071051 96.9660205,14.1428571 L92.7107985,73.8571429 C92.5871093,75.5928949 91.1436937,77 89.4868394,77 L7.4868394,77 C5.82998516,77 4.38656984,75.5928949 4.26288107,73.8571429 L0.007672738,14.1428571 C-0.116016034,12.4071051 1.27042817,11 3.10438253,11 Z" id="Rectangle-Copy" fill="#4A90E2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

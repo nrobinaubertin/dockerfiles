@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="77px" viewBox="0 0 98 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>folder-home</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-380.000000, -38.000000)">
+            <g id="folder-icons" transform="translate(43.000000, 38.000000)">
+                <g id="folder-home" transform="translate(337.000000, 0.000000)">
+                    <rect id="Rectangle" fill="#2C6EBB" x="5" y="4" width="88" height="73" rx="3"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#2C6EBB" x="5" y="0" width="35" height="29" rx="3"></rect>
+                    <path d="M3.61754313,9 L94.382472,9 C96.2164264,9 97.6028703,10.4497446 97.4791811,12.2380952 L93.2239591,73.7619048 C93.1002699,75.5502554 91.6568542,77 90,77 L8,77 C6.34314575,77 4.89973044,75.5502554 4.77604167,73.7619048 L0.520833333,12.2380952 C0.397144561,10.4497446 1.78358876,9 3.61754313,9 Z" id="Rectangle-Copy" fill="#4A90E2"></path>
+                    <polygon id="Triangle" fill="#104A8D" points="49.6635742 20.3242188 78.4667969 36.4839614 68.7734375 36.4839614 68.7734375 63 52.4189453 63 52.4189453 49.3300781 43.1367188 49.3300781 43.1367188 63 30.1484375 63 30.1484375 36.4839614 20.8603516 36.4839614"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

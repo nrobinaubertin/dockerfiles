@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="79px" height="72px" viewBox="0 0 79 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>archives</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="png" transform="translate(-399.000000, -139.000000)">
+            <g id="Archives-icons" transform="translate(43.000000, 139.000000)">
+                <g id="archives" transform="translate(356.000000, 0.000000)">
+                    <g id="Group-3">
+                        <rect id="Rectangle-6" fill="#DE9F67" x="0" y="13.752809" width="58.6391753" height="58.247191"></rect>
+                        <polygon id="Rectangle-6-Copy-2" fill="#CF925C" points="58.6391753 13.752809 78.4013043 0.0578695576 78.4013043 56.5083392 58.6391753 72"></polygon>
+                        <polygon id="Rectangle-6-Copy" fill="#FABE88" points="19.8772552 0 78.5164304 0 58.6391753 13.752809 0 13.752809"></polygon>
+                    </g>
+                    <g id="zip" transform="translate(8.958763, 14.325843)">
+                        <rect id="Rectangle" fill="#3E3E3E" x="-8.8817842e-16" y="0" width="8.1443299" height="33.9775281"></rect>
+                        <rect id="Path" fill="#F4F4F4" x="3.25773196" y="29.9325843" width="2.44329897" height="2.42696629"></rect>
+                        <rect id="Path" fill="#F4F4F4" x="3.25773196" y="10.5168539" width="2.44329897" height="2.42696629"></rect>
+                        <g id="Group" transform="translate(3.257732, 0.000000)" fill="#B1B1B1">
+                            <rect id="Path" x="0" y="3.23595506" width="2.44329897" height="4.85393258"></rect>
+                            <polygon id="Path" transform="translate(3.257732, 2.831461) rotate(25.000000) translate(-3.257732, -2.831461) " points="2.41926903 0.808988764 4.88659794 0.808988764 2.6349522 4.85393258 1.62886598 4.6995287"></polygon>
+                        </g>
+                        <rect id="Path" fill="#F4F4F4" x="3.25773196" y="15.3707865" width="2.44329897" height="2.42696629"></rect>
+                        <rect id="Path" fill="#F4F4F4" x="3.25773196" y="20.2247191" width="2.44329897" height="2.42696629"></rect>
+                        <rect id="Path" fill="#F4F4F4" x="3.25773196" y="25.0786517" width="2.44329897" height="2.42696629"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
