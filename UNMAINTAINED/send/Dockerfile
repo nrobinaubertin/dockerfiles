@@ -1,6 +1,6 @@
 FROM node:10-buster AS builder
 
-ARG SEND_VERSION=v3.0.22
+ARG SEND_VERSION=v3.3.2
 WORKDIR /build
 
 RUN set -xe \
@@ -11,7 +11,7 @@ RUN set -xe \
 USER builder
 
 RUN set -xe \
-    && git clone https://github.com/mozilla/send.git . \
+    && git clone https://gitlab.com/timvisee/send . \
     && git checkout tags/${SEND_VERSION}
 
 RUN set -xe \
