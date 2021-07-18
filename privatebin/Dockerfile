@@ -1,8 +1,8 @@
-FROM alpine:3.11
+FROM alpine:3.14
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG PRIVATEBIN_VERSION=1.3.4
+ARG PRIVATEBIN_VERSION=1.3.5
 ENV UID=791 GID=791
 
 EXPOSE 8080
