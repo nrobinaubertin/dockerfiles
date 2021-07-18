@@ -1,4 +1,4 @@
 #!/bin/sh
-cd /etherpad
+cd /etherpad || exit
 export NODE_ENV=production
-exec node "node_modules/ep_etherpad-lite/node/server.js" $*
+exec node "src/node/server.js" "$@"

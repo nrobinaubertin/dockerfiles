@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.13
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
@@ -20,7 +20,7 @@ RUN set -xe \
     && apk add --no-cache --virtual .build-deps wget ca-certificates gzip curl python3 openssl-dev build-base npm \
     && wget -qO- https://github.com/ether/etherpad-lite/archive/${ETHERPAD_VERSION}.tar.gz | tar xz --strip 1 \
     && npm config set unsafe-perm true \
-    && bin/installDeps.sh $* || exit 1 \
+    && bin/installDeps.sh \
     && npm install sqlite3 \
     && npm cache clean --force \
     && rm -rf doc tests bin \
