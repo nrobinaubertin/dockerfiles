@@ -1,8 +1,8 @@
-FROM alpine:3.12
+FROM alpine:3.14
 RUN apk add --no-cache -U su-exec tini s6
 ENTRYPOINT ["/sbin/tini", "--"]
 
-ARG ETHERPAD_VERSION=1.8.6
+ARG ETHERPAD_VERSION=1.8.14
 ENV UID=791 GID=791
 ENV WELCOME_TEXT="Welcome to Etherpad!\n\nThis pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents!\n\nGet involved with Etherpad at http:\/\/etherpad.org\n"
 ENV ETH_SKIN="no-skin"
